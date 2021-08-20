@@ -6,10 +6,77 @@ public_folder: "img"
 
 collections: # A list of collections the CMS should be able to edit
   - name: "blog" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Blog" # Used in the UI, ie.: "New Post"
+    label: "Blog Post" # Used in the UI, ie.: "New Post"
     folder: "site/content/blog" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        pattern: "^.{3,65}$"
+      - label: Category
+        name: category
+        widget: select
+        options: ["Company News", "Product Developments", "Technical Writing", "Opinion"]
+      - label: "Author(s)",
+        name: "author"
+        widget: "list"
+      - label: "Publish Date"
+        name: "date"
+        widget: "date"
+      - label: "Short Description"
+        name: "description",
+        widget: "text",
+        hint: "Succinct, text-only description shown in index pages and search results, no more than 155 chars"
+        pattern: "^.{40,155}$"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+      - label: "Header Image"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Browser Title"
+        name: "browser_title"
+        widget: "string"
+        required: false
+  - name: "events"
+    label: "Events"
+    folder: "site/content/events"
+    hint: "Any kind of date-specific event, e.g. community meetups, webinars, conferences, podcasts, etc..."
+    create: true
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        pattern: "^.{3,65}$"
+      - label: Category
+        name: category
+        widget: select
+        options: ["Community Meetup", "Conference", "Podcast", "Product Demo"]
+      - label: "Participants"
+        name: "participants"
+        widget: "list"
+      - label: "Event Date"
+        name: "date"
+        widget: "datetime"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+      - label: "Header Image"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Browser Title"
+        name: "browser_title"
+        widget: "string"
+        required: false
+  - name: "case-studies"
+    label: "Case Studies"
+    hint: "Reports on how customers are using Materialize."
+    folder: "site/content/case-studies"
+    create: true
+    fields:
       - {label: "Title", name: "title", widget: "string"}
       - label: Category
         name: category
@@ -17,20 +84,60 @@ collections: # A list of collections the CMS should be able to edit
         options: ["Case Study", "Company", "Databases", "Deep-dive", "Ecosystem", "Events", "News", "Product", "Release", "Research", "Rust", "Streaming", "Timely", "Uncategorized", "Use Case"]
       - {label: "Author", name: "author", widget: "list"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
+      - label: "Short Description"
+        name: "description",
+        widget: "text",
+        hint: "Succinct, text-only description shown in index pages and search results, no more than 155 chars"
+        pattern: "^.{40,155}$"
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Header Image", name: "image", widget: "image", required: false}
       - {label: "Browser Title", name: "browser_title", widget: "string", required: false}
-  - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Post" # Used in the UI, ie.: "New Post"
-    folder: "site/content/post" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Intro Blurb", name: "description", widget: "text"}
-      - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "reports"
+    label: "Reports"
+    hint: "Reports are more in-depth pieces of content, usually gated behind an email request form."
+    folder: "site/content/reports"
+    create: true
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: Category
+        name: category
+        widget: select
+        options: ["Benchmark", "Business Research", "Technical Research", "Competitive Research"]
+      - label: "Author(s)",
+        name: "author"
+        widget: "list"
+      - label: "Publish Date"
+        name: "date"
+        widget: "date"
+      - label: "Short Description"
+        name: "description",
+        widget: "text",
+        hint: "Succinct, text-only description shown in index pages and search results, no more than 155 chars"
+        pattern: "^.{40,155}$"
+      - label: "Ungated Body"
+        name: "ungated_body"
+        widget: "markdown"
+        hint: "Rich-text or markdown formatted body content to be shown publicly."
+      - label: "Gated Body"
+        name: "gated_body"
+        widget: "markdown"
+        hint: "If used, a form will be displayed, asking the user to submit email to get access."
+        required: false
+      - label: "Gated File"
+        name: "gated_file"
+        widget: "file"
+        hint: "If specificed, a form will be displayed asking the user to submit email to download."
+        required: false
+      - label: "Header Image"
+        name: "image"
+        widget: "image"
+        required: false
+      - label: "Browser Title"
+        name: "browser_title"
+        widget: "string"
+        required: false
   - name: "pages"
     label: "Pages"
     files:
@@ -38,12 +145,15 @@ collections: # A list of collections the CMS should be able to edit
         label: "Home Page"
         name: "home"
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Subtitle, name: subtitle, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: "Blurb", name: blurb, widget: object, fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
+          - {label: "Hero", name: hero, widget: object, fields: [
+              {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
+              {label: Subtitle, name: subtitle, widget: text},
+              {label: Primary CTA Text, name: primary_cta_text, widget: string}
+              {label: Primary CTA URL, name: primary_cta_url, widget: string}
+              {label: Ask for Email in Primary CTA?, name: primary_cta_email, widget: boolean}
+              {label: Secondary CTA Text, name: secondary_cta_text, widget: string}
+              {label: Secondary CTA URL, name: secondary_cta_url, widget: string}
+              {label: Hero Graphic, name: image, widget: image}]}
           - {label: "Intro", name: intro, widget: object, fields: [
               {label: "Heading", name: "heading", widget: string},
               {label: "Text", name: "text", widget: "text"}]}
@@ -83,16 +193,4 @@ collections: # A list of collections the CMS should be able to edit
           - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
           - {label: Full_image, name: full_image, widget: image}
           - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
-      - file: "site/content/values/_index.md"
-        label: "Values Page"
-        name: "values"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - label: Values
-            name: values
-            widget: list
-            fields:
-              - {label: Heading, name: heading, widget: string}
-              - {label: Text, name: text, widget: text}
-              - {label: Image, name: imageUrl, widget: image}
+      
