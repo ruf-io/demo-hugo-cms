@@ -13,22 +13,22 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Title"
         name: "title"
         widget: "string"
-        pattern: "^.{3,65}$"
+        pattern: ["^.{3,65}$"]
       - label: Category
         name: category
         widget: select
         options: ["Company News", "Product Developments", "Technical Writing", "Opinion"]
-      - label: "Author(s)",
+      - label: "Author"
         name: "author"
         widget: "list"
       - label: "Publish Date"
         name: "date"
         widget: "date"
       - label: "Short Description"
-        name: "description",
-        widget: "text",
+        name: "description"
+        widget: "text"
         hint: "Succinct, text-only description shown in index pages and search results, no more than 155 chars"
-        pattern: "^.{40,155}$"
+        pattern: ["^.{40,155}$"]
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -49,7 +49,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: "Title"
         name: "title"
         widget: "string"
-        pattern: "^.{3,65}$"
+        pattern: ["^.{3,65}$"]
       - label: Category
         name: category
         widget: select
@@ -85,10 +85,10 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Author", name: "author", widget: "list"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - label: "Short Description"
-        name: "description",
-        widget: "text",
+        name: "description"
+        widget: "text"
         hint: "Succinct, text-only description shown in index pages and search results, no more than 155 chars"
-        pattern: "^.{40,155}$"
+        pattern: ["^.{40,155}$"]
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Header Image", name: "image", widget: "image", required: false}
       - {label: "Browser Title", name: "browser_title", widget: "string", required: false}
@@ -105,17 +105,17 @@ collections: # A list of collections the CMS should be able to edit
         name: category
         widget: select
         options: ["Benchmark", "Business Research", "Technical Research", "Competitive Research"]
-      - label: "Author(s)",
+      - label: "Author(s)"
         name: "author"
         widget: "list"
       - label: "Publish Date"
         name: "date"
         widget: "date"
       - label: "Short Description"
-        name: "description",
-        widget: "text",
+        name: "description"
+        widget: "text"
         hint: "Succinct, text-only description shown in index pages and search results, no more than 155 chars"
-        pattern: "^.{40,155}$"
+        pattern: ["^.{40,155}$"]
       - label: "Ungated Body"
         name: "ungated_body"
         widget: "markdown"
@@ -148,12 +148,18 @@ collections: # A list of collections the CMS should be able to edit
           - {label: "Hero", name: hero, widget: object, fields: [
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
               {label: Subtitle, name: subtitle, widget: text},
-              {label: Primary CTA Text, name: primary_cta_text, widget: string}
-              {label: Primary CTA URL, name: primary_cta_url, widget: string}
-              {label: Ask for Email in Primary CTA?, name: primary_cta_email, widget: boolean}
-              {label: Secondary CTA Text, name: secondary_cta_text, widget: string}
-              {label: Secondary CTA URL, name: secondary_cta_url, widget: string}
-              {label: Hero Graphic, name: image, widget: image}]}
+              {label: Primary CTA Text, name: primary_cta_text, widget: string},
+              {label: Primary CTA URL, name: primary_cta_url, widget: string},
+              {label: Ask for Email in Primary CTA?, name: primary_cta_email, widget: boolean},
+              {label: Secondary CTA Text, name: secondary_cta_text, widget: string},
+              {label: Secondary CTA URL, name: secondary_cta_url, widget: string},
+              {label: Hero Graphic, name: image, widget: image},
+              {label: "Promo Slider", name: promo_slider, widget: list, fields: [
+                {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
+                {label: Subtitle, name: subtitle, widget: text},
+                {label: CTA Text, name: cta_text, widget: string},
+                {label: CTA URL, name: cta_url, widget: string},
+                {label: Graphic, name: image, widget: image}]}]}
           - {label: "Intro", name: intro, widget: object, fields: [
               {label: "Heading", name: "heading", widget: string},
               {label: "Text", name: "text", widget: "text"}]}
