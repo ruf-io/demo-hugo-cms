@@ -5,6 +5,22 @@ media_folder: "site/static/img" # Folder where user uploaded files should go
 public_folder: "img"
 
 collections: # A list of collections the CMS should be able to edit
+  - name: "blog" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Blog" # Used in the UI, ie.: "New Post"
+    folder: "site/content/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string"}
+      - label: Category
+        name: category
+        widget: select
+        options: ["Case Study", "Company", "Databases", "Deep-dive", "Ecosystem", "Events", "News", "Product", "Release", "Research", "Rust", "Streaming", "Timely", "Uncategorized", "Use Case"]
+      - {label: "Author", name: "author", widget: "list"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Header Image", name: "image", widget: "image", required: false}
+      - {label: "Browser Title", name: "browser_title", widget: "string", required: false}
   - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Post" # Used in the UI, ie.: "New Post"
     folder: "site/content/post" # The path to the folder where the documents are stored
