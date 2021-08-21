@@ -1,0 +1,8 @@
+link_lists:
+  - title_text: Documentation
+    links:
+      - text: Quick Start
+        url: https://materialize.com/docs/quickstart/
+      - text: Key Concepts
+        url: https://materialize.com/docs/concepts/
+    title_url: https://materialize.com/docs/
