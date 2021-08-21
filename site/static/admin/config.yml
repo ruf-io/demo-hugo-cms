@@ -10,7 +10,7 @@ collections:
     files:
       - name: "promotions"
         label: "Promotions"
-        file: "data/promotions.yml"
+        file: "site/data/promotions.yml"
         extension: "yml"
         fields:
           - label: "Promoted Items"
@@ -20,9 +20,10 @@ collections:
               - {label: "Text", name: "text", widget: "string"}
               - {label: "Button Text", name: "button_text", widget: "string"}
               - {label: "URL", name: "url", widget: "string"}
+              - {label: "Expiration Date", name: "expiration_date", widget: "date"}
       - name: "navigation"
         label: "Navigation"
-        file: "data/navigation.yml"
+        file: "site/data/navigation.yml"
         extension: "yml"
         fields:
           - label: "Primary Links"
@@ -58,7 +59,7 @@ collections:
           - {name: "secondary_action_url", label: "Secondary Action URL", widget: "string"}
       - name: "footer"
         label: "Footer"
-        file: "data/footer.yml"
+        file: "site/data/footer.yml"
         extension: "yml"
         fields:
           - name: "link_lists"
@@ -84,7 +85,7 @@ collections:
                     widget: "string"
       - name: "people"
         label: "People"
-        file: "data/people.yml"
+        file: "site/data/people.yml"
         extension: "yml"
         fields:
           - name: "people"
