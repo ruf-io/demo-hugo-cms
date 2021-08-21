@@ -19,7 +19,7 @@ collections:
             fields:
               - {label: "Text", name: "text", widget: "string"}
               - {label: "Button Text", name: "button_text", widget: "string"}
-              - {label: "URL", name: "url", widget: "url"}
+              - {label: "URL", name: "url", widget: "string"}
       - name: "navigation"
         label: "Navigation"
         file: "data/navigation.yml"
@@ -30,7 +30,7 @@ collections:
             widget: "list"
             fields:
               - {label: "Text", name: "text", widget: "string"}
-              - {label: "URL", name: "url", widget: "url"}
+              - {label: "URL", name: "url", widget: "string"}
               - label: "Mega"
                 name: "mega"
                 required: false
@@ -41,7 +41,7 @@ collections:
                     widget: "list"
                     fields:
                       - {label: "Text", name: "text", widget: "string"}
-                      - {label: "URL", name: "url", widget: "url"}
+                      - {label: "URL", name: "url", widget: "string"}
                   - label: "Featured Item"
                     name: "featured_item"
                     required: false
@@ -51,7 +51,7 @@ collections:
                       - {label: "Description", name: "description", widget: "string"}
                       - {label: "Image", name: "image", widget: "image"}
                       - {label: "Button Text", name: "button_text", widget: "string"}
-                      - {label: "Button URL", name: "button_url", widget: "url"}
+                      - {label: "Button URL", name: "button_url", widget: "string"}
           - {name: "primary_action_text", label: "Primary Action Text", widget: "string"}
           - {name: "primary_action_url", label: "Primary Action URL", widget: "string"}
           - {name: "secondary_action_text", label: "Secondary Action Text", widget: "string"}
