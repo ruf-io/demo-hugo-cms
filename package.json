@@ -1,8 +1,8 @@
 {
-  "name": "victor-hugo",
+  "name": "materialize-marketing-site",
   "version": "1.0.0",
-  "description": "Victor Hugo is a Hugo boilerplate for creating truly epic websites!",
-  "repository": "netlify/victor-hugo",
+  "description": "Materialize.com marketing website.",
+  "repository": "materializeinc/marketing-website",
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
@@ -20,7 +20,7 @@
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.prod.js"
   },
   "author": "",
-  "license": "MIT",
+  "license": "BSL",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
