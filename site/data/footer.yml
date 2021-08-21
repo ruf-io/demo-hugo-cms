@@ -1,9 +1,35 @@
 link_lists:
-  - title_text: Documentation
-    title_url: https://materialize.com/docs/
+  - text: Documentation
+    url: https://materialize.com/docs/
     links:
       - text: Quick Start
         url: https://materialize.com/docs/quickstart/
       - text: Key Concepts
         url: https://materialize.com/docs/concepts/
+      - text: Changelog
+        url: https://materialize.com/docs/changelog/
+      - text: GitHub
+        url: https://github.com/MaterializeInc/materialize
+  - text: Product
+    url: https://materialize.com/product/
+    links:
+      - text: Cloud Sign Up
+        url: https://materialize.com/cloud-access/
+  - text: Resources
+    url: https://materialize.com/resources/
+    links:
+      - text: Streaming SQL
+        url: "#"
+      - text: Streaming Joins
+        url: "#"
+  - text: Company
+    url: https://materialize.com/about/
+    links:
+      - text: Blog
+        url: https://materialize.com/blog
+      - text: Careers
+        url: https://materialize.com/about/careers/
+      - text: Contact
+        url: https://materialize.com/about/contact/
+      
     
