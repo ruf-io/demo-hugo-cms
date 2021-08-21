@@ -86,18 +86,15 @@ collections:
         label: "People"
         file: "data/people.yml"
         extension: "yml"
+        widget: "list"
         fields:
-          - name: "people"
-            label: "People"
-            widget: "list"
-            fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Group", name: "group", widget: "select", options: ["Leadership", "Engineering", "Business", "External Contributors"]}
-              - {label: "Bio", name: "bio", widget: "text", required: false}
-              - {label: "Image", name: "image", widget: "image", required: false}
-              - {label: "Twitter", name: "twitter", widget: "string", required: false, hint: "username", pattern: ["^(\\w){0,15}$", "Username only (no URL, no @)"]}
-              - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Group", name: "group", widget: "select", options: ["Leadership", "Engineering", "Business", "External Contributors"]}
+          - {label: "Bio", name: "bio", widget: "text", required: false}
+          - {label: "Image", name: "image", widget: "image", required: false}
+          - {label: "Twitter", name: "twitter", widget: "string", required: false, hint: "username", pattern: ["^(\\w){0,15}$", "Username only (no URL, no @)"]}
+          - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
   - name: "pages"
     label: "Pages"
     files:
@@ -234,7 +231,7 @@ collections:
         name: "author"
         widget: "relation"
         file: "people"
-        collection: "people"
+        collection: "settings"
         value_field: "name"
         search_fields: ["name"]
         multiple: true
