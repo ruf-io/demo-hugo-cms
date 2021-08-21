@@ -22,7 +22,7 @@ collections:
               - {label: "Text", name: "text", widget: "string"}
               - {label: "Button Text", name: "button_text", widget: "string"}
               - {label: "URL", name: "url", widget: "string"}
-              - {label: "Expiration Date", name: "expiration_date", widget: "date"}
+              - {label: "Expiration Date", name: "expiration_date", widget: "datetime"}
       - name: "navigation"
         label: "Navigation"
         file: "site/data/navigation.yml"
@@ -252,13 +252,22 @@ collections:
         name: "authors"
         widget: "relation"
         collection: "settings"
-        file: "people"
+        file: "employees"
         search_fields: ["people.*.name"]
         value_field: "people.*.name"
         multiple: true
+      - label: "External Contributors"
+        name: "external_contributors"
+        widget: "relation"
+        collection: "settings"
+        file: "external-contributors"
+        search_fields: ["people.*.name"]
+        value_field: "people.*.name"
+        multiple: true
+        required: false
       - label: "Publish Date"
         name: "date"
-        widget: "date"
+        widget: "datetime"
       - label: "Short Description"
         name: "description"
         widget: "text"
@@ -300,7 +309,7 @@ collections:
         value_field: "people.*.name"
         multiple: true
       - label: "Event Date"
-        name: "date"
+        name: "datetime"
         widget: "datetime"
       - label: "Body"
         name: "body"
@@ -328,10 +337,19 @@ collections:
         name: "authors"
         widget: "relation"
         collection: "settings"
-        file: "people"
+        file: "employees"
         search_fields: ["people.*.name"]
         value_field: "people.*.name"
         multiple: true
+      - label: "External Contributors"
+        name: "external_contributors"
+        widget: "relation"
+        collection: "settings"
+        file: "external-contributors"
+        search_fields: ["people.*.name"]
+        value_field: "people.*.name"
+        multiple: true
+        required: false
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - label: "Short Description"
         name: "description"
@@ -358,13 +376,22 @@ collections:
         name: "authors"
         widget: "relation"
         collection: "settings"
-        file: "people"
+        file: "employees"
         search_fields: ["people.*.name"]
         value_field: "people.*.name"
         multiple: true
+      - label: "External Contributors"
+        name: "external_contributors"
+        widget: "relation"
+        collection: "settings"
+        file: "external-contributors"
+        search_fields: ["people.*.name"]
+        value_field: "people.*.name"
+        multiple: true
+        required: false
       - label: "Publish Date"
         name: "date"
-        widget: "date"
+        widget: "datetime"
       - label: "Short Description"
         name: "description"
         widget: "text"
