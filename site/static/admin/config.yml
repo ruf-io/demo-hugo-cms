@@ -18,6 +18,7 @@ collections:
           - label: "Promoted Items"
             name: "promoted_items"
             widget: "list"
+            summary: '{{fields.text}}'
             fields:
               - {label: "Text", name: "text", widget: "string"}
               - {label: "Button Text", name: "button_text", widget: "string"}
@@ -31,6 +32,7 @@ collections:
           - label: "Primary Links"
             name: "links"
             widget: "list"
+            summary: '{{fields.text}}'
             fields:
               - {label: "Text", name: "text", widget: "string"}
               - {label: "URL", name: "url", widget: "string"}
@@ -67,6 +69,7 @@ collections:
           - name: "link_lists"
             label: "Link Lists"
             widget: "list"
+            summary: '{{fields.title_text}}'
             fields:
               - name: "title_text"
                 label: "Title Text"
@@ -78,6 +81,7 @@ collections:
               - name: "links"
                 label: "Links"
                 widget: "list"
+                summary: '{{fields.text}}'
                 fields:
                   - name: "text"
                     label: "Text"
@@ -93,6 +97,7 @@ collections:
           - name: "people"
             label: "People"
             widget: "list"
+            summary: '{{fields.name}}'
             fields:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
@@ -109,6 +114,7 @@ collections:
           - name: "people"
             label: "People"
             widget: "list"
+            summary: '{{fields.name}}'
             fields:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
@@ -123,14 +129,14 @@ collections:
         label: "Home Page"
         name: "home"
         fields:
-          - {label: "Hero", name: hero, widget: object, fields: [
+          - {label: "Hero", name: hero, widget: object, summary: '{{fields.title}}', fields: [
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
               {label: Subtitle, name: subtitle, widget: markdown},
-              {label: "Primary CTA", name: primary_cta, widget: object, required: false, fields: [
+              {label: "Primary CTA", name: primary_cta, widget: object, summary: '{{fields.text}}', required: false, fields: [
                 {label: Text, name: text, widget: string},
                 {label: URL, name: url, widget: string},
                 {label: Ask for Email in Primary CTA?, name: collect_email, widget: boolean}]},
-              {label: "Secondary CTA", name: secondary_cta, widget: object, required: false, fields: [
+              {label: "Secondary CTA", name: secondary_cta, widget: object, summary: '{{fields.text}}', required: false, fields: [
                 {label: Text, name: text, widget: string},
                 {label: URL, name: url, widget: string}]},
               {label: Hero Graphic, name: image, widget: image},
@@ -141,14 +147,13 @@ collections:
                 {label: CTA URL, name: cta_url, widget: string},
                 {label: Graphic, name: image, widget: image}]}]}
           - {label: "Product Explainers", name: product_info, widget: list, fields: [
-              {label: Icon, name: icon, widget: image},
-              {label: Label, name: label, widget: string},
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
               {label: Body, name: body, widget: markdown},
               {label: CTA Text, name: cta_text, widget: string},
               {label: CTA URL, name: cta_url, widget: string},
-              {label: Graphic, name: image, widget: image},
-              {label: Code, name: code, widget: code}]}
+              {label: Graphic, name: image, widget: select, required: false},
+              {label: Graphic, name: image, widget: image, required: false},
+              {label: Code, name: code, widget: code, required: false}]}
           - {label: "Product Differentiators", name: product_values, widget: list, fields: [
               {label: Icon, name: icon, widget: image},
               {label: Label, name: label, widget: string},
@@ -158,7 +163,7 @@ collections:
               {label: CTA URL, name: cta_url, widget: string, required: false},
               {label: Graphic, name: image, widget: image, required: false},
               {label: Code, name: code, widget: code, required: false}]}
-          - {label: "Input Sources", name: inputs, widget: object, fields: [
+          - {label: "Input Sources", name: inputs, widget: object, summary: '{{fields.title}}', fields: [
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
               {label: Subtitle, name: subtitle, widget: text},
               {label: Sources, name: sources, widget: list, fields: [

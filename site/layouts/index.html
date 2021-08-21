@@ -1,7 +1,7 @@
 {{ define "main" }}
 
-{{ with .Params.hero }}
-  {{ partial "hero" .}}
-{{ end }}
+{{- with .Params.hero -}}
+  {{- partial "hero" . -}}
+{{- end -}}
 
 {{ end }}

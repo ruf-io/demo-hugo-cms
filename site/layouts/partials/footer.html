@@ -5,20 +5,20 @@
 				M
 			</a>
 	  </li>
-	  {{ range $.Site.Data.footer.link_lists }}
+	  {{- range $.Site.Data.footer.link_lists -}}
 	  	<li>
-				<a {{ with .url }} href="{{ . }}" {{ end }}>{{ .text }}</a>
-				{{ with .links }}
+				<a {{ with .url }}href="{{ . }}"{{ end }}>{{ .text }}</a>
+				{{- with .links -}}
 					<ul>
-						{{ range . }}
+						{{- range . -}}
 							<li>
 								<a href="{{ .url }}">{{ .text }}</a>
 							</li>
-						{{ end }}
+						{{- end -}}
 					</ul>
-				{{ end }}
+				{{- end -}}
 			</li>
-		{{ end }}
+		{{- end -}}
 		<li class="panel">
 				<span>Join the Community on Slack:</span>
 				<a href="#" class="btn purple">Join Slack Community</a>
@@ -31,6 +31,6 @@
 	</ul>
 </footer>
 
-{{ partial "svg" . }}
+{{- partial "svg" . -}}
 
 <script src="/app.js"></script>

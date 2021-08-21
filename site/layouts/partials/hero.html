@@ -1,40 +1,40 @@
 <section class="hero">
   <div class="content">
     <h1>
-      {{ if in .title "|" }}
-        {{ index (split .title "|") 0 }}
-        <span>{{ index (split .title "|") 1 }}</span>
-      {{ else }}
-        {{ .title }}
-      {{ end }}
+      {{- if in .title "|" -}}
+        {{- index (split .title "|") 0 -}}
+        <span>{{- index (split .title "|") 1 -}}</span>
+      {{- else -}}
+        {{- .title -}}
+      {{- end -}}
     </h1>
     <p>
-      {{ .subtitle | markdownify }}
+      {{- .subtitle | markdownify -}}
     </p>
 
-    {{ with .primary_cta }}
+    {{- with .primary_cta -}}
       <p>
-        {{ if .collect_email }}
+        {{- if .collect_email -}}
           <!-- TODO: Could generalize this to partial -->
           <div class="email-cta">
             <input type="email" id="hero_email" placeholder="Your work email">
-            <a class="btn primary" data-js="hero_email_submit" href="{{ .url }}">{{ .text }}</a>
+            <a class="btn primary" data-js="hero_email_submit" href="{{- .url -}}">{{- .text -}}</a>
           </div>
-        {{ else }}
-          <a class="btn primary" href="{{ .url }}">{{ .text }}</a>
-        {{ end }}
+        {{- else -}}
+          <a class="btn primary" href="{{- .url -}}">{{- .text -}}</a>
+        {{- end -}}
       </p>
-    {{ end }}
+    {{- end -}}
 
-    {{ with .secondary_cta }}
+    {{- with .secondary_cta -}}
       <p>
-        or <a class="secondary" href="{{ .url }}">{{ .text }}</a>
+        or <a class="secondary" href="{{- .url -}}">{{- .text -}}</a>
       </p>
-    {{ end }}
+    {{- end -}}
   </div>
-  {{ with .image }}
+  {{- with .image -}}
     <div class="graphic">
-      <img src="{{ . }}">
+      <img src="{{- . -}}">
     </div>
-  {{ end}}
+  {{- end -}}
 </section>

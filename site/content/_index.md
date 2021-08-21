@@ -13,7 +13,8 @@ hero:
     url: /cloud-signup
   image: img/hero-dataflow.svg
   promo_slider:
-    - title: How Materialize Works
+    - eyebrow: Technical Report
+      title: How Materialize Works
       subtitle: Get a technical overview of Materialize and learn about business
         applications of the technology.
       cta_text: Download the Report
