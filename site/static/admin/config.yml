@@ -154,10 +154,10 @@ collections:
               {label: Label, name: label, widget: string},
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
               {label: Body, name: body, widget: markdown},
-              {label: CTA Text, name: cta_text, widget: string},
-              {label: CTA URL, name: cta_url, widget: string},
-              {label: Graphic, name: image, widget: image},
-              {label: Code, name: code, widget: code}]}
+              {label: CTA Text, name: cta_text, widget: string, required: false},
+              {label: CTA URL, name: cta_url, widget: string, required: false},
+              {label: Graphic, name: image, widget: image, required: false},
+              {label: Code, name: code, widget: code, required: false}]}
           - {label: "Input Sources", name: inputs, widget: object, fields: [
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
               {label: Subtitle, name: subtitle, widget: text},
@@ -166,15 +166,6 @@ collections:
                 {label: URL, name: url, widget: string}]},
               {label: Primary CTA Text, name: primary_cta_text, widget: string},
               {label: Primary CTA URL, name: primary_cta_url, widget: string}]}
-          - {label: "Intro", name: intro, widget: object, fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Products", name: products, widget: list, fields: [
-              {label: "Image", name: "image", widget: "image"},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Values", name: "values", widget: "object", fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
       - file: "site/content/products/_index.md"
         label: "Product"
         name: "product"

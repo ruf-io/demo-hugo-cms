@@ -28,8 +28,7 @@
 
     {{ with .secondary_cta }}
       <p>
-        {{ with .primary_cta }}or {{ end }}
-        <a class="secondary" href="{{ .url }}">{{ .text }}</a>
+        or <a class="secondary" href="{{ .url }}">{{ .text }}</a>
       </p>
     {{ end }}
   </div>
