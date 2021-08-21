@@ -1,0 +1,10 @@
+people:
+  - image: img/Joaquin-Colacci.png
+    name: Joaquin Colacci
+    position: Founder
+    bio: Joaquin is an experienced Data Engineer and Full-Stack Node, React and GraphQL developer based in Argentina, and the founder of Streaminy.
+  - image: img/Dunith-Dhanushka.png
+    name: Dunith Dhanushka
+    position: Author in Residence
+    bio: Dunith is an engineer at WSO2, a writer, and the editor of Event-driven Utopia (http://eventdrivenutopia.com).
+    twitter: dunithd

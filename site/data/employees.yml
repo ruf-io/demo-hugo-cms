@@ -1,0 +1,235 @@
+people:
+  - image: img/Arjun-Narayan.png
+    name: Arjun Narayan
+    title: CEO
+    bio: Arjun was previously an engineer at Cockroach Labs. Arjun holds a Ph.D in Computer
+      Science from the University of Pennsylvania. He spends his weekends making Lego
+      rockets and explosion sounds with his 3-year old son.
+    team: Leadership
+  - image: img/Frank-McSherry.png
+    name: Frank McSherry
+    title: Chief Scientist
+    bio: Frank was previously at Microsoft Research Silicon Valley where he co-invented
+      Differential Privacy, and subsequently led the Naiad project. Frank holds a Ph.D
+      in Computer Science from the University of Washington.
+    team: Leadership
+  - image: img/Cuong-Do.png
+    name: Cuong Do
+    title: VP, Engineering
+    bio: Cuong was the third engineer at YouTube, founding head of Dropbox NYC, engineering
+      manager at Cockroach Labs, and an early engineer at PayPal. He studied C.S. at
+      Carnegie Mellon University.
+    team: Leadership
+  - image: img/Albert-Wang.png
+    name: Albert Wang
+    title: VP, Product
+    bio: Albert was director of product at Datadog, and was the first employee at Crunchyroll.
+      He has a B.S. in EECS from UC Berkeley and an MBA from Harvard.
+    team: Leadership
+  - image: img/Craig-Breslawski.png
+    name: Craig Breslawski
+    title: VP, Sales and Marketing
+    bio: Craig was previously head of product marketing and strategy at Percolate, an
+      enterprise content marketing platform.
+    team: Leadership
+  - image: img/Petros-Angelatos.png
+    name: Petros Angelatos
+    title: Member of Technical Staff
+    bio: Petros was the former CTO and co-founder of balena.io where he led the engineering
+      team and raised multiple rounds of investment.
+    team: Engineering
+  - image: img/Nikhil-Benesch.png
+    name: Nikhil Benesch
+    title: Member of Technical Staff
+    bio: Nikhil is the tech lead of the SQL team at Materialize. He previously worked
+      on the replication engine for CockroachDB. He has an A.B. in Computer Science
+      from Harvard, where he did research on streaming dataflow systems.
+    team: Engineering
+  - image: img/Andreas-Fuchs.png
+    name: Andreas Fuchs
+    title: Member of Technical Staff
+    bio: Andreas has parallelized Common Lisp build systems, internationalized Motif
+      applications and worked on graph databases. Most recently, he worked on reliability
+      and improving incident response at Stripe.
+    team: Engineering
+  - image: img/Matt-Jibson.png
+    name: Matt Jibson
+    title: Member of Technical Staff
+    bio: Matt was previously at Stack Overflow and CoreOS, and an early engineer at
+      Cockroach Labs.
+    team: Engineering
+  - image: img/Ruchir-Khaitan.png
+    name: Ruchir Khaitan
+    title: Member of Technical Staff
+    bio: Ruchir was previously at AppNexus where he worked on making internet ad auctions
+      go zoom! He has a B.S. in Computer Engineering from Columbia University.
+    team: Engineering
+  - image: img/Sin-Kim .png
+    name: 'Sin Kim '
+    title: Product Manager
+    bio: Sin was previously a Product Manager for Search and Discovery stack at enterprise
+      SaaS unicorn Symphony.
+    team: Product
+  - image: img/Aljoscha-Krettek.png
+    name: Aljoscha Krettek
+    title: Member of Technical Staff
+    bio: Aljoscha was a co-founder of Ververica/DataArtisans and is a member of the
+      open-source Apache Flink and Apache Beam projects. Before that, he studied Computer
+      Science at TU Berlin and DHBW Stuttgart. Aljoscha enjoys learning languages, cooking,
+      and yoga.
+    team: Engineering
+  - image: img/Jessica-Laughlin.png
+    name: Jessica Laughlin
+    title: Member of Technical Staff
+    bio: Jessica joined Materialize as the fifth engineer, coming from Goldman Sachs
+      and Bluecore. She's focused on building out the Materialize ecosystem.
+    team: Engineering
+  - image: img/Eli-Lindsey.png
+    name: Eli Lindsey
+    title: Member of Technical Staff
+    bio: Eli previously worked in edge networking and performance optimization at AWS,
+      Facebook, and various startups. He currently manages the dataflow and SQL teams.
+    team: Engineering
+  - image: img/Sean-Loiselle.png
+    name: Sean Loiselle
+    title: Member of Technical Staff
+    bio: Sean spent a decade in technical writing before earning his MS in computing
+      systems from Georgia Tech and moving into engineering. He built Materialize's
+      first documentation site and now focuses on extending its SQL API.
+    team: Engineering
+  - image: img/Brandon-Maister .png
+    name: 'Brandon Maister '
+    title: Member of Technical Staff
+    bio: Brandon has a long career in startups and brings his wealth of experience integrating
+      eventually-consistent microservice architectures as a deep empathy for how Materialize
+      can reduce sleepless nights for our users. As an early engineer at Materialize,
+      he has touched most parts of the product and is currently focusing on making it
+      easy to get data into Materialize from a variety of sources.
+    team: Engineering
+  - image: img/Philip-Stoev.png
+    name: Philip Stoev
+    title: Software Engineer in Test
+    bio: An Archaeology dropout, Philip held QA positions at MySQL, MariaDB, Galera
+      Cluster and NuoDB, and is the author of testing tools that are widely used in
+      the database community.
+    team: Engineering
+  - image: img/Micole-Sudberg.png
+    name: Micole Sudberg
+    title: Senior Technical Writer
+    bio: Micole was previously at Xandr, a division of Warner Media. She has a B.A.
+      in English from Yale.
+    team: Engineering
+  - image: img/Brennan-Vincent.png
+    name: Brennan Vincent
+    title: Member of Technical Staff
+    bio: Brennan is a programmer interested in performance, reliability, and efficiency,
+      formerly working on international expansion at Amazon and mobile app infrastructure
+      at Facebook. At Materialize, he focuses on the ingress and decoding of data from
+      various sources.
+    team: Engineering
+  - image: img/Amanda-Aguilera.png
+    name: Amanda Aguilera
+    title: Senior Product Marketing Manager
+    bio: Amanda joined Materialize in 2021 to help convey and promote the power of Materialize.
+      She previously worked at a cybersecurity start-up, as well as in E-commerce at
+      Walmart (formerly Jet.com). She has a B.A. in Psychology from Yale University.
+    team: Business
+  - image: img/Charles-Bernoskie.png
+    name: Charles Bernoskie
+    title: 'Account Executive '
+    bio: Charles is part of the Sales team helping users successfully deploy Materialize.
+      Charles was previously at Elastic and Stack Overflow.
+    team: Business
+  - image: img/Krishna-Manoharan.png
+    name: Krishna Manoharan
+    title: Enterprise Sales Engineering
+    bio: '<span style="font-weight: 400;">Krishna joins Materialize with previous experience
+      as an engineer and architect at MemSQL, Oracle, and Symantec. He is passionate
+      about customer success.</span>'
+    team: Business
+  - image: img/Andy-Hattemer .png
+    name: 'Andy Hattemer '
+    title: Head of Community
+    bio: Andy works on content and community at Materialize, he comes from DigitalOcean
+      where he was director of community growth.
+    team: Business
+  - image: img/Charles-Horner .png
+    name: 'Charles Horner '
+    title: Strategy and Operations Manager
+    bio: Charles joined Materialize in 2021 to build out strategy and operations. He
+      was previously an Investor at RRE Ventures working with hundreds of start-ups
+      at varying stages of development and an Investment Banking Associate at Goldman
+      Sachs working on transactions in the Technology, Media and Telecom sectors.
+    team: Business
+  - image: img/Sean-Jelveh.png
+    name: Sean Jelveh
+    title: Senior Technical Recruiter
+    bio: "Sean has over a decade of experience as a Technical Recruiter. During his
+      career, he has had the privilege of being the first recruiter at two early-stage
+      SASS companies (Cylance and JASK), both of which were acquired for a total sum
+      of over a billion dollars.\r\nHis primary focus at Materialize is working with
+      the V.P. of Engineering, Cuong Do, to build the Materialize engineering team.
+      However, Sean would love to connect with anyone interested in working at Materialize
+      in any capacity."
+    team: Business
+  - image: img/Marta-Paes.png
+    name: Marta Paes
+    title: Senior Developer Advocate
+    bio: Marta was previously a contributor to Apache Flink. Before finding her mojo
+      in data streaming and community, she worked as a DWH Engineer for 4+ years at
+      Zalando and Accenture.
+    linkedin: https://www.linkedin.com/in/morsapaes/
+    twitter: https://twitter.com/morsapaes
+    github: https://github.com/morsapaes
+    team: Business
+  - image: img/Andi-Wang.png
+    name: Andi Wang
+    title: Member of Technical Staff
+    bio: Andi has been focusing on query and view performance since joining Materialize
+      in September 2019. Previously, she was at Oracle, where she was an engineer on
+      the Endeca Server and Oracle Machine Learning teams. She holds a B.S. in Mathematics
+      from MIT.
+    team: Engineering
+  - image: img/Dan-Harrison.png
+    name: Dan Harrison
+    title: Member of Technical Staff
+    bio: Dan is the tech lead for the persistence team. He previously worked in entity
+      extraction and infrastructure at Cockroach Labs, Foursquare, and Google.
+    github: https://github.com/danhhz
+    team: Engineering
+  - image: img/Moritz-Hoffman .png
+    name: 'Moritz Hoffman '
+    title: Member of Technical Staff
+    bio: Moritz was previously an engineer at Google. Moritz holds a PhD in Computer
+      Science from ETH Zurich, where he did research on distributed dataflow systems.
+    linkedin: https://www.linkedin.com/in/moritzhoffmann/
+    twitter: https://twitter.com/antiguru_de
+    github: https://github.com/antiguru
+    team: Engineering
+  - image: img/Nicolle-Eagan .png
+    name: 'Nicolle Eagan '
+    title: 'Product Manager '
+    bio: Nicolle was previously a software developer at KX. She holds a M.Sc. in applied
+      mathematics from Northwestern.
+    linkedin: https://www.linkedin.com/in/nicolleeagan/
+    team: Product
+  - image: img/Naveen-Sukumar.png
+    name: Naveen Sukumar
+    title: Director of Product Marketing
+    bio: Naveen joined Materialize in 2021 to build out the Product Marketing function.
+      Previously, he led Product Marketing for APM and Log Management at Datadog, and
+      has prior experience in Pre-sales and Professional Services at Medallia and PwC.
+      He has an MBA from Carnegie Mellon University and an undergrad in Industrial Engineering
+      from VTU, India.
+    linkedin: https://www.linkedin.com/in/naveensukumar/
+    team: Business
+  - image: img/Tony-Rippy.png
+    name: Tony Rippy
+    title: Engineering Director
+    bio: Tony manages the Cloud team at Materialize. He was previously an engineering
+      manager at Google, where he specialized in large-scale distributed systems. He
+      has an B.S. in Mathematics and Computer Science from Carnegie Mellon.
+    linkedin: https://www.linkedin.com/in/tony-rippy-7819054/
+    twitter: https://twitter.com/TonyRippy
+    github: https://github.com/TonyRippy
+    team: Engineering

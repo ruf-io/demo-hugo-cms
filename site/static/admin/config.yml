@@ -85,9 +85,9 @@ collections:
                   - name: "url"
                     label: "URL"
                     widget: "string"
-      - name: "people"
-        label: "People"
-        file: "site/data/people.yml"
+      - name: "employees"
+        label: "Employees"
+        file: "site/data/employees.yml"
         extension: "yml"
         fields:
           - name: "people"
@@ -96,7 +96,22 @@ collections:
             fields:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
-              - {label: "Group", name: "group", widget: "select", options: ["Leadership", "Engineering", "Business", "External Contributors"]}
+              - {label: "Group", name: "group", widget: "select", options: ["Leadership", "Engineering", "Business", "Product", "External Contributors"]}
+              - {label: "Bio", name: "bio", widget: "text", required: false}
+              - {label: "Image", name: "image", widget: "image", required: false}
+              - {label: "Twitter", name: "twitter", widget: "string", required: false, hint: "username", pattern: ["^(\\w){0,15}$", "Username only (no URL, no @)"]}
+              - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+      - name: "external-contributors"
+        label: "External Contributors"
+        file: "site/data/external-contributors.yml"
+        extension: "yml"
+        fields:
+          - name: "people"
+            label: "People"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
               - {label: "Bio", name: "bio", widget: "text", required: false}
               - {label: "Image", name: "image", widget: "image", required: false}
               - {label: "Twitter", name: "twitter", widget: "string", required: false, hint: "username", pattern: ["^(\\w){0,15}$", "Username only (no URL, no @)"]}
@@ -233,13 +248,14 @@ collections:
         name: category
         widget: select
         options: ["Company News", "Product Developments", "Technical Writing", "Opinion"]
-      - label: "Author"
-        name: "author"
+      - label: "Authors"
+        name: "authors"
         widget: "relation"
         collection: "settings"
         file: "people"
         search_fields: ["people.*.name"]
         value_field: "people.*.name"
+        multiple: true
       - label: "Publish Date"
         name: "date"
         widget: "date"
@@ -277,7 +293,12 @@ collections:
         options: ["Community Meetup", "Conference", "Podcast", "Product Demo"]
       - label: "Participants"
         name: "participants"
-        widget: "list"
+        widget: "relation"
+        collection: "settings"
+        file: "people"
+        search_fields: ["people.*.name"]
+        value_field: "people.*.name"
+        multiple: true
       - label: "Event Date"
         name: "date"
         widget: "datetime"
@@ -303,7 +324,14 @@ collections:
         name: category
         widget: select
         options: ["Case Study", "Company", "Databases", "Deep-dive", "Ecosystem", "Events", "News", "Product", "Release", "Research", "Rust", "Streaming", "Timely", "Uncategorized", "Use Case"]
-      - {label: "Author", name: "author", widget: "list"}
+      - label: "Authors"
+        name: "authors"
+        widget: "relation"
+        collection: "settings"
+        file: "people"
+        search_fields: ["people.*.name"]
+        value_field: "people.*.name"
+        multiple: true
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - label: "Short Description"
         name: "description"
@@ -326,9 +354,14 @@ collections:
         name: category
         widget: select
         options: ["Benchmark", "Business Research", "Technical Research", "Competitive Research"]
-      - label: "Author(s)"
-        name: "author"
-        widget: "list"
+      - label: "Authors"
+        name: "authors"
+        widget: "relation"
+        collection: "settings"
+        file: "people"
+        search_fields: ["people.*.name"]
+        value_field: "people.*.name"
+        multiple: true
       - label: "Publish Date"
         name: "date"
         widget: "date"
