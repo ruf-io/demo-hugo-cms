@@ -2,7 +2,7 @@ links:
   - text: Docs
     url: https://materialize.com/docs/
     mega:
-      link_list:
+      links:
         - text: Documentation
           url: https://materialize.com/docs/
         - text: GitHub
@@ -17,6 +17,14 @@ links:
         image: img/materialize-quickstart.jpeg
         button_text: Get Started
         button_url: https://materialize.com/docs/get-started/
+  - text: Product
+    url: /product/
+  - text: Use Cases
+    url: /use-cases/
+  - text: Resources
+    url: /resources/
+  - text: Company
+    url: /company/
 primary_action_text: Get Started
 primary_action_url: /materialize-cloud/
 secondary_action_text: Sign In

@@ -82,18 +82,18 @@ collections:
                   - name: "url"
                     label: "URL"
                     widget: "string"
-      - name: "employees"
-        label: "Employees"
-        file: "data/employees.yml"
+      - name: "people"
+        label: "People"
+        file: "data/people.yml"
         extension: "yml"
         fields:
-          - label: "Employee"
-            name: "employee"
+          - name: "people"
+            label: "People"
             widget: "list"
             fields:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "Title", name: "title", widget: "string"}
-              - {label: "Group", name: "group", widget: "select", options: ["Leadership", "Engineering", "Business"]}
+              - {label: "Group", name: "group", widget: "select", options: ["Leadership", "Engineering", "Business", "External Contributors"]}
               - {label: "Bio", name: "bio", widget: "text", required: false}
               - {label: "Image", name: "image", widget: "image", required: false}
               - {label: "Twitter", name: "twitter", widget: "string", required: false, hint: "username", pattern: ["^(\\w){0,15}$", "Username only (no URL, no @)"]}
@@ -232,7 +232,12 @@ collections:
         options: ["Company News", "Product Developments", "Technical Writing", "Opinion"]
       - label: "Author"
         name: "author"
-        widget: "list"
+        widget: "relation"
+        file: "people"
+        collection: "people"
+        value_field: "name"
+        search_fields: ["name"]
+        multiple: true
       - label: "Publish Date"
         name: "date"
         widget: "date"
