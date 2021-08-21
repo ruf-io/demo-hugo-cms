@@ -37,8 +37,8 @@ collections:
                 required: false
                 widget: "object"
                 fields:
-                  - label: "Link List"
-                    name: "link_list"
+                  - label: "Links"
+                    name: "links"
                     widget: "list"
                     fields:
                       - {label: "Text", name: "text", widget: "string"}

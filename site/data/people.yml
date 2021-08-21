@@ -1,4 +1,4 @@
-employee:
+people:
   - name: Arjun Narayan
     title: CEO
     group: Leadership
@@ -7,4 +7,5 @@ employee:
     title: Chief Scientist
     group: Leadership
     bio: Frank was previously at Microsoft Research Silicon Valley where he co-invented Differential Privacy, and subsequently led the Naiad project. Frank holds a Ph.D in Computer Science from the University of Washington.
+  
     
