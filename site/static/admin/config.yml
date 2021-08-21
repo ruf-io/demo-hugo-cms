@@ -125,12 +125,14 @@ collections:
         fields:
           - {label: "Hero", name: hero, widget: object, fields: [
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
-              {label: Subtitle, name: subtitle, widget: text},
-              {label: Primary CTA Text, name: primary_cta_text, widget: string},
-              {label: Primary CTA URL, name: primary_cta_url, widget: string},
-              {label: Ask for Email in Primary CTA?, name: primary_cta_email, widget: boolean},
-              {label: Secondary CTA Text, name: secondary_cta_text, widget: string},
-              {label: Secondary CTA URL, name: secondary_cta_url, widget: string},
+              {label: Subtitle, name: subtitle, widget: markdown},
+              {label: "Primary CTA", name: primary_cta, widget: object, required: false, fields: [
+                {label: Text, name: text, widget: string},
+                {label: URL, name: url, widget: string},
+                {label: Ask for Email in Primary CTA?, name: collect_email, widget: boolean}]},
+              {label: "Secondary CTA", name: secondary_cta, widget: object, required: false, fields: [
+                {label: Text, name: text, widget: string},
+                {label: URL, name: url, widget: string}]},
               {label: Hero Graphic, name: image, widget: image},
               {label: "Promo Slider", name: promo_slider, widget: list, fields: [
                 {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},

@@ -4,11 +4,13 @@ hero:
   subtitle: Materialize simplifies how developers build with real-time data, using
     incremental computation to provide low latency, correct answers - all using
     standard ANSI SQL.
-  primary_cta_text: See how it works
-  primary_cta_url: /get-a-demo/
-  primary_cta_email: true
-  secondary_cta_text: Get started with Materialize Cloud
-  secondary_cta_url: /cloud-signup
+  primary_cta:
+    text: See how it works
+    url: /get-a-demo/
+    collect_email: true
+  secondary_cta:
+    text: Get started with Materialize Cloud
+    url: /cloud-signup
   image: img/hero-dataflow.svg
 inputs:
   title: Connect a Wide Range of Data Sources
