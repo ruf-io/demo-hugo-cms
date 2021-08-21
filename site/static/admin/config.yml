@@ -240,7 +240,7 @@ collections:
         collection: "settings"
         value_field: "people.*"
         search_fields: ["people.*"]
-        multiple: true
+        multiple: true  
       - label: "Publish Date"
         name: "date"
         widget: "date"
