@@ -238,8 +238,8 @@ collections:
         widget: "relation"
         file: "people"
         collection: "settings"
-        value_field: "people.name"
-        search_fields: ["people.name"]
+        value_field: "people.*"
+        search_fields: ["people.*"]
         multiple: true
       - label: "Publish Date"
         name: "date"
