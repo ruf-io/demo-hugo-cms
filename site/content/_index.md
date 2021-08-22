@@ -12,6 +12,7 @@ hero:
     text: Get started with Materialize Cloud
     url: /cloud-signup
   image: img/hero-dataflow.svg
+  image_svg: 
   promo_slider:
     - eyebrow: Technical Report
       title: How Materialize Works

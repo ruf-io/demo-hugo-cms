@@ -1,0 +1,76 @@
+a {
+  text-decoration: none;
+}
+
+.eyebrow {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.15em;
+}
+
+h1, h2, h3, h4 {
+  display: block;
+  margin: 1rem 0;
+  letter-spacing: -.015em;
+  line-height: 1.1em;
+  font-family: "Encode Sans Expanded", sans-serif;
+}
+
+h1 {
+  font-size: 2.75rem;
+  font-weight: 300;
+  line-height: 3.125rem;
+}
+
+.copy {
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.6875rem;
+  }
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  text-align: center;
+  z-index: 1;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: #000;
+  text-decoration: none;
+  background-image: $purple-gradient;
+  background-position: 0 100%;
+  background-size: 300% 300%;
+  transition: background-position .3s ease-out;
+  white-space: nowrap;
+
+  &.small {
+    font-size: 13px;
+    font-weight: 600;
+    padding: .8rem 2.2em;
+  }
+
+  &.transparent {
+    background-color: $transparent_dark;
+    background-image: none;
+  }
+}
+
+.gradient-text {
+  display: inline;
+  background: $primary-gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+}

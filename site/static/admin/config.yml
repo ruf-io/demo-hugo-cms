@@ -139,7 +139,8 @@ collections:
               {label: "Secondary CTA", name: secondary_cta, widget: object, summary: '{{fields.text}}', required: false, fields: [
                 {label: Text, name: text, widget: string},
                 {label: URL, name: url, widget: string}]},
-              {label: Hero Graphic, name: image, widget: image},
+              {label: Hero Graphic (Image), name: image, widget: image, required: false},
+              {label: Hero Graphic (Embedded SVG), name: image_svg, widget: code, required: false},
               {label: "Promo Slider", name: promo_slider, widget: list, required: false, fields: [
                 {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
                 {label: Subtitle, name: subtitle, widget: text},
