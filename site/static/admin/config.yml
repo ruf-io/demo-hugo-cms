@@ -151,7 +151,6 @@ collections:
               {label: Body, name: body, widget: markdown},
               {label: CTA Text, name: cta_text, widget: string},
               {label: CTA URL, name: cta_url, widget: string},
-              {label: Graphic, name: image, widget: select, required: false},
               {label: Graphic, name: image, widget: image, required: false},
               {label: Code, name: code, widget: code, required: false}]}
           - {label: "Product Differentiators", name: product_values, widget: list, fields: [
