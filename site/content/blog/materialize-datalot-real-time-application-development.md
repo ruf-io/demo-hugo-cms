@@ -5,6 +5,7 @@ authors: "andy@materialize.com"
 date: "Thu, 05 Aug 2021 19:57:23 +0000"
 description: ""
 slug: "materialize-datalot-real-time-application-development"
+image: "img/materialize-datalot-vertical-fix.jpeg"
 ---
 
 ## About Datalot
