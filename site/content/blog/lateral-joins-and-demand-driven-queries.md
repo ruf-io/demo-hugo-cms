@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "mcsherry"
 date: "Tue, 18 Aug 2020 13:30:23 +0000"
 description: ""
-slug: "lateral-joins-and-demand-driven-queries"
+image: "img/lateral-joins-and-demand-driven-queries.jpg"
 ---
 
 In today's post we are going to show off Materialize's `LATERAL` join ([courtesy **@benesch**](https://github.com/MaterializeInc/materialize/pull/3713)), and how you can use it to implement some pretty neat query patterns in an incremental view maintenance engine! In particular, in the streaming SQL setting, lateral joins automatically turn your SQL prepared statement queries into what is essentially a streaming, consistent, microservice (minus the hard work). You just put your parameter bindings on a data bus, and the answer (and any changes) stream out the other side.

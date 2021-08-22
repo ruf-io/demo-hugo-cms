@@ -4,7 +4,7 @@ category: "Release"
 authors: "Albert"
 date: "Mon, 01 Jun 2020 18:36:49 +0000"
 description: ""
-slug: "release-materialize-0-3"
+image: "img/release-materialize-0-3.jpg"
 ---
 
 We [recently announced Materialize](https://materialize.io/blog-introduction/), a real-time streaming SQL database that powers production applications. The latest release of Materialize, version 0.3, is [now available](https://materialize.io/download/). Materialize lets you ask questions in real-time of your streaming data and get the latest answers back in milliseconds — offering the power and flexibility of a SQL database, but scaling to handle the throughput of tens of thousands of updates per second. Materialize is powered by [Timely Dataflow](https://github.com/TimelyDataflow/timely-dataflow). Here is a quick overview of the main features in 0.3.

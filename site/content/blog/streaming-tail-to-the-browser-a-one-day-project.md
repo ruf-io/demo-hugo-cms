@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "chris"
 date: "Fri, 24 Jul 2020 09:12:59 +0000"
 description: ""
-slug: "streaming-tail-to-the-browser-a-one-day-project"
+image: "img/streaming-tail-to-the-browser-a-one-day-project.jpg"
 ---
 
 Last week concluded up my first week at Materialize, with Friday being my first Skunkworks Friday. Skunkworks Friday is a Materialize sponsored day of the week to spend on personal development and learning. Given that it was my first week, I challenged myself to build something using Materialize. Having spent most of my career working on asynchronous systems, I knew that streaming the results of a [TAIL](https://materialize.io/docs/sql/tail) operation to a web browser would be interesting, useful and possibly attainable. I figured one day would be enough for a proof of concept and that's about [where I ended up](https://github.com/cirego/skunkworks-20200717). It's far from pretty but it shows the concept and that's what I wanted!

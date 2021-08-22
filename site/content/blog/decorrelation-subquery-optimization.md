@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "Jamie"
 date: "Mon, 01 Mar 2021 14:12:46 +0000"
 description: ""
-slug: "decorrelation-subquery-optimization"
+image: "img/decorrelation-subquery-optimization.jpg"
 ---
 
 [Subqueries](https://docs.microsoft.com/en-us/sql/relational-databases/performance/subqueries?view=sql-server-ver15) are a SQL feature that allow writing queries nested inside a scalar expression in an outer query. Using subqueries is often the most natural way to express a given problem, but their use is discouraged because most databases struggle to execute them efficiently. This post gives a rough map of existing approaches to optimizing subqueries and also describes how [Materialize](https://materialize.com) differs from them. It is **NOT** a freestanding or complete explanation - it points to several papers and also assumes background knowledge of SQL and query plans. But it does contain all the things I wish I knew when I started working on this.

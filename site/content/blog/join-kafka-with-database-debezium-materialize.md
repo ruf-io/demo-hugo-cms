@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "andy@materialize.com"
 date: "Tue, 27 Apr 2021 18:29:34 +0000"
 description: ""
-slug: "join-kafka-with-database-debezium-materialize"
+image: "img/join-kafka-with-database-debezium-materialize.jpg"
 ---
 
 ### The Problem

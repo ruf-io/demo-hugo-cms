@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "arjun"
 date: "Mon, 08 Jun 2020 18:12:08 +0000"
 description: ""
-slug: "blog-cmudb"
+image: "img/blog-cmudb.jpg"
 ---
 
 This is an edited transcript and video of a talk that [I gave at Carnegie Mellon’s Database Group Seminar](https://db.cs.cmu.edu/events/db-seminar-spring-2020-db-group-building-materialize-a-streaming-sql-database-powered-by-timely-dataflow/) on June 1st, 2020, hosted by [Andy Pavlo](http://www.cs.cmu.edu/~pavlo/). You can watch it, or read along! 

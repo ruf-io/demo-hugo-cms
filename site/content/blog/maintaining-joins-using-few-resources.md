@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "mcsherry"
 date: "Wed, 02 Jun 2021 18:16:06 +0000"
 description: ""
-slug: "maintaining-joins-using-few-resources"
+image: "img/maintaining-joins-using-few-resources.jpg"
 ---
 
 Today's post is on a topic that a lot of folks have asked for, once they dive a bit into [Materialize](https://materialize.com). One of our join implementation strategies uses a surprisingly small amount of additional memory: none. "None" is a surprising amount of memory because streaming joins normally need to maintain their inputs indexed in memory. Clearly there is a catch! In a sense, there is. For the efficient plan to apply, you must have pre-built several indexes over the involved data. Materialize can share pre-built indexes between queries, like you might expect from a relational database, but unlike most stream processors. Once those indexes are in place, each additional query requires no additional memory for its joins. So there is a **fixed up-front cost** for each of your relations, but then **no per-query cost** as you join those relations multiple ways. There is a lot of interesting stuff to learn, so let's get started! By the end of the post, I hope you'll be able to put together queries that use fewer resources, and understand some of the mystery behind it!

@@ -4,7 +4,7 @@ category: "Timely"
 authors: "mcsherry"
 date: "Tue, 05 May 2020 10:00:14 +0000"
 description: ""
-slug: "managing-memory-with-differential-dataflow"
+image: "img/managing-memory-with-differential-dataflow.jpg"
 ---
 
 ## Self-compacting dataflows

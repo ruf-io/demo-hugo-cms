@@ -4,7 +4,7 @@ category: "Use Case"
 authors: "jessica"
 date: "Tue, 11 Aug 2020 16:24:23 +0000"
 description: ""
-slug: "why-use-a-materialized-view"
+image: "img/why-use-a-materialized-view.jpg"
 ---
 
 **TL;DR:** Querying materialized views, unlike querying tables or logical views, can reduce query costs by maintaining results in memory that are only updated when necessary. To learn more, check out the rest of the post!

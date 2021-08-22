@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "mcsherry"
 date: "Thu, 29 Apr 2021 13:20:12 +0000"
 description: ""
-slug: "generalizing-linear-operators"
+image: "img/generalizing-linear-operators.jpg"
 ---
 
 Differential dataflows contain many operators, some of which are very complicated, but many of which are relatively simple. The `map` operator applies a transformation to each record. The `filter` operator applies a predicate to each record, and drops records that do not pass it. The `flat_map` operator applies a function to each record that can result in any number of output records. These three methods are all generalized by the `flat_map` method, which you may be able to see with a bit of head scratching. They each have pretty simple implementations; usually just a few lines of code. There are a few more linear operators, slightly more complicated and interesting operators. It turns out that these operators can be generalized as well, though to something more advanced than `flat_map`. In this post we'll work through these more complicated, and very interesting, linear operator and generalize them. It turns out they generalize to an interesting restricted form of join, which is great news for fans of relational algebra! We'll wrap with a discussion of the implications for [Materialize](https://materialize.com/), which unlike differential dataflow has the ability to fuse and optimize these general linear operators.

@@ -4,7 +4,7 @@ category: "Use Case"
 authors: "andy@materialize.com"
 date: "Wed, 21 Apr 2021 16:14:37 +0000"
 description: ""
-slug: "real-time-a-b-test-results"
+image: "img/real-time-a-b-test-results.jpg"
 ---
 
 ## Introduction

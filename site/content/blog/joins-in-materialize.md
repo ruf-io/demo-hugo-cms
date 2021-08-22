@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "mcsherry"
 date: "Mon, 14 Dec 2020 14:00:43 +0000"
 description: ""
-slug: "joins-in-materialize"
+image: "img/joins-in-materialize.jpg"
 ---
 
 This post is also [available at my personal blog](https://github.com/frankmcsherry/blog/blob/master/posts/2020-11-18.md). Materialize allows you to maintain declarative, relational SQL queries over continually changing data. One of the most powerful features of SQL queries are **_joins_**: the ability to correlate records from multiple collections of data. Joins also happen to be one of the harder things to do both correctly and efficiently as the underlying data change. Let's walk through the ways that Materialize maintains queries containing joins! In particular, we'll see increasingly sophisticated join planning techniques, starting from what a conventional dataflow system might do, and moving through joins that can introduce nearly zero per-query overhead. Each of the new join plans we work through represent an implementation strategy that Materialize can do that other dataflow systems will struggle to replicate. As we move through techniques, the number of private intermediate records maintained by each query dataflows drops. We'll report all 22 TPC-H queries at the end, but here are two of the largely representative queries, and the number of **_additional_** records Materialize maintains to keep the query results up to date.

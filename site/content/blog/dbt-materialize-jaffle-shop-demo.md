@@ -4,7 +4,7 @@ category: "Ecosystem"
 authors: "jessica"
 date: "Wed, 24 Mar 2021 16:19:24 +0000"
 description: ""
-slug: "dbt-materialize-jaffle-shop-demo"
+image: "img/dbt-materialize-jaffle-shop-demo.jpg"
 ---
 
 ## Introduction

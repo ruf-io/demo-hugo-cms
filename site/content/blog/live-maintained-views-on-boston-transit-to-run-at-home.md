@@ -4,7 +4,7 @@ category: "Use Case"
 authors: "andi"
 date: "Wed, 02 Dec 2020 15:01:08 +0000"
 description: ""
-slug: "live-maintained-views-on-boston-transit-to-run-at-home"
+image: "img/live-maintained-views-on-boston-transit-to-run-at-home.jpg"
 ---
 
 Materialize can be used to quickly build scalable backends for real-time apps! In this blog post, we describe two apps that you can try out at home that run on actual, live data!When I joined Materialize, I moved to New York City after having lived most of my life in the Boston area, and it was definitely an adjustment to see people everywhere wearing Yankees hats. And then COVID-19 happened, and now it’s even more of an adjustment. Without Broadway shows and such to distract me, I've actually started to miss my hometown. So, I decided to play around and see what kind of live views of Boston I could construct using Materialize. Using data from the Massachusetts Bay Transportation Authority (MBTA), which operates most of the public transit services in the Boston metro area, I ended up with views that could support two apps:

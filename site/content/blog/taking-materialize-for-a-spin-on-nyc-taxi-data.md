@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "mcsherry"
 date: "Wed, 18 Mar 2020 19:10:58 +0000"
 description: ""
-slug: "taking-materialize-for-a-spin-on-nyc-taxi-data"
+image: "img/taking-materialize-for-a-spin-on-nyc-taxi-data.jpg"
 ---
 
 ## [](#trying-out-materialize)Trying out Materialize

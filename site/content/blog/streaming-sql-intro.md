@@ -4,7 +4,7 @@ category: "Streaming"
 authors: "andy@materialize.com"
 date: "Fri, 26 Feb 2021 15:04:44 +0000"
 description: ""
-slug: "streaming-sql-intro"
+image: "img/streaming-sql-intro.jpg"
 ---
 
 ### Summary

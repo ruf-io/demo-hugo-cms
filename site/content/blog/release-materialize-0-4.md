@@ -4,7 +4,7 @@ category: "Release"
 authors: "Albert"
 date: "Tue, 28 Jul 2020 12:55:37 +0000"
 description: ""
-slug: "release-materialize-0-4"
+image: "img/release-materialize-0-4.jpg"
 ---
 
 We’re proud to announce that we’ve just released Materialize version 0.4\. Here is a quick overview of the main features.

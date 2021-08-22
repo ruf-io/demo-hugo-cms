@@ -4,7 +4,7 @@ category: "Release"
 authors: "amanda"
 date: "Mon, 14 Jun 2021 15:35:59 +0000"
 description: ""
-slug: "release-0-8"
+image: "img/release-0-8.jpg"
 ---
 
 [Materialize v0.8](https://materialize.com/docs/release-notes/#v0.8.0) was released on 9 June 2021 with significant improvements and features, including temporal filters, upserts, PubNub sources, S3 sources, and native Postgres sources. Note that the release is also available in [Materialize Cloud](https://materialize.com/docs/cloud/what-is-materialize-cloud/).

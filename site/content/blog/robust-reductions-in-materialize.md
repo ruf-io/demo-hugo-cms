@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "mcsherry"
 date: "Tue, 04 Aug 2020 09:30:47 +0000"
 description: ""
-slug: "robust-reductions-in-materialize"
+image: "img/robust-reductions-in-materialize.jpg"
 ---
 
 Materialize is an incremental view maintenance engine, one which takes your SQL queries expressed as views and continually maintains them as your data change. Surely there are a lot of ways one could do this, ranging from the very naïve (just recompute from scratch) to the more sophisticated end of the spectrum (what we do). Today we'll walk through what I think is a great example of where the "sophistication" is important: grouping and reduction operations. You probably know several great ways to perform grouping and reduction over a static collection of data. This post is about how they may need to change if you want to quickly respond to additions to or deletions from the input data. In particular, we'll need to consider some trade-offs to improve the latency and reduce the standing memory footprint. By the end of it, we'll have some techniques that allow us to maintain aggregations over massive datasets with a surprising (to me) -ly small amount of memory.

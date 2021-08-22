@@ -4,7 +4,7 @@ category: "Release"
 authors: "Albert"
 date: "Tue, 24 Nov 2020 18:22:22 +0000"
 description: ""
-slug: "release-materialize-0-5"
+image: "img/release-materialize-0-5.jpg"
 ---
 
 We recently released Materialize 0.5! Here’s what’s new and improved.

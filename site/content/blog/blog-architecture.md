@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "sean@materialize.io"
 date: "Tue, 24 Mar 2020 15:16:59 +0000"
 description: ""
-slug: "blog-architecture"
+image: "img/blog-architecture.jpg"
 ---
 
 Materialize lets you ask questions about your streaming data and get fresh answers with incredibly low latency. Since announcing Materialize’s v0.1, we’ve briefly covered its [functionality](https://materialize.io/materialize-beta-the-details/) and [how one might use it](https://materialize.io/blog-olvm/) at a high level. Today we're going to get a little more granular and talk about Materialize’s internals and architecture.

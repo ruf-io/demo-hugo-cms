@@ -4,7 +4,7 @@ category: "News"
 authors: "cdo"
 date: "Thu, 20 Feb 2020 17:20:42 +0000"
 description: ""
-slug: "materialize-beta-the-details"
+image: "img/materialize-beta-the-details.jpg"
 ---
 
 We [recently announced Materialize](https://materialize.io/blog-introduction/), the Streaming Data Warehouse. Our first beta release of Materialize, version 0.1, is [available now](https://materialize.io/download/). As a streaming data warehouse, Materialize lets you ask questions of your streaming data and get the latest answers back in milliseconds — offering the power and flexibility of a SQL data warehouse for real-time data. Materialize is powered by [Timely Dataflow](https://github.com/TimelyDataflow/timely-dataflow). Here is a quick overview of the main features in v0.1:

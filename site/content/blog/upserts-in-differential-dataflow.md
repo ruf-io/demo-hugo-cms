@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "mcsherry"
 date: "Fri, 27 Mar 2020 14:06:04 +0000"
 description: ""
-slug: "upserts-in-differential-dataflow"
+image: "img/upserts-in-differential-dataflow.jpg"
 ---
 
 "Upserts" are a common way to express streams of changing data, especially in relational settings with primary keys. However, they aren't the best format for working with incremental computation. We're about to learn why that is, how we deal with this in differential dataflow and Materialize, and what doors this opens up!

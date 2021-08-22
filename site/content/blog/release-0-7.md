@@ -4,7 +4,7 @@ category: "Release"
 authors: "andy@materialize.com"
 date: "Tue, 09 Mar 2021 16:00:28 +0000"
 description: ""
-slug: "release-0-7"
+image: "img/release-0-7.jpg"
 ---
 
 [Materialize 0.7](https://materialize.com/docs/release-notes/#v0.7.0) was released on 08 February 2021 with significant improvements around getting data into Materialize.

@@ -4,7 +4,7 @@ category: "Product"
 authors: "mcsherry"
 date: "Wed, 30 Sep 2020 14:00:53 +0000"
 description: ""
-slug: "materialize-under-the-hood"
+image: "img/materialize-under-the-hood.jpg"
 ---
 
 Today we will take a bit of a tour of the moving parts that make up Materialize. This tour isn't meant to be exhaustive, but rather to show off some of the moments where things might be different from what you expect, and to give you a sense for why Materialize is relatively better at maintaining SQL queries over changing data. In particular, how it provides interactive access to up-to-date data, how it does this using fewer resources than you might expect, and how it is operationally simpler than other approaches.

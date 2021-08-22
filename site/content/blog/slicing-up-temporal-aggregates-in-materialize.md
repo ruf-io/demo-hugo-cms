@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "mcsherry"
 date: "Thu, 14 Jan 2021 14:00:27 +0000"
 description: ""
-slug: "slicing-up-temporal-aggregates-in-materialize"
+image: "img/slicing-up-temporal-aggregates-in-materialize.jpg"
 ---
 
 Materialize computes and maintains SQL queries as your underlying data change. This makes it especially well-suited to tracking the current state of various SQL queries and aggregates! But, what if you want to root around in the past? Maybe you want to compare today's numbers to **_yesterday_**'s numbers. Maybe you want to scrub through the past, moving windows around looking for the most interesting moments where exciting things happened! Today, we'll build up one way to use Materialize to explore historical temporal data. As is often the case, we'll write things in vanilla SQL, but take advantage of Materialize's unique performance to build surprisingly reactive applications. By the end, we'll have a few queries that taken together allow you to interactively browse aggregates for arbitrary historical ranges.

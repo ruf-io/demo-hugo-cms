@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "chris"
 date: "Wed, 20 Jan 2021 16:24:25 +0000"
 description: ""
-slug: "a-simple-and-efficient-real-time-application-powered-by-materializes-tail-command"
+image: "img/a-simple-and-efficient-real-time-application-powered-by-materializes-tail-command.jpg"
 ---
 
 Within the web development community, there has been a clear shift towards frameworks that implement incremental view maintenance and for good reason. When state is updated incrementally, applications perform better and require fewer resources. Using Materialize, developers and data analysts can adopt the same, event driven techniques in their data processing pipelines, leveraging existing SQL know-how. In this blog post, we will build an application to demonstrate how developers can create real-time, event-driven experiences for their users, powered by Materialize.

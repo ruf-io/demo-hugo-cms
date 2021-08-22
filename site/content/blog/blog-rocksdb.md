@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "arjun"
 date: "Thu, 06 Aug 2020 13:57:13 +0000"
 description: ""
-slug: "blog-rocksdb"
+image: "img/blog-rocksdb.jpg"
 ---
 
 ## A roadmap for a storage engine for Materialize

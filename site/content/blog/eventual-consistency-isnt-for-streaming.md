@@ -4,7 +4,7 @@ category: "Ecosystem"
 authors: "mcsherry"
 date: "Tue, 14 Jul 2020 10:00:00 +0000"
 description: ""
-slug: "eventual-consistency-isnt-for-streaming"
+image: "img/eventual-consistency-isnt-for-streaming.jpg"
 ---
 
 Streaming systems consume inputs and produce outputs asyncronously: the output of a system at any moment may not reflect all of the inputs seen so far. These systems provide various guarantees about how their outputs relate to their input. Among the weaker (but not unpopular) guarantees is [eventual consistency](https://en.wikipedia.org/wiki/Eventual_consistency). Informally, eventual consistency means if the input stops changing, the output will eventually arrive at the correct result. In this post we'll see that for as long as its input streams haven't been stopped, natural eventually consistent computations can produce _**unboundedly large and systematic errors**_. If you are doing even slightly non-trivial computations, you should be prepared for your results to be _**never-consistent**_ (a much less popular consistency definition). Until you pause the input streams and await correct answers, at least. Not all is lost! There are stream processing systems that provide strong consistency guarantees. [Materialize](https://materialize.io) and [Differential Dataflow](https://github.com/TimelyDataflow/differential-dataflow) both avoid these classes of errors by providing _**always correct**_ answers, as do several other streaming systems. If you want to avoid systematic and on-going errors in your results, you should probably check if the stream processor you use provides stronger consistency guarantees.

@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "mcsherry"
 date: "Tue, 16 Feb 2021 16:54:48 +0000"
 description: ""
-slug: "temporal-filters"
+image: "img/temporal-filters.jpg"
 ---
 
 [Materialize](https://materialize.com) provides a SQL interface to work with continually changing data. You write SQL queries as if against static data, and then as your data change we keep the results of your queries automatically up to date, in milliseconds. Materialize leans hard into the ideal that SQL is what you know best, and what you want to use to look at streaming data. At the same time, there are several tantalizing concepts that native stream processors provide that aren't obviously possible with standard SQL. Today we'll look at how to perform time-windowed computation over temporal data.

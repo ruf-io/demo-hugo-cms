@@ -4,7 +4,7 @@ category: "Deep-dive"
 authors: "mcsherry"
 date: "Mon, 24 Feb 2020 16:40:31 +0000"
 description: ""
-slug: "blog-olvm"
+image: "img/blog-olvm.jpg"
 ---
 
 It's with a great deal of excitement, and some trepidation, that we are now able to show off what we have been working on at Materialize. The Materialize product is a "streaming data warehouse", which is a class of product you might not be familiar with as, to the best of our knowledge, there wasn't really such a thing until now. In this post we'll go through what a streaming data warehouse entails, why you might be fascinated by one (perhaps to use, perhaps to understand), and what sorts of interesting work goes in to making such a thing. There will be a variety of follow-on blog posts from yours truly, and others at Materialize! This blog post is meant to pique your curiosity, and to get you to start thinking of all the new and exciting things you or your business could do with this tool.

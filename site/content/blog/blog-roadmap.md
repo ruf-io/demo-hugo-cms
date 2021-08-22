@@ -4,7 +4,7 @@ category: "News"
 authors: "arjun"
 date: "Thu, 11 Jun 2020 16:17:21 +0000"
 description: ""
-slug: "blog-roadmap"
+image: "img/blog-roadmap.jpg"
 ---
 
 _**How do you build a streaming database from scratch?**_ Building a database is hard work. The usual rules of thumb are that it takes about 10 years to get to a stable system. A beta product can take on the order of ten million dollars of engineering effort. Successful attempts are typically made by teams with over a decade of experience in the field. What’s so hard about building a database? Databases have to deal with the hardest distributed systems challenges, which often require lots of real-world testing to get right. They also suffer from a certain amount of “zero-to-one” bug-fixing. Databases tend to not work **at all** until the last core bug is excised, which is a seemingly never-ending amount of “it’s not working” while you patiently work through to the last bug, at which point it magically starts up. Said another way, it’s hard to build and scope a workable minimal viable product. We started Materialize in early 2019, and today, in summer 2020, you can download and write SQL queries on your streams in seconds:

@@ -4,7 +4,7 @@ category: "Timely"
 authors: "ruchir"
 date: "Mon, 11 Jan 2021 16:33:01 +0000"
 description: ""
-slug: "life-in-differential-dataflow"
+image: "img/life-in-differential-dataflow.jpg"
 ---
 
 I've been working at Materialize for almost a year now, and I have really enjoyed learning about and using [Differential Dataflow](https://github.com/TimelyDataflow/differential-dataflow) (hereafter just Differential) in my day-to-day work. In this post, I'll introduce Differential and talk through implementing a few common programming problems like list intersection and everyone's favorite, FizzBuzz, as dataflow programs. Finally, I'll build a simple version of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) (hereafter just Life) in Differential. My main goal is to describe how to write algorithms in Differential and give some intuition for when that's a good idea. This post requires some knowledge of Rust to read the examples but otherwise assumes no prior background. All the example code lives in a [repository](https://github.com/ruchirK/life-differential); you'll just need to be able to build and run Rust programs to follow along! Differential is a declarative, data-parallel, dataflow, incremental framework for performing computations over changing data. This is quite a jargon-y sentence so lets dress it down a bit.

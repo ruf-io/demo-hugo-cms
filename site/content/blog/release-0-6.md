@@ -4,7 +4,7 @@ category: "Release"
 authors: "Albert"
 date: "Thu, 07 Jan 2021 16:02:54 +0000"
 description: ""
-slug: "release-0-6"
+image: "img/release-0-6.jpg"
 ---
 
 [Materialize 0.6](https://materialize.com/docs/release-notes/#v0.6.0) makes it easier to consume streams and build streaming applications. We’ve also made a number of changes that improve our SQL compatibility. Here’s more details on some noteworthy features we’ve added in this release:
