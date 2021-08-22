@@ -140,7 +140,7 @@ collections:
                 {label: Text, name: text, widget: string},
                 {label: URL, name: url, widget: string}]},
               {label: Hero Graphic, name: image, widget: image},
-              {label: "Promo Slider", name: promo_slider, widget: list, fields: [
+              {label: "Promo Slider", name: promo_slider, widget: list, required: false, fields: [
                 {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
                 {label: Subtitle, name: subtitle, widget: text},
                 {label: CTA Text, name: cta_text, widget: string},
@@ -185,6 +185,7 @@ collections:
               {label: Secondary CTA URL, name: secondary_cta_url, widget: string},
               {label: Hero Graphic, name: image, widget: image},
               {label: "Promo Slider", name: promo_slider, widget: list, fields: [
+                {label: Eyebrow, name: eyebrow, widget: text},
                 {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
                 {label: Subtitle, name: subtitle, widget: text},
                 {label: CTA Text, name: cta_text, widget: string},
