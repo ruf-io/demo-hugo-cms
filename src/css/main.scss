@@ -15,6 +15,9 @@ $medium-purple: #472F85;
 $dark-purple: #1B164C;
 $darkest-purple: #140D55;
 $orchid: #E537C0;
+
+$subtle_text: #716969;
+
 $transparent-gradient: linear-gradient(0deg, #FFFFFF00 0%,#FFFFFF00 100%);
 $primary-gradient: linear-gradient(280.8deg, #5C29F1 15.21%, #E37AC2 56.5%, #FF9067 85.53%);
 $primary-gradient-dark: linear-gradient(280.8deg, #5C29F1 15.21%, #E37AC2 56.5%, #FF9067 85.53%),linear-gradient(0deg, #111111, #111111);
@@ -22,10 +25,14 @@ $primary-gradient-dark: linear-gradient(280.8deg, #5C29F1 15.21%, #E37AC2 56.5%,
 $secondary-gradient: linear-gradient(277.43deg, #4512C7 -97.28%, #59C3FF 15.82%, #75FF86 120.75%), linear-gradient(281.49deg, #5C29F1 22.32%, #E37AC2 64.57%, #FF9067 94.28%);
 $purple-gradient: linear-gradient(110deg ,#5a34cb -.7%,#9b34cb 33.33%,#be41f9 66.66%,#7f4eff 99.48%);
 $background-gradient: linear-gradient( 180deg ,#030025 11.46%,#251f63 100%);
+
+$standout_shadow: 0px 102.983px 82.3866px rgba(0, 0, 0, 0.14), 0px 43.0239px 34.4192px rgba(0, 0, 0, 0.10064), 0px 23.0027px 18.4021px rgba(0, 0, 0, 0.083455), 0px 12.8951px 10.3161px rgba(0, 0, 0, 0.07), 0px 6.84849px 5.47879px rgba(0, 0, 0, 0.056545), 0px 2.84981px 2.27985px rgba(0, 0, 0, 0.0393604);
+
 $transparent: #FFFFFF00;
-$transparent_dark: rgba(0,0,0,.4);
+$transparent_dark: rgba(0,0,0,.5);
 $animation_timing: 350ms ease;
 
+$breakpoint_xsmall: 480px;
 $breakpoint_small: 800px;
 $breakpoint_main: 900px;
 $breakpoint_large: 1024px;

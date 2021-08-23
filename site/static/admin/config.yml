@@ -147,13 +147,18 @@ collections:
                 {label: CTA Text, name: cta_text, widget: string},
                 {label: CTA URL, name: cta_url, widget: string},
                 {label: Graphic, name: image, widget: image}]}]}
-          - {label: "Product Explainers", name: product_info, widget: list, fields: [
-              {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
-              {label: Body, name: body, widget: markdown},
-              {label: CTA Text, name: cta_text, widget: string},
-              {label: CTA URL, name: cta_url, widget: string},
-              {label: Graphic, name: image, widget: image, required: false},
-              {label: Code, name: code, widget: code, required: false}]}
+          - {label: "Product Info (Steps)", name: product_info, widget: object, fields: [
+              {label: Title, name: title, widget: string, required: false, hint: "Use the pipe character | as a line seperator"},
+              {label: Subtitle, name: subtitle, widget: string, required: false},
+              {label: "Steps", name: steps, widget: list, fields: [
+                {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
+                {label: Body, name: body, widget: markdown},
+                {label: Widget, name: widget, widget: select,options: ["sources", "code-demos", "output"] },
+                {label: "Reference Links", name: reference_links, widget: list, required: false, fields: [
+                  {label: Text, name: text, widget: string},
+                  {label: URL, name: url, widget: string},
+                ]},
+                {label: Code, name: code, widget: code, required: false}]}]}
           - {label: "Product Differentiators", name: product_values, widget: list, fields: [
               {label: Icon, name: icon, widget: image},
               {label: Label, name: label, widget: string},

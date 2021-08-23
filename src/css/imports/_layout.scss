@@ -20,48 +20,75 @@ body {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 0.5rem;
   text-align: left;
+
+  @media (min-width: $breakpoint_xsmall) {
+    padding: 0 2rem;
+  }
 
   @media (min-width: $breakpoint_main) {
     padding: 0 2.875rem;
   }
+
+  & > div {
+    margin: 1rem auto;
+
+    @media (min-width: $breakpoint_xsmall) {
+      margin: 2.75rem auto;
+    }
+  }
 }
 
 .hero {
-  background: radial-gradient(99.49% 118.97% at 3.45% 159.7%, #9B34CB 0.63%, rgba(155, 52, 203, 0) 100%), radial-gradient(42.13% 70.58% at 96.04% -42.41%, #5A34CB 0%, rgba(67, 52, 203, 0) 100%);
+  background: radial-gradient(100% 119% at 4% 160%, #9B34CB 1%, rgba(155, 52, 203, 0) 100%), radial-gradient(43% 71% at 96% -42%, #5A34CB 0%, rgba(67, 52, 203, 0) 100%);
   border-radius: 15px;
-  margin: 2.75rem auto;
+  padding: 2.5rem 2rem 2.5rem 4.5rem;
 
-  display: grid;
-  grid-template-areas:
-      'copy'
-      'graphic';
-  gap: 40px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   max-width: 1128px;
-
-  @media (min-width: $breakpoint_main) {
-    gap: 2.25rem;
-    grid-template-columns: minmax(420px, 600px) minmax(270px, 528px);
-    grid-template-areas: 'copy graphic';
-  }
+  overflow:hidden;
 
   .copy {
-    grid-area: copy;
+    flex: 1;
+    flex-basis: 340px;
     color: $white;
-    padding: 4.75rem 0 2.875rem 4.5rem;
+    padding-bottom: 2rem;
+    margin-right: 2rem;
+
+    h1 {
+      font-size: clamp(1.5rem, 3vw, 2.75rem);
+    }
 
     p {
       margin: 2.25rem 1rem 2.25rem 0;
     }
+
+    a {
+      color: $white;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .graphic {
-    padding: 2.875rem 4.5rem 2.875rem 0;
-    grid-area: graphic;
+    flex: 1;
+    max-width: 464px;
+    flex-basis: 340px;
     text-align: center;
+    max-height: 530px;
+    position: relative;
+    left: -1rem;
+
+    svg {
+      margin-top: 1rem;
+    }
 
     img {
       object-fit: contain;
@@ -73,6 +100,166 @@ body {
   }
 }
 
+.research_actions {
+  position: relative;
+  max-width: 738px;
+  top: -90px;
+
+  .arrow {
+    position: absolute;
+    margin-top: 50%;
+    top: -.78125rem;
+
+    .previous {
+      left: -2rem;
+    }
+    .next {
+      right: -2rem;
+    }
+  }
+
+  .panel {
+    border-radius: 5px;
+    background: $white;
+    box-shadow: $standout_shadow;
+    max-width: 694px;
+    padding: 2rem 2.875rem 0;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    grid-template-columns: minmax(280px, 50%) minmax(40px, 50%);
+    grid-template-areas: 'copy graphic';
+
+    .copy {
+      padding-bottom: 2.25rem;
+
+      p {
+        font-size: .875rem;
+        color: $subtle_text;
+        line-height: 1rem;
+      }
+    }
+    .graphic {
+      height: 0;
+      img {
+        transform: translateY(-45%);
+        object-fit: contain;
+        width: 160%;
+      }
+    }
+
+  }
+
+}
+
+.product_info {
+  .step {
+    padding: 1rem 2rem 4rem 4.5rem;
+  
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    max-width: 1128px;
+    flex-direction: row-reverse;
+  
+    .copy {
+      flex: 1;
+      flex-basis: 340px;
+      color: $white;
+      padding: 0 2rem 2rem 3.75rem;
+      position: relative;
+
+      &::before {
+        content: attr(data-count);
+        position: absolute;
+        top: .25rem;
+        left: -1.875rem;
+        font-family: "Encode Sans Expanded", sans-serif;
+        font-size: 3.25rem;
+        font-weight: 300;
+        background: $primary-gradient;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-box-decoration-break: clone;
+        padding: 1rem;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 5.5rem;
+        left: 0;
+        bottom: -3.75rem;
+        background: $medium-purple;
+        width: 1px;
+      }
+  
+      h2 {
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+      }
+  
+      .content {
+        font-size: .9375rem;
+        margin: 2.25rem 0;
+        opacity: .85;
+      }
+  
+      .docs_link {
+        color: $white;
+        opacity: .85;
+        font-size: .75rem;
+        display: block;
+        position: relative;
+        margin: 1.5rem 0;
+        padding: 0 2.5rem;
+        &::before {
+          content: url(/img/icon_docs_link.svg);
+          position: absolute;
+          width: 20px;
+          height: 25px;
+          top: 0;
+          left: 0;
+          display: block;
+        }
+
+        &:hover {
+          opacity: 1;
+          text-decoration: underline;
+        }
+      }
+    }
+
+
+    &:last-child .copy::after {
+      display:none;
+    }
+  
+    .graphic {
+      flex: 1;
+      max-width: 464px;
+      flex-basis: 340px;
+      text-align: center;
+      max-height: 530px;
+      position: relative;
+      left: -1rem;
+  
+      svg {
+        margin-top: 1rem;
+      }
+  
+      img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        max-width: 449px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
 
 .global_notification {
   background: $secondary-gradient;
@@ -164,7 +351,7 @@ body {
     position: relative;
 
     @media (min-width: $breakpoint_large) {
-      padding: 1.5rem 1.75rem;
+      padding: 1.5rem 1.6875rem;
     }
 
     &.activatable::after,
@@ -332,39 +519,13 @@ body {
   text-align: center;
 }
 
-.gradient_text {
-  background: $primary-gradient;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+.email-cta {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 460px;
 
-.btn {
-  background-color: $light-grey;
-  color: $medium-purple;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
-  margin: 0.4375rem;
-  padding: 0.8125rem 1.625rem;
-  position: relative;
-  user-select: none;
-  z-index: 1;
-  transition: color 350ms ease, background-color 350ms ease;
-  
-  &:hover {
-    opacity: 1;
-    color: $light-grey;
-    background-color: $medium-purple;
-
-    svg {
-        color: inherit;
-    }
-  }
-  
-  svg {
-    position: relative;
-    top: 6px;
-    left: -7px;
-    color: $purple;
+  * {
+    margin: 0 .25rem .5rem 0;
+    vertical-align: top;
   }
 }

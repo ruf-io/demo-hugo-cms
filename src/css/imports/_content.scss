@@ -3,24 +3,33 @@ a {
 }
 
 .eyebrow {
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 300;
   line-height: 1.15em;
+  text-transform: uppercase;
 }
 
 h1, h2, h3, h4 {
   display: block;
   margin: 1rem 0;
   letter-spacing: -.015em;
-  line-height: 1.1em;
   font-family: "Encode Sans Expanded", sans-serif;
+}
+
+.eyebrow + h1, h2, h3, h4 {
+  margin-top: 0.25rem;
 }
 
 h1 {
   font-size: 2.75rem;
   font-weight: 300;
-  line-height: 3.125rem;
+  line-height: 130%;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 120%;
 }
 
 .copy {
@@ -40,7 +49,7 @@ h1 {
   cursor: pointer;
   font-size: 15px;
   font-weight: 700;
-  padding: 1rem 2.5rem;
+  padding: .75rem 2.2em;
   text-align: center;
   z-index: 1;
   -webkit-user-select: none;
@@ -51,10 +60,23 @@ h1 {
   background-image: $purple-gradient;
   background-position: 0 100%;
   background-size: 300% 300%;
-  transition: background-position .3s ease-out;
+  transition: background-position $animation_timing;
   white-space: nowrap;
 
+  &.primary {
+    background-image: linear-gradient(283.85deg, #5C29F1 19.34%, #E37AC2 64.93%, #FF9067 94.8%);
+    box-shadow: $standout_shadow;
+  }
+
+  &:hover {
+    background-position: 100% 100%;
+  }
+
   &.small {
+    font-weight: 600;
+  }
+
+  &.tiny {
     font-size: 13px;
     font-weight: 600;
     padding: .8rem 2.2em;
@@ -73,4 +95,28 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-box-decoration-break: clone;
+}
+
+input {
+  background: $transparent_dark;
+  border: 1px solid $black;
+  border-radius: 3px;
+  color: $white;
+  font-size: .875rem;
+  font-weight: 600;
+  outline: 0;
+  padding: .8125rem 1.25rem;
+  line-height: 1.0625rem;
+
+  &::placeholder {
+    color: $dark-grey;
+  }
+
+  &:focus {
+    border: 1px solid $orchid;
+  }
+
+  &[type="email"] {
+    min-width: 210px;
+  }
 }

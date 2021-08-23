@@ -4,4 +4,9 @@
   {{- partial "hero" . -}}
 {{- end -}}
 
+{{- with .Params.product_info -}}
+  {{- partial "product-info" . -}}
+{{- end -}}
+
+
 {{ end }}
