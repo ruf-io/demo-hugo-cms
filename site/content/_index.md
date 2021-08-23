@@ -15,7 +15,11 @@ hero:
   image_svg:
     code: >-
       <svg width="716" height="738" viewBox="0 0 716 738" fill="none"
-      xmlns="http://www.w3.org/2000/svg">
+      xmlns="http://www.w3.org/2000/svg" style="
+          position: relative;
+          left: -150px;
+          top: -8px;
+      ">
 
       <circle opacity="0.4" cx="352.711" cy="196" r="3" fill="#612DD3"></circle>
 
