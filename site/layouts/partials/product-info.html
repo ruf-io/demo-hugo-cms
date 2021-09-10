@@ -11,7 +11,7 @@
         <div class="copy" data-count="{{ add 1 $i }}">
           <h2>{{ $e.title }}</h2>
           <div class="content">
-            {{ $e.body }}
+            {{ $e.body | markdownify }}
           </div>
           {{- range $e.reference_links -}}
             <a class="docs_link" href="{{ .url }}">{{ .text }}</a>

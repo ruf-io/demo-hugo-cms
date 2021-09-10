@@ -1,0 +1,33 @@
+<section class="container circle_bg">
+  <div class="product_values">
+    <div class="tab_panel">
+      <ul class="tab_buttons">
+        {{- range $i, $e := . -}} 
+          <li>
+            <a href="#{{ .label | urlize }}" data-toggle="tab" class="{{ if eq $i 0 }}active{{ end }}">
+              <img src="{{ .icon }}">
+              <span class="eyebrow">{{ .label }}</span>
+            </a>
+          </li>
+        {{- end -}}
+      </ul>
+      <ul class="tab_contents">
+        {{- range $i, $e := . -}}
+          <li class="tab flex_panel {{ if eq $i 0 }} active {{ end }}" id="{{ .label | urlize }}">
+            <div class="copy">
+              <h2>{{- partial "gradient-headline" .title -}}</h2>
+              <div class="content">
+                {{ .body | markdownify }}
+              </div>
+            </div>
+            <div class="graphic">
+              {{- with .code -}}
+                <pre class="fira dark"><code>{{ .code }}</code></pre>
+              {{- end -}}
+            </div>
+          </li>
+        {{- end -}}
+        </ul>
+    </div>
+  </div>
+</section>

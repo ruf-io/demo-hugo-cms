@@ -25,9 +25,11 @@ links:
     url: /resources/
   - text: Company
     url: /company/
-primary_action:
+primary_cta:
   text: Get Started
   url: /materialize-cloud/
-secondary_action:
+secondary_cta:
   text: Sign In
   url: https://cloud.materialize.com/account/login
+  post_scroll_text: "Get a Demo"
+  post_scroll_url: "/get-a-demo"

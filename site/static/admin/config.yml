@@ -57,10 +57,16 @@ collections:
                       - {label: "Image", name: "image", widget: "image"}
                       - {label: "Button Text", name: "button_text", widget: "string"}
                       - {label: "Button URL", name: "button_url", widget: "string"}
-          - {name: "primary_action_text", label: "Primary Action Text", widget: "string"}
-          - {name: "primary_action_url", label: "Primary Action URL", widget: "string"}
-          - {name: "secondary_action_text", label: "Secondary Action Text", widget: "string"}
-          - {name: "secondary_action_url", label: "Secondary Action URL", widget: "string"}
+          - {name: "primary_cta", label: "Primary CTA (Button)", widget: "object", fields:[
+              {name: "text", label: "Text", widget: "string"},
+              {name: "url", label: "URL", widget: "string"}
+            ]}
+          - {name: "secondary_cta", label: "Secondary CTA (Link)", widget: "object", fields:[
+              {name: "text", label: "Text", widget: "string"},
+              {name: "url", label: "URL", widget: "string"},
+              {name: "post_scroll_text", label: "Post-Scroll Text", widget: "string", required: false},
+              {name: "post_scroll_url", label: "Post-Scroll URL", widget: "string", required: false}
+            ]}
       - name: "footer"
         label: "Footer"
         file: "site/data/footer.yml"

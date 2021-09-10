@@ -8,5 +8,9 @@
   {{- partial "product-info" . -}}
 {{- end -}}
 
+{{- with .Params.product_values -}}
+  {{- partial "product-values" . -}}
+{{- end -}}
+
 
 {{ end }}

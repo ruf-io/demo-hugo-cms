@@ -1,4 +1,6 @@
 ---
+title: "Materialize: The streaming database for up-to-date materialized views" 
+description: "Some description here."
 hero:
   title: The Streaming Database | for Real-time Analytics
   subtitle: Materialize simplifies how developers build with real-time data, using
@@ -89,6 +91,54 @@ product_values:
             FROM logins GROUP BY 1
           ) lg ON lg.user_id=u.id
           GROUP BY u.id;
+  - icon: img/icon-streaming-joins.svg
+    label: Blazing Fast
+    title: High performance through | incremental computation
+    body: >-
+      No more choosing between flexibility and speed. Materialize delivers SQL exploration for streaming events and real-time data.
+
+      Rather than recalculating the answer each time it’s asked, Materialize continually updates the answer and gives you the latest result from memory – even in the presence of complex joins and arbitrary inserts, updates, or deletes in the input streams.
+    cta_text: Read Key Concepts in Docs
+    cta_url: https://materialize.com/docs/overview/what-is-materialize/
+    code:
+      code: |-
+        TEST
+  - icon: img/icon-streaming-joins.svg
+    label: Standard SQL
+    title: Streaming made | SQL
+    body: >-
+      Interact with Materialize in the most common programming language. Lower the burden on your data platform team and reuse skills from traditional SQL queries and applications.
+
+      Materialize supports streaming SQL across the TPC-H benchmark – a standard built for industry-wide relevance, large data volumes, and high query complexity – with incremental updates.
+    cta_text: View Materialize Docs
+    cta_url: https://materialize.com/docs/
+    code:
+      code: |-
+        TEST
+  - icon: img/icon-streaming-joins.svg
+    label: Easy Setup
+    title: Complex queries. | Simple setup.
+    body: >-
+      New users can get Materialize Cloud up and running in minutes. Rather than spend weeks building microservices, teams can build applications with Materialize in a matter of hours.
+
+      Unlike similar solutions that require pre-processing of data, Materialize connects to data as it exists today – including streaming sources like Kafka, to databases as a read-replica, or from files.
+    cta_text: Get Started
+    cta_url: https://materialize.com/docs/get-started/
+    code:
+      code: |-
+        TEST
+  - icon: img/icon-full-ecosystem.svg
+    label: Full Ecosystem
+    title: Connect to the full range of | Postgres tools
+    body: >-
+      Materialize is wire compatible with PostgreSQL, presenting to downstream tools like any Postgres database, simplifying the development of custom applications and streamlining the process of connecting existing data analysis tools.
+
+      Even non-technical users can unlock the most complex real-time queries just using standard BI tooling.
+    cta_text: Get Started
+    cta_url: https://materialize.com/docs/get-started/
+    code:
+      code: |-
+        TEST
 inputs:
   title: Connect a Wide Range of Data Sources
   subtitle: Materialize can connect to many different sources of data - including

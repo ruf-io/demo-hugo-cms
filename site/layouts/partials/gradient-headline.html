@@ -1,0 +1,6 @@
+{{- if in . "|" -}}
+  {{- index (split . "|") 0 -}}
+  <span class="gradient-text">{{- index (split . "|") 1 -}}</span>
+{{- else -}}
+  {{- . -}}
+{{- end -}}

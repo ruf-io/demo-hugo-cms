@@ -2,12 +2,7 @@
   <div class="hero">
     <div class="copy">
       <h1>
-        {{- if in .title "|" -}}
-          {{- index (split .title "|") 0 -}}
-          <span class="gradient-text">{{- index (split .title "|") 1 -}}</span>
-        {{- else -}}
-          {{- .title -}}
-        {{- end -}}
+        {{- partial "gradient-headline" .title -}}
       </h1>
       <p>
         {{- .subtitle | markdownify -}}
@@ -48,7 +43,7 @@
 </section>
 
 {{- with .promo_slider }}
-  <section class="container">
+  <section class="container overlapped">
     <div class="research_actions">
       {{- if gt (len .) 1 -}}
         <div class="arrow previous" data-js="previous">
