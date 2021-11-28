@@ -3,8 +3,6 @@ backend:
 
 media_folder: "site/static/img"
 public_folder: "img"
-local_backend: true
-
 collections:
   - name: "settings"
     label: "Settings"
