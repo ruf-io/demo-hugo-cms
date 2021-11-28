@@ -21,12 +21,30 @@ links:
     url: /product/
   - text: Use Cases
     url: /use-cases/
-  - text: Resources
-    url: /resources/
+  - text: Blog
+    url: /blog/
   - text: Company
     url: /company/
+    mega:
+      links:
+        - text: About Us
+          url: /company/
+        - text: Careers
+          url: /careers/
+        - text: Contact
+          url: /contact/
+        - text: Resources
+          url: /resources/
+      featured_item:
+        title: Get started with Materialize
+        description: "This guide walks you through getting started with Materialize,
+          from installing it to creating your first materialized view on top of
+          streaming data. We’ll cover:"
+        image: img/materialize-quickstart.jpeg
+        button_text: Get Started
+        button_url: https://materialize.com/docs/get-started/
 primary_cta:
-  text: Get Started
+  text: Register for Cloud
   url: /materialize-cloud/
 secondary_cta:
   text: Sign In

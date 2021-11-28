@@ -1,0 +1,34 @@
+<div class="overflow-hidden pt-20">
+  <div class="max-w-6xl mx-auto relative text-center">
+    {{- with .title -}}
+      <h2 class="text-gray-100 text-3xl">{{ . }}</h2>
+    {{- end -}}
+    {{- with .subtitle -}}
+      <p class="text-gray-200">{{ . }}</p>
+    {{- end -}}
+    {{- $steps_ct := len .steps -}}
+    {{- range $i, $e := .steps -}}
+      <div class="flex flex-wrap items-center justify-center flex-row-reverse text-left mt-8 p-2">
+        <div class="relative p-8 ml-8 md:p-14 md:my-2 md:flex-1">
+          <span class="absolute top-8 md:top-14 -left-3 text-5xl mz_gradient_text font-display">{{ add 1 $i }}</span>
+          {{- if ne (add 1 $i) $steps_ct -}}
+            <div class="absolute top-24 -bottom-36 md:top-32 md:-bottom-24 left-0 w-px h-auto bg-ui-purple"></div>
+          {{- end -}}
+          <h2 class="text-4xl leading-tight text-white max-w-sm">{{ $e.title }}</h2>
+          <div class="text-gray-200 my-8 max-w-sm">
+            {{ $e.body | markdownify }}
+          </div>
+          {{- range $e.reference_links -}}
+            <a class="mz_docs_link text-white font-semibold mt-6" href="{{ .url }}">{{ .text }}</a>
+          {{- end -}}
+        </div>
+        <div class="flex-shrink md:flex-1 p-8 md:p-16">
+          <div class=" bg-red-100">{{ $e.widget }} Graphic here</div>
+        </div>
+      </div>
+    {{- end -}}
+    {{- with .cta -}}
+      <a class="mz_btn mz_btn_purple text-white my-4 inline-block mb-12" href="{{ .url }}">{{ .text }}</a>
+    {{- end -}}
+  </div>
+</div>

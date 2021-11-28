@@ -1,9 +1,5 @@
-a {
-  text-decoration: none;
-}
-
 .eyebrow {
-  font-size: 12px;
+  font-size: .875rem;
   font-weight: 300;
   line-height: 1.15em;
   text-transform: uppercase;
@@ -27,29 +23,30 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 120%;
 }
 
-.copy {
-  p {
-    font-size: .9375rem;
-    font-weight: 500;
-    line-height: 1.6875rem;
-  }
+.copy, p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.text-small {
+  font-size: 1rem;
 }
 
 .btn {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
   color: #fff;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 700;
-  padding: .75rem 2.2em;
+  padding: .75rem 1.5rem;
   text-align: center;
   z-index: 1;
   -webkit-user-select: none;
@@ -77,9 +74,8 @@ h2 {
   }
 
   &.tiny {
-    font-size: 13px;
-    font-weight: 600;
-    padding: .8rem 2.2em;
+    padding: .5rem .75rem;
+    font-weight: 500;
   }
 
   &.transparent {
@@ -100,19 +96,21 @@ h2 {
 input {
   background: $transparent_dark;
   border: 1px solid $black;
-  border-radius: 3px;
   color: $white;
-  font-size: .875rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 500;
   outline: 0;
   padding: .8125rem 1.25rem;
   line-height: 1.0625rem;
+  box-shadow: 0 0 4px $transparent;
+  transition: border-color $animation_timing;
 
   &::placeholder {
     color: $dark-grey;
   }
 
   &:focus {
+    box-shadow: 0 0 5px $orchid;
     border: 1px solid $orchid;
   }
 
@@ -131,4 +129,23 @@ input {
   background-origin: border-box;
   background-clip: content-box, border-box;
   
+}
+
+.light {
+  color: $subtle_text;
+  h1, h2, h3, h4 {
+    color: $purple-black;
+  }
+  a {
+    color: $dark-purple;
+  }
+}
+.dark {
+  color: rgba(255,255,255,0.85);
+  h1, h2, h3, h4 {
+    color: $white;
+  }
+  a {
+    color: $white;
+  }
 }

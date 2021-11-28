@@ -1,6 +1,6 @@
 {{- if in . "|" -}}
-  {{- index (split . "|") 0 -}}
-  <span class="gradient-text">{{- index (split . "|") 1 -}}</span>
+  <span class="block mb-3 xl:inline xl:leading-normal">{{- index (split . "|") 0 -}}</span>
+  <span class="block xl:inline mz_gradient_text">{{- index (split . "|") 1 -}}</span>
 {{- else -}}
   {{- . -}}
 {{- end -}}

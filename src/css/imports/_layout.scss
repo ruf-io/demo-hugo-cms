@@ -40,50 +40,51 @@ body {
       margin: 2.75rem auto;
     }
   }
-  &.overlapped {
+  &.overflow {
     overflow: visible;
+  }
+  &.shifted_up {
+    top: -130px;
   }
 }
 
 .hero {
   background: radial-gradient(100% 119% at 4% 160%, #9B34CB 1%, rgba(155, 52, 203, 0) 100%), radial-gradient(43% 71% at 96% -42%, #5A34CB 0%, rgba(67, 52, 203, 0) 100%);
   border-radius: 15px;
-  padding: 2.5rem 2rem 2.5rem 4.5rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   max-width: 1128px;
   overflow:hidden;
+  padding: 1rem;
+
+  @media (min-width: $breakpoint_main) {
+    padding: 2.5rem 2rem 2.5rem 4.5rem;
+  }
 
   .copy {
     flex: 1;
     flex-basis: 340px;
-    color: $white;
-    padding-bottom: 2rem;
-    margin-right: 2rem;
+    z-index: 50;
 
-    h1 {
-      font-size: 2rem;
-
+    > * {
+      margin: 2rem 0;
       @media (min-width: $breakpoint_main) {
-        font-size: clamp(1.5rem, 3vw, 2.75rem);
+        margin: 2.25rem 2rem 2.25rem 0;
       }
     }
 
-    p {
-      font-size: 1rem;
-      line-height: 1.6875;
-      margin: 2.25rem 1rem 2.25rem 0;
+    h1 {
+      font-size: clamp(2rem, 3.3vw, 2.75rem);
     }
 
-    a {
-      color: $white;
-      font-weight: 600;
+    p {
+      font-size: 1.25rem;
+      line-height: 150%;
 
-      &:hover {
-        text-decoration: underline;
+      @media (min-width: $breakpoint_main) {
+        font-size: clamp(.875rem, 1.5vw, 1.25rem);
       }
     }
   }
@@ -95,7 +96,6 @@ body {
     text-align: center;
     max-height: 530px;
     position: relative;
-    left: -1rem;
 
     svg {
       margin-top: 1rem;
@@ -111,52 +111,34 @@ body {
   }
 }
 
-.research_actions {
+.hero_engage {
   position: relative;
   max-width: 738px;
-  top: -130px;
-
-  .arrow {
-    position: absolute;
-    margin-top: 50%;
-    top: -.78125rem;
-
-    .previous {
-      left: -2rem;
-    }
-    .next {
-      right: -2rem;
-    }
-  }
+  z-index: 50;
 
   .panel {
     border-radius: 5px;
     background: $white;
     box-shadow: $standout_shadow;
-    max-width: 694px;
-    padding: 2rem 2.875rem 0;
-    display: grid;
-    justify-content: space-between;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
-    grid-template-columns: minmax(280px, 55%) minmax(40px, 45%);
-    grid-template-areas: 'copy graphic';
+    flex-wrap: wrap-reverse;
+    margin: 0 2rem;
 
     .copy {
-      padding-bottom: 2.25rem;
-
-      p {
-        font-size: .875rem;
-        color: $subtle_text;
-        line-height: 1rem;
-      }
+      padding: 2rem 0;
+      flex: 1 0 320px;
     }
     .graphic {
-      height: 0;
+      max-height: 280px;
+      flex: 1 1 200px;
+      text-align: center;
+      
       img {
-        transform: translateY(-45%);
-        object-fit: contain;
         width: 160%;
+        max-width: 432px;
       }
     }
 
@@ -216,32 +198,28 @@ body {
       }
   
       .content {
-        font-size: .9375rem;
         margin: 2.25rem 0;
-        opacity: .85;
       }
   
       .docs_link {
         color: $white;
-        opacity: .85;
-        font-size: .75rem;
         display: block;
         position: relative;
         margin: 1.5rem 0;
         padding: 0 2.5rem;
+        transition: color $animation_timing;
         &::before {
           content: url(/img/icon_docs_link.svg);
           position: absolute;
           width: 20px;
           height: 25px;
-          top: 0;
+          top: 4px;
           left: 0;
           display: block;
         }
 
         &:hover {
-          opacity: 1;
-          text-decoration: underline;
+          color: $orchid;
         }
       }
     }
@@ -303,13 +281,9 @@ body {
 
 .global_notification {
   background: $secondary-gradient;
-  padding: 0.25rem 3rem 0.25rem 2rem;
+  padding: 0.25rem 1rem 0.25rem 0;
   position: relative;
   line-height: .875rem;
-
-  @media (min-width: $breakpoint_small) {
-    padding: 0.25rem 3rem;
-  }
 
   li {
     display: inline-block;
@@ -319,11 +293,8 @@ body {
   .close-button {
     position: absolute;
     right: 0;
+    top: 0;
     transition: opacity $animation_timing;
-
-    @media (min-width: $breakpoint_small) {
-      right: 1rem;
-    }
 
     &:hover {
       opacity: 0.75;
@@ -334,29 +305,24 @@ body {
   a {
     color: $dark-purple;
     display: inline-block;
-    font-size: .8125rem;
+    font-size: .875rem;
     font-weight: 600;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: none;
     white-space: nowrap;
     padding: .625rem;
     max-width: 100%;
-  }
-
-  .btn {
-    font-size: .5625rem;
-    font-weight: 700;
-    color: $white;
-    text-transform: uppercase;
-    padding: .5rem 1rem;
-    margin: 0;
   }
 }
   
 .navbar {
   background: $purple-black;
-  border-bottom: solid 1px #353250;
   z-index: 100;
+
+  @media (min-width: $breakpoint_main) {
+    border-bottom: solid 1px #353250;
+  }
 
   /* Hang the CTA Button out further */
   .container {
@@ -372,7 +338,7 @@ body {
     flex-basis: 97px !important;
 
     a {
-      padding: 1.25rem .75rem .625rem 0;
+      padding: .75rem 0;
     }
   }
 
@@ -384,14 +350,16 @@ body {
   a {
     color: $white;
     display: inline-block;
-    font-size: .875rem;
     padding: 1rem .75rem;
+    font-size: .875rem;
     font-weight: 600;
     white-space: nowrap;
     position: relative;
+    text-decoration: none;
 
     @media (min-width: $breakpoint_large) {
-      padding: 1.5rem 1.6875rem;
+      padding: 1.5rem 1.25rem;
+      font-size: 1rem;
     }
 
     &.activatable::after,
@@ -562,11 +530,11 @@ body {
 .email-cta {
   display: flex;
   flex-wrap: wrap;
-  max-width: 460px;
 
   * {
     margin: 0 .25rem .5rem 0;
     vertical-align: top;
+    flex-grow: 1;
   }
 }
 
@@ -608,9 +576,13 @@ body {
       border-bottom: 1px solid #e8e8e8;
       border-right: 1px solid #e8e8e8;
       position: relative;
+      text-decoration: none;
 
       .eyebrow {
         padding-top: 0.5rem;
+        font-size: .75rem;
+        color: $subtle_text;
+        font-weight: 600;
       }
 
       &.active, &:hover {
@@ -664,7 +636,6 @@ body {
 
     .content {
       color: #656565;
-      font-size: .9375rem;
       line-height: 1.5rem;
     }
   }

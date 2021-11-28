@@ -61,12 +61,21 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $dark-black;
   line-height: 1.6em;
 }
 
 @supports (font-variation-settings: normal) {
   body {
     font-family: "Inter var", sans-serif;
+    font-weight: 400;
   }
+}
+
+h1, h2, h3, h4 {
+  font-family: "Encode Sans Expanded", sans-serif;
+  font-weight: 300;
+}
+
+code  {
+  font-family: "Fira Code", monospace;
 }
