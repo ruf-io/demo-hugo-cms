@@ -1,0 +1,11 @@
+<div class="relative overflow-hidden p-3.5">
+  <div class="absolute z-10 inset-0 w-full max-w-6xl mx-auto">
+    
+  </div>
+  <div class="max-w-6xl mx-auto relative lg:p-3 z-20">
+    <h2 class="text-3xl tracking-tighter md:text-4xl">{{- partial "gradient-headline" .title -}}</h2>
+    <div class="mz_markdown">
+      {{ .body | markdownify }}
+    </div>
+  </div>
+</div>

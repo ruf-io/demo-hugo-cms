@@ -3,8 +3,7 @@ backend:
 
 media_folder: "site/static/img"
 public_folder: "img"
-publish_mode: editorial_workflow
-
+local_backend: true
 
 collections:
   - name: "settings"

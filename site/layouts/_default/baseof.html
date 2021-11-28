@@ -1,13 +1,15 @@
 <!doctype html>
 <html lang="{{ $.Site.Language.Lang }}">
   {{ partial "head" . }}
-  <body class="sans-serif">
-
+  <body class="text-base">
+    
     {{ block "header" . }}{{ partial "nav" . }}{{end}}
 
     {{ block "main" . }}{{ end }}
 
     {{ block "footer" . }}{{ partial "footer" . }}{{end}}
+
+    <div class="mz_fader_bg"></div>
 
     {{ $script := .Site.Data.webpack.main }}
     {{ with $script.js }}

@@ -1,75 +1,64 @@
-<section class="container">
-  <div class="hero">
-    <div class="copy">
-      <h1>
-        {{- partial "gradient-headline" .title -}}
-      </h1>
-      <p>
-        {{- .subtitle | markdownify -}}
-      </p>
-
-      {{- with .primary_cta -}}
-        <p>
-          {{- if .collect_email -}}
-            <!-- TODO: Could move this to partial and combine with footer email form -->
-            <form class="email-cta">
-              <input type="email" id="hero_email" placeholder="Your work email">
-              <input type="submit" class="btn primary small" data-js="hero_email_submit" data-url="{{ .url }}" value="{{ .text }}">
-            </form>
-          {{- else -}}
-            <a class="btn primary" href="{{- .url -}}">{{- .text -}}</a>
+<div class="overflow-hidden lg:pt-12 -mb-28">
+  <div class="max-w-6xl mx-auto relative mz_hero_bg rounded-2xl lg:pb-16">
+    <div class="relative z-10 py-8 lg:max-w-2xl lg:w-full lg:py-28 xl:py-32">
+      <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 lg:pl-16 lg:-mt-9">
+        <div class="sm:text-center lg:text-left space-y-5 sm:space-y-8">
+          <h1 class="text-4xl font-light tracking-tight text-white sm:text-5xl md:text-5xl">
+            {{- partial "gradient-headline" .title -}}
+          </h1>
+          <p class="text-base text-gray-100 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
+            {{- .subtitle | markdownify -}}
+          </p>
+          {{- with .primary_cta -}}
+              {{- if .collect_email -}}
+                <!-- TODO: Could move this to partial and combine with footer email form -->
+                <form class="max-w-lg mx-auto lg:mx-0 sm:flex sm:justify-center lg:justify-start">
+                  <input class="shadow appearance-none rounded w-full p-3 leading-none bg-black bg-opacity-50 border border-ui-purple text-white placeholder-white sm:flex-grow" type="email" id="hero_email" placeholder="Your work email">
+                  <input type="submit" class="mz_btn mz_btn_primary shadow-2xl mt-3 sm:mt-0 sm:ml-3 w-full md:max-w-min" data-js="hero_email_submit" data-url="{{ .url }}" value="{{ .text }}">
+                </form>
+              {{- else -}}
+                <a class="mz_btn mz_btn_primary elevated" href="{{- .url -}}">{{- .text -}}</a>
+              {{- end -}}
           {{- end -}}
-        </p>
-      {{- end -}}
-
-      {{- with .secondary_cta -}}
-        <p>
-          or <a class="secondary" href="{{- .url -}}">{{- .text -}}</a>
-        </p>
-      {{- end -}}
+          {{- with .secondary_cta -}}
+          <p class="text-base text-gray-100 sm:text-lg md:text-xl">
+            <span class="opacity-80">or</span>
+            <a class="mz_arrow_link font-semibold" href="{{- .url -}}">{{- .text -}}</a>
+          </p>
+          {{- end -}}
+        </div>
+      </main>
     </div>
-    {{ with .image_svg }}
-      <div class="graphic">
-        {{ .code | safeHTML }}
-      </div>
-    {{ else }}
-      {{- with .image -}}
-        <div class="graphic">
-          <img width="449" height="499" src="{{ . }}">
+    {{- with .image_svg -}}
+        <div class="lg:absolute lg:inset-y-0 lg:right-8 lg:w-1/2">
+          <figure class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full">
+            {{ .code | safeHTML }}
+          </figure>
         </div>
-      {{- end -}}
-    {{- end -}}
-  </div>
-</section>
-
-{{- with .promo_slider }}
-  <section class="container overlapped">
-    <div class="research_actions">
-      {{- if gt (len .) 1 -}}
-        <div class="arrow previous" data-js="previous">
-          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M0.292892 8.70711C-0.0976315 8.31658 -0.0976315 7.68342 0.292892 7.29289L6.65685 0.928932C7.04738 0.538408 7.68054 0.538408 8.07107 0.928932C8.46159 1.31946 8.46159 1.95262 8.07107 2.34315L2.41421 8L8.07107 13.6569C8.46159 14.0474 8.46159 14.6805 8.07107 15.0711C7.68054 15.4616 7.04738 15.4616 6.65685 15.0711L0.292892 8.70711ZM22 9H1V7H22V9Z" fill="white" fill-opacity="0.4"></path> </svg>
-        </div>
-      {{- end -}}
-      <div class="carousel">
-        {{- range . -}}
-          <div class="panel lg contrast">
-            <div class="copy">
-              <span class="eyebrow">{{ .eyebrow }}</span>
-              <h2>{{ .title }}</h2>
-              <p>{{ .subtitle }}</p>
-              <a class="btn purple" href="{{ .cta_url }}">{{ .cta_text }}</a>
-            </div>
-            <div class="graphic">
-              <img src="{{ .image }}" />
-            </div>
+      {{- else -}}
+        {{- with .image -}}
+          <div class="graphic">
+            <img width="449" height="499" src="{{ . }}">
+          </div>
+        {{- else -}}
+          <div class="flex items-center justify-center lg:block lg:absolute lg:inset-y-10 lg:right-0 lg:w-1/2">
+            <object class="relative -mb-12 lg:w-auto lg:h-auto lg:-left-8" style="min-width:540px;" data="/img/hero.svg" type="image/svg+xml"></object>
           </div>
         {{- end -}}
-      </div>
-      {{- if gt (len .) 1 -}}
-        <div class="arrow next" data-js="next">
-          <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M21.7071 8.70711C22.0976 8.31658 22.0976 7.68342 21.7071 7.29289L15.3431 0.928932C14.9526 0.538408 14.3195 0.538408 13.9289 0.928932C13.5384 1.31946 13.5384 1.95262 13.9289 2.34315L19.5858 8L13.9289 13.6569C13.5384 14.0474 13.5384 14.6805 13.9289 15.0711C14.3195 15.4616 14.9526 15.4616 15.3431 15.0711L21.7071 8.70711ZM0 9H21V7H0V9Z" fill="white" fill-opacity="0.4"></path> </svg>
+      {{- end -}}
+  </div>
+  {{- with .learn_cta }}
+    <div class="relative p-4 -top-36 md:-top-20">
+      <div class="bg-white relative rounded shadow-2xl items-center justify-between p-4 max-w-3xl mx-auto flex flex-col sm:flex-row md:p-10">
+        <div class="space-y-3 sm:space-y-5 md:pr-64">
+          <span class="uppercase text-gray-700">{{ .eyebrow }}</span>
+          <h2 class="text-black text-3xl">{{ .title }}</h2>
+          <p class="text-gray-700">{{ .subtitle }}</p>
+          <a class="mz_btn mz_btn_purple text-white block md:inline-block" href="{{ .cta_url }}">{{ .cta_text }}</a>
         </div>
-        {{- end -}}
+        <img class="max-w-xs md:max-w-sm md:absolute md:-right-20 md:top-4" src="{{ .image }}" />
+      </div>
     </div>
-  </section>
-{{- end -}}
+  {{- end -}}
+</div>
+
