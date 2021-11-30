@@ -4,7 +4,7 @@
       <h2 class="text-gray-100 text-3xl">{{ . }}</h2>
     {{- end -}}
     {{- with .subtitle -}}
-      <p class="text-gray-200">{{ . }}</p>
+      <p class="text-gray-100">{{ . }}</p>
     {{- end -}}
     {{- $steps_ct := len .steps -}}
     {{- range $i, $e := .steps -}}
@@ -15,7 +15,7 @@
             <div class="absolute top-24 -bottom-36 md:top-32 md:-bottom-24 left-0 w-px h-auto bg-ui-purple"></div>
           {{- end -}}
           <h2 class="text-4xl leading-tight text-white max-w-sm">{{ $e.title }}</h2>
-          <div class="text-gray-200 my-8 max-w-sm">
+          <div class="text-gray-100 my-8 max-w-sm">
             {{ $e.body | markdownify }}
           </div>
           {{- range $e.reference_links -}}
