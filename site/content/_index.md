@@ -1,6 +1,6 @@
 ---
 title: "Materialize: The streaming database for up-to-date materialized views" 
-description: "Some description here."
+description: "Materialize is the only true SQL streaming database for building internal tools, interactive dashboards, and customer-facing experiences. It provides the simplicity of SQL queries, but with millisecond-level latency for real-time data."
 theme: dark
 hero:
   title: The Streaming Database | for Real-time Analytics

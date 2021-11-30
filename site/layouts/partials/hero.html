@@ -38,7 +38,7 @@
       {{- else -}}
         {{- with .image -}}
           <div class="graphic">
-            <img width="449" height="499" src="{{ . }}">
+            <img width="449" height="499" src="{{ . }}" alt="Materialize: Streaming Database">
           </div>
         {{- else -}}
           <div class="flex items-center justify-center lg:block lg:absolute lg:inset-y-10 lg:right-0 lg:w-1/2">
@@ -56,7 +56,7 @@
           <p class="text-gray-700">{{ .subtitle }}</p>
           <a class="mz_btn mz_btn_purple text-white block md:inline-block" href="{{ .cta_url }}">{{ .cta_text }}</a>
         </div>
-        <img class="max-w-xs md:max-w-sm md:absolute md:-right-20 md:top-4" src="{{ .image }}" />
+        <img class="max-w-xs md:max-w-sm md:absolute md:-right-20 md:top-4" src="{{ .image }}" alt="Materialize Streaming Database Report" />
       </div>
     </div>
   {{- end -}}

@@ -11,7 +11,7 @@
               :class="{ 'shadow-xl z-10 bg-white': tab === '{{ $slug }}', 'bg-gray-50 border-r': tab !== '{{ $slug }}'  }"
               @click.prevent="tab = '{{ $slug }}'; window.location.hash = '{{ $slug }}'"
             >
-              <img class="max-h-10 w-3/5" src="{{ .icon }}">
+              <img class="max-h-10 w-3/5" src="{{ .icon }}" alt="{{.label}}">
               <span class="uppercase text-2xs leading-tight sm:text-xs mt-2">{{ .label }}</span>
             </a>
         {{- end -}}
