@@ -5,10 +5,10 @@ links:
       links:
         - text: Documentation
           url: https://materialize.com/docs/
-        - text: GitHub
-          url: https://github.com/materializeinc/materialize
         - text: Download
           url: https://materialize.com/docs/install/
+        - text: GitHub
+          url: https://github.com/materializeinc/materialize
       featured_item:
         title: Get started with Materialize
         description: "This guide walks you through getting started with Materialize,
@@ -19,10 +19,10 @@ links:
         button_url: https://materialize.com/docs/get-started/
   - text: Product
     url: /product/
-  - text: Use Cases
-    url: /use-cases/
-  - text: Blog
-    url: /blog/
+  - text: Solutions
+    url: /solutions/
+  - text: Pricing
+    url: /pricing/
   - text: Company
     url: /company/
     mega:
@@ -35,6 +35,8 @@ links:
           url: /contact/
         - text: Resources
           url: /resources/
+        - text: Blog
+          url: /blog/
       featured_item:
         title: Get started with Materialize
         description: "This guide walks you through getting started with Materialize,

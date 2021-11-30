@@ -51,4 +51,8 @@
 	</div>
 </div>
 <div class="site-bg"></div>
-<script src="/app.js"></script>
+
+{{ $app := .Site.Data.webpack.app }}
+{{ with $app.js }}
+	<script src="{{ relURL . }}"></script>
+{{ end }}

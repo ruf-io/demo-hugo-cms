@@ -1,8 +1,9 @@
 module.exports = {
   purge: [
     './site/layouts/*.html',
+    './site/layouts/*/*.html',
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     extend: {
       screens: {
