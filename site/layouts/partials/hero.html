@@ -14,10 +14,10 @@
                 <!-- TODO: Could move this to partial and combine with footer email form -->
                 <form class="max-w-lg mx-auto lg:mx-0 sm:flex sm:justify-center lg:justify-start">
                   <input class="shadow appearance-none rounded w-full p-3 leading-none bg-black bg-opacity-50 border border-ui-purple text-white placeholder-white sm:flex-grow" type="email" id="hero_email" placeholder="Your work email">
-                  <input type="submit" class="mz_btn mz_btn_primary shadow-2xl mt-3 sm:mt-0 sm:ml-3 w-full md:max-w-min" data-js="hero_email_submit" data-url="{{ .url }}" value="{{ .text }}">
+                  <input type="submit" class="mz_btn mz_btn_primary mt-3 sm:mt-0 sm:ml-3 w-full md:max-w-min" data-js="hero_email_submit" data-url="{{ .url }}" value="{{ .text }}">
                 </form>
               {{- else -}}
-                <a class="mz_btn mz_btn_primary elevated" href="{{- .url -}}">{{- .text -}}</a>
+                <a class="mz_btn mz_btn_primary" href="{{- .url -}}">{{- .text -}}</a>
               {{- end -}}
           {{- end -}}
           {{- with .secondary_cta -}}
@@ -54,7 +54,7 @@
           <span class="uppercase text-gray-700">{{ .eyebrow }}</span>
           <h2 class="text-black text-3xl">{{ .title }}</h2>
           <p class="text-gray-700">{{ .subtitle }}</p>
-          <a class="mz_btn mz_btn_purple text-white block md:inline-block" href="{{ .cta_url }}">{{ .cta_text }}</a>
+          <a class="mz_btn mz_btn_secondary mz_btn_lightbg block md:inline-block" href="{{ .cta_url }}">{{ .cta_text }}</a>
         </div>
         <img class="max-w-xs md:max-w-sm md:absolute md:-right-20 md:top-4" src="{{ .image }}" alt="Materialize Streaming Database Report" />
       </div>

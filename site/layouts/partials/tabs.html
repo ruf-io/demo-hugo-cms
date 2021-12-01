@@ -26,7 +26,9 @@
           </div>
           {{- with .code -}}
             <div class="-ml-24 mr-6 sm:mr-0 sm:ml-0 mz_gradient_border_purple z-40">
-              <pre class="mz_code max-w-lg lg:pr-24 text-white text-xs sm:text-base"><code>{{ .code }}</code></pre>
+              <div class="mz_code max-w-lg lg:pr-24 text-white text-xs sm:text-base">
+                  {{ highlight .code "postgres" "" }}
+              </div>
             </div>
           {{- end -}}
         </div>

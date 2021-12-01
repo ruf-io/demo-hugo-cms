@@ -70,7 +70,6 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "alpinejs": "^3.3.3",
-    "svg-to-excalidraw": "^0.0.2"
+    "alpinejs": "^3.3.3"
   }
 }

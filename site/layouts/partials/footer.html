@@ -21,7 +21,7 @@
 		{{- end -}}
 		<div class="bg-ui-purple rounded mb-8 p-5 md:pr-12 md:w-1/3 md:flex-shrink-0 md:order-1">
 			Join the Community on Slack:
-			<a href="#" class="mz_btn mz_btn_purple text-white block my-4">Join Slack Community</a>
+			<a href="#" class="mz_btn mz_btn_secondary text-white block my-4">Join Slack Community</a>
 			Get Product Updates:
 			<div class="email-cta">
 				<input type="email" id="footer_email" placeholder="Your work email">
@@ -50,9 +50,3 @@
 		<a href="#">Terms of Service</a>
 	</div>
 </div>
-<div class="site-bg"></div>
-
-{{ $app := .Site.Data.webpack.app }}
-{{ with $app.js }}
-	<script src="{{ relURL . }}"></script>
-{{ end }}

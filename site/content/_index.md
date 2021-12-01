@@ -60,16 +60,17 @@ product_values:
     label: Streaming Joins
     title: The Only Platform for | Streaming Joins
     body: >
-      While other stream processing tools are limited to basic joins, if any,
-      Materialize brings the same powerful join capabilities found in a
-      traditional database to streams of data.
+          While other stream processing tools are limited to basic joins, if any,
+          Materialize brings the same powerful join capabilities found in a
+          traditional database to streams of data.
 
-      **Materialize Join Capabilities:**
+          **Materialize Join Capabilities:**
 
-      - [Inner](https://materialize.com/docs/sql/join/#inner-join), [Left (outer)](https://materialize.com/docs/sql/join/#left-outer-join), [Right](https://materialize.com/docs/sql/join/#right-outer-join), [Full](https://materialize.com/docs/sql/join/#full-outer-join) and [Cross](https://materialize.com/docs/sql/join/#cross-join) Joins
-      - Multi-way joins
-      - Joins of other Materialized Views
-      - [Lateral joins](https://materialize.com/docs/sql/join/#lateral-subqueries)
+            - [Inner](https://materialize.com/docs/sql/join/#inner-join), [Left (outer)](https://materialize.com/docs/sql/join/#left-outer-join), [Right](https://materialize.com/docs/sql/join/#right-outer-join), [Full](https://materialize.com/docs/sql/join/#full-outer-join) and [Cross](https://materialize.com/docs/sql/join/#cross-join) Joins.
+            - Multi-way joins
+            - Joins of other Materialized Views
+            - [Lateral joins](https://materialize.com/docs/sql/join/#lateral-subqueries)
+
     cta_text: View Joins Documentation
     cta_url: https://materialize.com/docs/sql/join/
     code:
