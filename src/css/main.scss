@@ -23,7 +23,7 @@
   --gradientPrimary: linear-gradient(283.85deg, #5C29F1 19.34%, #E37AC2 64.93%, #FF9067 94.8%);
   --gradientSecondary: linear-gradient(110deg ,#5a34cb -.7%,#9b34cb 33.33%,#be41f9 66.66%,#7f4eff 99.48%);
   --gradientTertiary: linear-gradient(277.43deg, #4512C7 -97.28%, #59C3FF 15.82%, #75FF86 120.75%);
-  --standoutShadow: 0px 102.983px 82.3866px rgba(0, 0, 0, 0.14), 0px 43.0239px 34.4192px rgba(0, 0, 0, 0.10064), 0px 23.0027px 18.4021px rgba(0, 0, 0, 0.083455), 0px 12.8951px 10.3161px rgba(0, 0, 0, 0.07), 0px 6.84849px 5.47879px rgba(0, 0, 0, 0.056545), 0px 2.84981px 2.27985px rgba(0, 0, 0, 0.0393604);
+  --gradientBackground: radial-gradient(99.49% 118.97% at 3.45% 159.7%, #9B34CB 0.63%, rgba(155, 52, 203, 0) 100%), radial-gradient(42.13% 70.58% at 96.04% -42.41%, #5A34CB 0%, rgba(67, 52, 203, 0) 100%);
 
   --shadow-color: 0deg 0% 63%;
   --shadow-elevation-low:
@@ -88,12 +88,18 @@
     @apply md:px-6;
     @apply rounded;
     @apply whitespace-nowrap;
-    @apply transition-all;
-    @apply duration-300;
-    @apply ease-in-out;
     @apply cursor-pointer;
     @apply text-center;
     @apply text-white;
+    @apply bg-white;
+    @apply bg-opacity-10;
+
+    transition: all 0.2s ease-out;
+
+    &:hover, &:focus {
+      -moz-transform: rotate(0.02deg);
+      @apply bg-opacity-20;
+    }
 
     box-shadow: var(--shadow-elevation-medium-dark);
   }
@@ -123,6 +129,7 @@
     background-image: var(--gradientTertiary);
     background-position: 0 100%;
     background-size: 300% 300%;
+    color: var(--textReadableColor);
 
     &:hover, &:focus {
       background-position: 100% 100%;
@@ -160,7 +167,7 @@
       opacity: 0;
       background: var(--gradientTertiary);
       @apply transition-all;
-      @apply duration-100;
+      @apply duration-200;
       @apply ease-in;
     }
 
@@ -169,7 +176,7 @@
       left: 0;
       opacity: 1;
       @apply transition-all;
-      @apply duration-300;
+      @apply duration-200;
       @apply ease-out;
     }
   }
@@ -190,8 +197,40 @@
     }
   }
 
-  .mz_gradient_bg {
+  .mz_shadow_m_dark {
+    box-shadow: var(--shadow-elevation-medium-dark);
+  }
+  .mz_shadow_h_dark {
+    box-shadow: var(--shadow-elevation-high-dark);
+  }
+
+  .mz_shadow_m_light {
+    box-shadow: var(--shadow-elevation-medium-light);
+  }
+  .mz_shadow_h_light {
+    box-shadow: var(--shadow-elevation-high-light);
+  }
+
+  .mz_circle {
+    @apply border-4;
+    @apply border-ui-purple;
+    @apply max-w-3xl;
+    max-height: 768px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .mz_bg-gradient-tertiary {
     background: var(--gradientTertiary);
+  }
+
+  .mz_bg-gradient-ne {
+    background: var(--gradientBackground);
+  }
+  .mz_bg-gradient-se {
+    background: var(--gradientBackground);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
   }
 
   .mz_gradient_text {
@@ -200,6 +239,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-box-decoration-break: clone;
+  }
+  .mz_tertiary {
+    .mz_gradient_text {
+      background-image: var(--gradientTertiary);
+    }
   }
 
   .mz_gradient_border_green {
@@ -275,12 +319,11 @@
     }
   }
 
-  .mz_hero_bg {
-    background: radial-gradient(99.49% 118.97% at 3.45% 159.7%, #9B34CB .63%, rgba(155,52,203,0) 100%),radial-gradient(42.13% 70.58% at 96.04% -42.41%, #5A34CB 0%, rgba(67,52,203,0) 100%);
+  .mz_rotate {
+    transform: matrix(-1, 0, 0, 1, 0, 0);
   }
 
-  .mz_gradient_and_circle_bg {
-    background-image: url(/img/gradient_and_circle_bg.svg);
+  .mz_gradient_secondary {
   }
 
   .mz_code {
@@ -292,14 +335,13 @@
 
     &:before {
       @apply absolute;
-      @apply top-0.5;
+      @apply top-1.5;
       @apply left-4;
-      @apply text-2xl;
-      @apply font-bold;
+      @apply font-extrabold;
       @apply pr-2;
       letter-spacing: .4rem;
-      content: "◯◯◯";
-      background: var(--gradientTertiary);
+      content: "○○○";
+      background: var(--gradientSecondary);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;

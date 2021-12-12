@@ -1,11 +1,23 @@
-<div class="relative overflow-hidden p-3.5">
-  <div class="absolute z-10 inset-0 w-full max-w-6xl mx-auto">
-    
-  </div>
-  <div class="max-w-6xl mx-auto relative lg:p-3 z-20">
-    <h2 class="text-3xl tracking-tighter md:text-4xl">{{- partial "gradient-headline" .title -}}</h2>
-    <div class="mz_markdown">
-      {{ .body | markdownify }}
+<div class="overflow-hidden">
+  <div class="mx-auto max-w-6xl relative px-4 py-12">
+    <div class="mz_bg-gradient-se hidden md:block rounded-2xl absolute inset-0 left-24 -right-24 max-w-4xl mx-auto"></div>
+    <div class="lg:grid lg:grid-cols-2 lg:gap-8 relative z-10">
+      <div class="-mb-12 sm:-mb-32 lg:m-0 lg:relative">
+        <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
+          <img class="w-full lg:absolute lg:top-24 lg:-right-40 lg:h-full lg:w-auto lg:max-w-none" src="{{ .image }}" alt="Streaming Data Dashboards">
+        </div>
+      </div>
+      <div class="text-white mx-auto max-w-md lg:px-8 lg:py-24 lg:flex lg:items-center">
+        <div class="space-y-4">
+          <h2 class="mz_tertiary text-3xl tracking-tighter md:text-4xl">
+            {{- partial "gradient-headline" .title -}}
+          </h2>
+          <div class="mz_markdown text-lg mz_checklist">
+            {{ .body | markdownify }}
+          </div>
+          <button href="#" class="mz_btn mz_btn_tertiary">Primary CTA</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

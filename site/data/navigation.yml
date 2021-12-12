@@ -1,9 +1,10 @@
 links:
-  - text: Docs
-    url: https://materialize.com/docs/
+  - text: Solutions
+    url: /solutions/
     mega:
       links:
-        - text: Documentation
+        - text: Operationalized Analytics
+          description: 
           url: https://materialize.com/docs/
         - text: Download
           url: https://materialize.com/docs/install/
@@ -17,12 +18,10 @@ links:
         image: img/materialize-quickstart.jpeg
         button_text: Get Started
         button_url: https://materialize.com/docs/get-started/
-  - text: Product
-    url: /product/
-  - text: Solutions
-    url: /solutions/
   - text: Pricing
     url: /pricing/
+  - text: Docs
+    url: https://materialize.com/docs/
   - text: Company
     url: /company/
     mega:
@@ -46,7 +45,7 @@ links:
         button_text: Get Started
         button_url: https://materialize.com/docs/get-started/
 primary_cta:
-  text: Register for Cloud
+  text: Sign Up
   url: /materialize-cloud/
 secondary_cta:
   text: Sign In

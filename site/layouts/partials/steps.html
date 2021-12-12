@@ -1,10 +1,10 @@
-<div class="overflow-hidden pt-20">
+<div class="overflow-hidden py-12">
   <div class="max-w-6xl mx-auto relative text-center">
     {{- with .title -}}
-      <h2 class="text-gray-100 text-3xl">{{ . }}</h2>
+      <h2 class="text-gray-100 text-3xl px-8">{{ . }}</h2>
     {{- end -}}
     {{- with .subtitle -}}
-      <p class="text-gray-100">{{ . }}</p>
+      <div class="text-gray-100 px-8">{{ . }}</div>
     {{- end -}}
     {{- $steps_ct := len .steps -}}
     {{- range $i, $e := .steps -}}
@@ -15,11 +15,11 @@
             <div class="absolute top-24 -bottom-36 md:top-32 md:-bottom-24 left-0 w-px h-auto bg-ui-purple"></div>
           {{- end -}}
           <h2 class="text-4xl leading-tight text-white max-w-sm">{{ $e.title }}</h2>
-          <div class="text-gray-100 my-8 max-w-sm">
+          <div class="text-lg text-gray-100 my-8 max-w-sm">
             {{ $e.body | markdownify }}
           </div>
           {{- range $e.reference_links -}}
-            <a class="mz_docs_link text-white font-semibold mt-6 hover:underline" href="{{ .url }}">{{ .text }}</a>
+            <a class="mz_docs_link text-lg text-white font-semibold mt-6 hover:underline" href="{{ .url }}">{{ .text }}</a>
           {{- end -}}
         </div>
         <div class="flex-shrink md:flex-1 p-8 md:p-16">

@@ -1,0 +1,239 @@
+{{- with $.Site.Data.navigation -}}
+<div class="relative bg-primary-900 text-white md:border-b border-ui-gray" x-data="{ mobile_open: false }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex justify-between items-center py-6 md:py-0 md:justify-start">
+      <div class="flex justify-start lg:w-0 lg:flex-1">
+        <a href="/">
+          <span class="sr-only">Materialize</span>
+          <svg class="m-mark h-8 sm:h-10" width="161" height="29" viewBox="0 0 161 29" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M54.0797 6.44507V21.2633H56.6555V11.0613H56.793L60.8883 21.2198H62.8129L66.9081 11.083H67.0456V21.2633H69.6214V6.44507H66.3365L61.9374 17.1825H61.7637L57.3646 6.44507H54.0797Z" fill="currentColor"></path> <path d="M75.6269 21.4875C77.3706 21.4875 78.4125 20.6699 78.89 19.7366H78.9769V21.2633H81.4948V13.8252C81.4948 10.8876 79.0999 10.0049 76.9799 10.0049C74.6428 10.0049 72.8484 11.0468 72.2696 13.0727L74.7152 13.42C74.9757 12.6603 75.7137 12.0091 76.9944 12.0091C78.2099 12.0091 78.8756 12.6314 78.8756 13.7239V13.7673C78.8756 14.5198 78.0869 14.556 76.1261 14.7658C73.9699 14.9974 71.9078 15.6413 71.9078 18.1448C71.9078 20.3299 73.5069 21.4875 75.6269 21.4875ZM76.307 19.5629C75.2144 19.5629 74.433 19.0637 74.433 18.1014C74.433 17.0956 75.3085 16.676 76.4806 16.5096C77.168 16.4155 78.5427 16.2419 78.8828 15.9669V17.2765C78.8828 18.5138 77.8843 19.5629 76.307 19.5629Z" fill="currentColor"></path> <path d="M89.6781 10.1496H87.4857V7.48697H84.8665V10.1496H83.2892V12.1755H84.8665V18.3546C84.852 20.4456 86.3715 21.4731 88.3395 21.4152C89.0848 21.3935 89.5985 21.2488 89.8807 21.1547L89.4393 19.1071C89.2946 19.1433 88.9979 19.2084 88.6724 19.2084C88.0139 19.2084 87.4857 18.9769 87.4857 17.9205V12.1755H89.6781V10.1496Z" fill="currentColor"></path> <path d="M96.6693 21.4803C99.2596 21.4803 101.04 20.2141 101.503 18.2822L99.057 18.0073C98.7025 18.9479 97.8342 19.4399 96.7055 19.4399C95.0124 19.4399 93.8909 18.3257 93.8692 16.4227H101.611V15.6196C101.611 11.7197 99.2668 10.0049 96.5318 10.0049C93.3483 10.0049 91.2717 12.342 91.2717 15.7716C91.2717 19.259 93.3193 21.4803 96.6693 21.4803ZM93.8764 14.6573C93.956 13.2391 95.0052 12.0453 96.568 12.0453C98.073 12.0453 99.086 13.1451 99.1004 14.6573H93.8764Z" fill="currentColor"></path> <path d="M103.827 21.2633H106.446V14.7296C106.446 13.3187 107.51 12.3202 108.95 12.3202C109.391 12.3202 109.941 12.3998 110.165 12.4722V10.0628C109.926 10.0194 109.514 9.99043 109.225 9.99043C107.951 9.99043 106.888 10.714 106.482 12.0019H106.367V10.1496H103.827V21.2633Z" fill="currentColor"></path> <path d="M111.905 21.2633H114.525V10.1496H111.905V21.2633ZM113.222 8.57229C114.054 8.57229 114.734 7.93557 114.734 7.15414C114.734 6.36548 114.054 5.72876 113.222 5.72876C112.383 5.72876 111.703 6.36548 111.703 7.15414C111.703 7.93557 112.383 8.57229 113.222 8.57229Z" fill="currentColor"></path> <path d="M120.416 21.4875C122.16 21.4875 123.202 20.6699 123.679 19.7366H123.766V21.2633H126.284V13.8252C126.284 10.8876 123.889 10.0049 121.769 10.0049C119.432 10.0049 117.638 11.0468 117.059 13.0727L119.504 13.42C119.765 12.6603 120.503 12.0091 121.784 12.0091C122.999 12.0091 123.665 12.6314 123.665 13.7239V13.7673C123.665 14.5198 122.876 14.556 120.915 14.7658C118.759 14.9974 116.697 15.6413 116.697 18.1448C116.697 20.3299 118.296 21.4875 120.416 21.4875ZM121.096 19.5629C120.004 19.5629 119.222 19.0637 119.222 18.1014C119.222 17.0956 120.098 16.676 121.27 16.5096C121.957 16.4155 123.332 16.2419 123.672 15.9669V17.2765C123.672 18.5138 122.674 19.5629 121.096 19.5629Z" fill="currentColor"></path> <path d="M131.537 6.44507H128.918V21.2633H131.537V6.44507Z" fill="currentColor"></path> <path d="M134.23 21.2633H136.85V10.1496H134.23V21.2633ZM135.547 8.57229C136.379 8.57229 137.059 7.93557 137.059 7.15414C137.059 6.36548 136.379 5.72876 135.547 5.72876C134.708 5.72876 134.028 6.36548 134.028 7.15414C134.028 7.93557 134.708 8.57229 135.547 8.57229Z" fill="currentColor"></path> <path d="M139.398 21.2633H148.522V19.0926H142.878V18.9986L148.334 11.9368V10.1496H139.586V12.3202H145.129V12.4143L139.398 19.5991V21.2633Z" fill="currentColor"></path> <path d="M155.586 21.4803C158.176 21.4803 159.956 20.2141 160.419 18.2822L157.973 18.0073C157.619 18.9479 156.751 19.4399 155.622 19.4399C153.929 19.4399 152.807 18.3257 152.786 16.4227H160.528V15.6196C160.528 11.7197 158.183 10.0049 155.448 10.0049C152.265 10.0049 150.188 12.342 150.188 15.7716C150.188 19.259 152.236 21.4803 155.586 21.4803ZM152.793 14.6573C152.872 13.2391 153.922 12.0453 155.484 12.0453C156.989 12.0453 158.002 13.1451 158.017 14.6573H152.793Z" fill="currentColor"></path> <path class="bar1" d="M8.52478 28.5217C5.78102 28.5217 3.03726 28.5217 0.293498 28.5217C0.0489163 28.5217 0 28.4728 0 28.2327C0 25.5023 0 22.7674 0 20.0281C0.182324 20.0281 0.257922 20.2015 0.369096 20.3082C2.99872 22.9201 5.62389 25.5393 8.24462 28.166C8.35135 28.2594 8.51589 28.335 8.52478 28.5217Z" fill="currentColor"></path> <path class="bar3" d="M25.0894 20.4296C25.7698 21.1766 26.4857 21.8837 27.2284 22.5641C27.3218 22.6708 27.4107 22.7864 27.513 22.8887C28.7804 24.1561 30.0566 25.4101 31.3196 26.682C31.9199 27.2912 32.5691 27.8559 33.0983 28.523H23.8932C23.7998 28.4118 23.7108 28.2962 23.6086 28.1939C22.0996 26.6938 20.5891 25.1893 19.0771 23.6803C13.9276 18.5455 8.77655 13.4108 3.62403 8.27608C2.42335 7.07985 1.25826 5.8525 0.00866699 4.71853V0.685153C1.61401 0.685153 3.2238 0.685153 4.83359 0.685153C4.9615 0.680522 5.0889 0.703552 5.20709 0.75267C5.32528 0.801787 5.43147 0.875836 5.51842 0.969757C9.76673 5.20324 14.018 9.43673 18.2722 13.6702C18.3555 13.7519 18.4431 13.8291 18.5346 13.9015C19.7842 15.1599 21.0293 16.4273 22.2878 17.6814C23.2128 18.6063 24.1555 19.5135 25.0894 20.4296Z" fill="currentColor"></path> <path class="bar5" d="M33.1117 28.5223C32.5691 27.8552 31.9199 27.2904 31.3329 26.6812C30.07 25.4094 28.7937 24.1554 27.5263 22.888C27.424 22.7857 27.3351 22.6701 27.2417 22.5634C27.2417 22.3721 27.2417 22.1854 27.2417 21.9941C27.2417 15.5075 27.2417 9.01798 27.2417 2.52544C27.236 2.18135 27.3634 1.84836 27.5975 1.59603C27.8461 1.25748 28.1812 0.99211 28.5678 0.82779C28.9543 0.66347 29.378 0.606263 29.7942 0.662177C30.9727 0.751116 32.1645 0.697753 33.3518 0.662177C33.7164 0.662177 33.7965 0.76001 33.7965 1.10687C33.7965 7.61719 33.7965 14.1171 33.7965 20.6067C33.7965 23.0703 33.7965 25.5354 33.7965 28.002C33.7965 28.1754 33.7965 28.3488 33.8232 28.5223H33.1117Z" fill="currentColor" fill-opacity="0.7"></path> <path class="bar2" d="M0 16.9643V7.77246C0.137855 7.80359 0.209006 7.92366 0.297945 8.01704L3.13954 10.8231C8.37507 16.0438 13.6106 21.2645 18.8461 26.4852C19.5132 27.1522 20.2202 27.7881 20.8206 28.5219H11.5976C11.5976 28.3885 11.4687 28.3307 11.3886 28.2506C8.16606 25.031 4.93758 21.8144 1.70318 18.6008C1.16656 18.0238 0.597942 17.4774 0 16.9643H0Z" fill="currentColor"></path> <path class="bar4" d="M25.089 20.4288C24.1551 19.5127 23.2124 18.6055 22.2874 17.6806C21.0289 16.4265 19.7838 15.1592 18.5342 13.9007C18.5342 12.9224 18.5342 11.9485 18.5342 10.9701C18.5244 10.8702 18.5369 10.7693 18.5707 10.6747C18.6045 10.5802 18.6589 10.4942 18.7298 10.4232L24.8533 4.33087C24.9022 4.28195 24.9645 4.24193 25.0089 4.2019C25.1468 4.25082 25.1068 4.3531 25.1068 4.4287C25.1068 9.69091 25.1068 14.9516 25.1068 20.2109C25.1054 20.2838 25.0995 20.3566 25.089 20.4288V20.4288Z" fill="currentColor" fill-opacity="0.7"></path> </svg>
+        </a>
+      </div>
+      <div class="-mr-2 -my-2 md:hidden" >
+        <button @click="mobile_open = !mobile_open" type="button" class="bg-purple-500 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-purple-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
+          <span class="sr-only">Open menu</span>
+          <!-- Heroicon name: outline/menu -->
+          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <nav class="hidden md:flex">
+        {{- range .links -}}
+					{{- if isset . "mega" -}}
+            <div x-data="{ open: false }" @click.away="open = false" class="relative">
+              <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
+              <button
+                @click="open = !open"
+                class="mz_navlink mz_navlink_hover_effect group rounded-md inline-flex items-center"
+                aria-expanded="false"
+              >
+                <span>{{- .text -}}</span>
+                <!--
+                  Heroicon name: solid/chevron-down
+
+                  Item active: "text-gray-600", Item inactive: "text-gray-400"
+                -->
+                <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              {{- with .mega -}}
+                <div
+                  x-show="open"
+                  x-transition:enter="transition ease-out duration-200"
+                  x-transition:enter-start="opacity-0 translate-y-1"
+                  x-transition:enter-end="opacity-100 translate-y-0"
+                  x-transition:leave="transition ease-in duration-150"
+                  x-transition:leave-start="opacity-100 translate-y-0"
+                  x-transition:leave-end="opacity-0 translate-y-1"
+                  class="absolute z-50 -ml-4 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
+                  <div class="rounded-lg mz_gradient_border_green shadow-darkBG overflow-hidden">
+                    <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">  
+											{{- range .links -}}
+                        <a href="{{ .url }}" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                          <!-- Heroicon name: outline/chart-bar -->
+                          <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                          </svg>
+                          <div class="ml-4">
+                            <p class="text-base font-medium text-gray-900">
+                              {{ .text }}
+                            </p>
+                            {{- with .description -}}
+                              <p class="mt-1 text-sm text-gray-500">
+                                {{ . }}
+                              </p>
+                            {{- end -}}
+                          </div>
+                        </a>
+											{{- end -}}
+                    </div>
+                    <div class="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                      <div class="flow-root">
+                        <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
+                          <!-- Heroicon name: outline/play -->
+                          <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span class="ml-3">Watch Demo</span>
+                        </a>
+                      </div>
+
+                      <div class="flow-root">
+                        <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
+                          <!-- Heroicon name: outline/phone -->
+                          <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                          <span class="ml-3">Contact Sales</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+							{{- end -}}
+            </div>
+          {{- else -}}
+            <a class="mz_navlink mz_navlink_hover_effect" {{ with .url }}href="{{ . }}"{{ end }}>{{- .text -}}</a>
+          {{- end -}}
+        {{- end -}}
+      </nav>
+      <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+        {{- with .secondary_cta -}}
+          <a href="{{ .url }}" class="whitespace-nowrap text-base font-medium text-gray-200 hover:text-white hover:underline">
+            {{- .text -}}
+          </a>
+				{{- end -}}
+				{{- with .primary_cta -}}
+          <a href="{{ .url }}" class="mz_btn mz_btn_secondary p-2 ml-4">
+            {{- .text -}}
+          </a>
+				{{- end -}}
+        
+        
+      </div>
+    </div>
+  </div>
+  <div
+    x-show="mobile_open"
+    x-transition:enter="duration-200 ease-out"
+    x-transition:enter-start="opacity-0 scale-95"
+    x-transition:enter-end="opacity-100 scale-100"
+    x-transition:leave="duration-100 ease-in"
+    x-transition:leave-start="opacity-100 scale-100"
+    x-transition:leave-end="opacity-0 scale-95"
+    class="absolute top-0 z-50 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+  >
+    <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+      <div class="pt-5 pb-6 px-5">
+        <div class="flex items-center justify-between">
+          <div>
+            <svg class="m-mark h-8 sm:h-10" width="161" height="29" viewBox="0 0 161 29" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M54.0797 6.44507V21.2633H56.6555V11.0613H56.793L60.8883 21.2198H62.8129L66.9081 11.083H67.0456V21.2633H69.6214V6.44507H66.3365L61.9374 17.1825H61.7637L57.3646 6.44507H54.0797Z" fill="currentColor"></path> <path d="M75.6269 21.4875C77.3706 21.4875 78.4125 20.6699 78.89 19.7366H78.9769V21.2633H81.4948V13.8252C81.4948 10.8876 79.0999 10.0049 76.9799 10.0049C74.6428 10.0049 72.8484 11.0468 72.2696 13.0727L74.7152 13.42C74.9757 12.6603 75.7137 12.0091 76.9944 12.0091C78.2099 12.0091 78.8756 12.6314 78.8756 13.7239V13.7673C78.8756 14.5198 78.0869 14.556 76.1261 14.7658C73.9699 14.9974 71.9078 15.6413 71.9078 18.1448C71.9078 20.3299 73.5069 21.4875 75.6269 21.4875ZM76.307 19.5629C75.2144 19.5629 74.433 19.0637 74.433 18.1014C74.433 17.0956 75.3085 16.676 76.4806 16.5096C77.168 16.4155 78.5427 16.2419 78.8828 15.9669V17.2765C78.8828 18.5138 77.8843 19.5629 76.307 19.5629Z" fill="currentColor"></path> <path d="M89.6781 10.1496H87.4857V7.48697H84.8665V10.1496H83.2892V12.1755H84.8665V18.3546C84.852 20.4456 86.3715 21.4731 88.3395 21.4152C89.0848 21.3935 89.5985 21.2488 89.8807 21.1547L89.4393 19.1071C89.2946 19.1433 88.9979 19.2084 88.6724 19.2084C88.0139 19.2084 87.4857 18.9769 87.4857 17.9205V12.1755H89.6781V10.1496Z" fill="currentColor"></path> <path d="M96.6693 21.4803C99.2596 21.4803 101.04 20.2141 101.503 18.2822L99.057 18.0073C98.7025 18.9479 97.8342 19.4399 96.7055 19.4399C95.0124 19.4399 93.8909 18.3257 93.8692 16.4227H101.611V15.6196C101.611 11.7197 99.2668 10.0049 96.5318 10.0049C93.3483 10.0049 91.2717 12.342 91.2717 15.7716C91.2717 19.259 93.3193 21.4803 96.6693 21.4803ZM93.8764 14.6573C93.956 13.2391 95.0052 12.0453 96.568 12.0453C98.073 12.0453 99.086 13.1451 99.1004 14.6573H93.8764Z" fill="currentColor"></path> <path d="M103.827 21.2633H106.446V14.7296C106.446 13.3187 107.51 12.3202 108.95 12.3202C109.391 12.3202 109.941 12.3998 110.165 12.4722V10.0628C109.926 10.0194 109.514 9.99043 109.225 9.99043C107.951 9.99043 106.888 10.714 106.482 12.0019H106.367V10.1496H103.827V21.2633Z" fill="currentColor"></path> <path d="M111.905 21.2633H114.525V10.1496H111.905V21.2633ZM113.222 8.57229C114.054 8.57229 114.734 7.93557 114.734 7.15414C114.734 6.36548 114.054 5.72876 113.222 5.72876C112.383 5.72876 111.703 6.36548 111.703 7.15414C111.703 7.93557 112.383 8.57229 113.222 8.57229Z" fill="currentColor"></path> <path d="M120.416 21.4875C122.16 21.4875 123.202 20.6699 123.679 19.7366H123.766V21.2633H126.284V13.8252C126.284 10.8876 123.889 10.0049 121.769 10.0049C119.432 10.0049 117.638 11.0468 117.059 13.0727L119.504 13.42C119.765 12.6603 120.503 12.0091 121.784 12.0091C122.999 12.0091 123.665 12.6314 123.665 13.7239V13.7673C123.665 14.5198 122.876 14.556 120.915 14.7658C118.759 14.9974 116.697 15.6413 116.697 18.1448C116.697 20.3299 118.296 21.4875 120.416 21.4875ZM121.096 19.5629C120.004 19.5629 119.222 19.0637 119.222 18.1014C119.222 17.0956 120.098 16.676 121.27 16.5096C121.957 16.4155 123.332 16.2419 123.672 15.9669V17.2765C123.672 18.5138 122.674 19.5629 121.096 19.5629Z" fill="currentColor"></path> <path d="M131.537 6.44507H128.918V21.2633H131.537V6.44507Z" fill="currentColor"></path> <path d="M134.23 21.2633H136.85V10.1496H134.23V21.2633ZM135.547 8.57229C136.379 8.57229 137.059 7.93557 137.059 7.15414C137.059 6.36548 136.379 5.72876 135.547 5.72876C134.708 5.72876 134.028 6.36548 134.028 7.15414C134.028 7.93557 134.708 8.57229 135.547 8.57229Z" fill="currentColor"></path> <path d="M139.398 21.2633H148.522V19.0926H142.878V18.9986L148.334 11.9368V10.1496H139.586V12.3202H145.129V12.4143L139.398 19.5991V21.2633Z" fill="currentColor"></path> <path d="M155.586 21.4803C158.176 21.4803 159.956 20.2141 160.419 18.2822L157.973 18.0073C157.619 18.9479 156.751 19.4399 155.622 19.4399C153.929 19.4399 152.807 18.3257 152.786 16.4227H160.528V15.6196C160.528 11.7197 158.183 10.0049 155.448 10.0049C152.265 10.0049 150.188 12.342 150.188 15.7716C150.188 19.259 152.236 21.4803 155.586 21.4803ZM152.793 14.6573C152.872 13.2391 153.922 12.0453 155.484 12.0453C156.989 12.0453 158.002 13.1451 158.017 14.6573H152.793Z" fill="currentColor"></path> <path class="bar1" d="M8.52478 28.5217C5.78102 28.5217 3.03726 28.5217 0.293498 28.5217C0.0489163 28.5217 0 28.4728 0 28.2327C0 25.5023 0 22.7674 0 20.0281C0.182324 20.0281 0.257922 20.2015 0.369096 20.3082C2.99872 22.9201 5.62389 25.5393 8.24462 28.166C8.35135 28.2594 8.51589 28.335 8.52478 28.5217Z" fill="currentColor"></path> <path class="bar3" d="M25.0894 20.4296C25.7698 21.1766 26.4857 21.8837 27.2284 22.5641C27.3218 22.6708 27.4107 22.7864 27.513 22.8887C28.7804 24.1561 30.0566 25.4101 31.3196 26.682C31.9199 27.2912 32.5691 27.8559 33.0983 28.523H23.8932C23.7998 28.4118 23.7108 28.2962 23.6086 28.1939C22.0996 26.6938 20.5891 25.1893 19.0771 23.6803C13.9276 18.5455 8.77655 13.4108 3.62403 8.27608C2.42335 7.07985 1.25826 5.8525 0.00866699 4.71853V0.685153C1.61401 0.685153 3.2238 0.685153 4.83359 0.685153C4.9615 0.680522 5.0889 0.703552 5.20709 0.75267C5.32528 0.801787 5.43147 0.875836 5.51842 0.969757C9.76673 5.20324 14.018 9.43673 18.2722 13.6702C18.3555 13.7519 18.4431 13.8291 18.5346 13.9015C19.7842 15.1599 21.0293 16.4273 22.2878 17.6814C23.2128 18.6063 24.1555 19.5135 25.0894 20.4296Z" fill="currentColor"></path> <path class="bar5" d="M33.1117 28.5223C32.5691 27.8552 31.9199 27.2904 31.3329 26.6812C30.07 25.4094 28.7937 24.1554 27.5263 22.888C27.424 22.7857 27.3351 22.6701 27.2417 22.5634C27.2417 22.3721 27.2417 22.1854 27.2417 21.9941C27.2417 15.5075 27.2417 9.01798 27.2417 2.52544C27.236 2.18135 27.3634 1.84836 27.5975 1.59603C27.8461 1.25748 28.1812 0.99211 28.5678 0.82779C28.9543 0.66347 29.378 0.606263 29.7942 0.662177C30.9727 0.751116 32.1645 0.697753 33.3518 0.662177C33.7164 0.662177 33.7965 0.76001 33.7965 1.10687C33.7965 7.61719 33.7965 14.1171 33.7965 20.6067C33.7965 23.0703 33.7965 25.5354 33.7965 28.002C33.7965 28.1754 33.7965 28.3488 33.8232 28.5223H33.1117Z" fill="currentColor" fill-opacity="0.7"></path> <path class="bar2" d="M0 16.9643V7.77246C0.137855 7.80359 0.209006 7.92366 0.297945 8.01704L3.13954 10.8231C8.37507 16.0438 13.6106 21.2645 18.8461 26.4852C19.5132 27.1522 20.2202 27.7881 20.8206 28.5219H11.5976C11.5976 28.3885 11.4687 28.3307 11.3886 28.2506C8.16606 25.031 4.93758 21.8144 1.70318 18.6008C1.16656 18.0238 0.597942 17.4774 0 16.9643H0Z" fill="currentColor"></path> <path class="bar4" d="M25.089 20.4288C24.1551 19.5127 23.2124 18.6055 22.2874 17.6806C21.0289 16.4265 19.7838 15.1592 18.5342 13.9007C18.5342 12.9224 18.5342 11.9485 18.5342 10.9701C18.5244 10.8702 18.5369 10.7693 18.5707 10.6747C18.6045 10.5802 18.6589 10.4942 18.7298 10.4232L24.8533 4.33087C24.9022 4.28195 24.9645 4.24193 25.0089 4.2019C25.1468 4.25082 25.1068 4.3531 25.1068 4.4287C25.1068 9.69091 25.1068 14.9516 25.1068 20.2109C25.1054 20.2838 25.0995 20.3566 25.089 20.4288V20.4288Z" fill="currentColor" fill-opacity="0.7"></path> </svg>
+          </div>
+          <div class="-mr-2">
+            <button @click="mobile_open = false" type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+              <span class="sr-only">Close menu</span>
+              <!-- Heroicon name: outline/x -->
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="mt-6">
+          <nav class="grid gap-y-8">
+            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+              <!-- Heroicon name: outline/chart-bar -->
+              <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Analytics
+              </span>
+            </a>
+
+            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+              <!-- Heroicon name: outline/cursor-click -->
+              <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Engagement
+              </span>
+            </a>
+
+            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+              <!-- Heroicon name: outline/shield-check -->
+              <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Security
+              </span>
+            </a>
+
+            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+              <!-- Heroicon name: outline/view-grid -->
+              <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Integrations
+              </span>
+            </a>
+
+            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+              <!-- Heroicon name: outline/refresh -->
+              <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span class="ml-3 text-base font-medium text-gray-900">
+                Automations
+              </span>
+            </a>
+          </nav>
+        </div>
+      </div>
+      <div class="py-6 px-5 space-y-6">
+        <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+          <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
+            Pricing
+          </a>
+
+          <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
+            Docs
+          </a>
+
+          <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
+            Help Center
+          </a>
+
+          <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
+            Guides
+          </a>
+
+          <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
+            Events
+          </a>
+
+          <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
+            Security
+          </a>
+        </div>
+        <div>
+          <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+            Sign up
+          </a>
+          <p class="mt-6 text-center text-base font-medium text-gray-500">
+            Existing customer?
+            <a href="#" class="text-indigo-600 hover:text-indigo-500">
+              Sign in
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{- end -}}

@@ -1,15 +1,25 @@
 <!doctype html>
 <html lang="{{ $.Site.Language.Lang }}">
-  {{ partial "head" . }}
+  
+  {{- partial "head" . -}}
+  
   <body class="text-base">
-    
-    {{ block "header" . }}{{ partial "nav" . }}{{end}}
+   
+    {{- block "header" . -}}
+      {{- partial "promo_banner" . -}}
+      {{- partial "nav_tw" . -}}
+    {{- end -}}
 
-    {{ block "main" . }}{{ end }}
+    <main class="relative w-full overflow-hidden">
+      {{- block "main" . -}}{{- end -}}
+    </main>
 
-    {{ block "footer" . }}{{ partial "footer" . }}{{end}}
-
+    {{- block "footer" . -}}
+      {{ partial "footer" . }}
+    {{- end -}}
+  
     <div class="mz_fader_bg"></div>
+    
     {{ $wp := .Site.Data.webpack }}
     {{- with $wp.app.js -}}
       <script src="{{ relURL . }}"></script>
@@ -17,5 +27,6 @@
     {{- with $wp.main.js -}}
       <script src="{{ relURL . }}"></script>
     {{- end }}
+
   </body>
 </html>

@@ -1,30 +1,43 @@
-<div class="overflow-hidden lg:pt-12 -mb-28">
-  <div class="max-w-6xl mx-auto relative mz_hero_bg rounded-2xl lg:pb-16">
+<div class="overflow-hidden pb-12 md:py-12">
+  <div class="mz_bg-gradient-ne max-w-6xl mx-auto relative md:rounded-2xl lg:pb-16">
     <div class="relative z-10 py-8 lg:max-w-2xl lg:w-full lg:py-28 xl:py-32">
       <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 lg:pl-16 lg:-mt-9">
-        <div class="sm:text-center lg:text-left space-y-5 sm:space-y-8">
+        <div class="sm:text-center lg:text-left">
+          {{- with .eyebrow_cta -}}
+            <a href="{{ .url }}" class="mb-3 inline-flex items-center text-white bg-black bg-opacity-40 rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
+              <span class="px-3 py-0.5 text-black text-xs font-semibold leading-5 uppercase tracking-wide mz_bg-gradient-tertiary rounded-full">{{ .title }}</span>
+              <span class="ml-4 text-sm">{{ .description }}</span>
+              <svg class="ml-2 w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          {{ end }}
           <h1 class="text-4xl font-light tracking-tight text-white sm:text-5xl md:text-5xl">
             {{- partial "gradient-headline" .title -}}
           </h1>
-          <p class="text-base text-gray-100 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
+          <p class="text-base text-gray-100 my-5 sm:my-8 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0">
             {{- .subtitle | markdownify -}}
           </p>
           {{- with .primary_cta -}}
               {{- if .collect_email -}}
                 <!-- TODO: Could move this to partial and combine with footer email form -->
                 <form class="max-w-lg mx-auto lg:mx-0 sm:flex sm:justify-center lg:justify-start">
-                  <input class="shadow appearance-none rounded w-full p-3 leading-none bg-black bg-opacity-50 border border-ui-purple text-white placeholder-white sm:flex-grow" type="email" id="hero_email" placeholder="Your work email">
-                  <input type="submit" class="mz_btn mz_btn_primary mt-3 sm:mt-0 sm:ml-3 w-full md:max-w-min" data-js="hero_email_submit" data-url="{{ .url }}" value="{{ .text }}">
+                  <input class="shadow appearance-none rounded w-full p-3 leading-none bg-white bg-opacity-90 border border-ui-purple text-black text-lg placeholder-gray-800 sm:flex-grow" type="email" id="hero_email" placeholder="Your work email">
+                  <input type="submit" class="mz_btn mz_btn_primary text-lg mt-3 sm:mt-0 sm:ml-3 w-full md:max-w-min" data-js="hero_email_submit" data-url="{{ .url }}" value="{{ .text }}">
                 </form>
               {{- else -}}
                 <a class="mz_btn mz_btn_primary" href="{{- .url -}}">{{- .text -}}</a>
               {{- end -}}
           {{- end -}}
           {{- with .secondary_cta -}}
-          <p class="text-base text-gray-100 sm:text-lg md:text-xl">
-            <span class="opacity-80">or</span>
-            <a class="mz_arrow_link font-semibold" href="{{- .url -}}">{{- .text -}}</a>
-          </p>
+            {{- if .button -}}
+              <a class="mz_btn ml-4" href="{{- .url -}}">{{- .text -}}</a>
+            {{- else -}}
+              <p class="text-base text-gray-100 sm:text-lg md:text-xl my-5 sm:my-8">
+                <span class="opacity-80">or</span>
+                <a class="mz_arrow_link font-semibold" href="{{- .url -}}">{{- .text -}}</a>
+              </p>
+            {{- end -}}
           {{- end -}}
         </div>
       </main>
@@ -42,23 +55,22 @@
           </div>
         {{- else -}}
           <div class="flex items-center justify-center lg:block lg:absolute lg:inset-y-10 lg:right-0 lg:w-1/2">
-            <object class="relative -mb-12 lg:w-auto lg:h-auto lg:-left-8" style="min-width:540px;" data="/img/hero.svg" type="image/svg+xml"></object>
+            <object class="relative -mb-24 lg:w-auto lg:h-auto lg:-left-8" data="/img/hero.svg" type="image/svg+xml"></object>
           </div>
         {{- end -}}
       {{- end -}}
   </div>
   {{- with .learn_cta }}
-    <div class="relative p-4 -top-36 md:-top-20">
-      <div class="bg-white relative rounded shadow-2xl items-center justify-between p-4 max-w-3xl mx-auto flex flex-col sm:flex-row md:p-10">
-        <div class="space-y-3 sm:space-y-5 md:pr-64">
-          <span class="uppercase text-gray-700">{{ .eyebrow }}</span>
-          <h2 class="text-black text-3xl">{{ .title }}</h2>
-          <p class="text-gray-700">{{ .subtitle }}</p>
-          <a class="mz_btn mz_btn_secondary mz_btn_lightbg block md:inline-block" href="{{ .cta_url }}">{{ .cta_text }}</a>
+    <div class="relative p-4 -mb-36 -top-36 md:-top-20 md:-mb-20">
+      <div class="bg-white relative rounded mz_shadow_h_dark items-center justify-between p-8 max-w-3xl mx-auto flex flex-col sm:flex-row">
+        <img class="max-w-xs -mb-4 -mt-4 md:mt-0 md:max-w-sm md:absolute md:-right-20" src="{{ .image }}" alt="Materialize Streaming Database Report" />
+        <div class="md:pr-64">
+          <span class="uppercase text-gray-500">{{ .eyebrow }}</span>
+          <h2 class="text-black text-3xl my-2">{{ .title }}</h2>
+          <p class="text-gray-700 my-4">{{ .subtitle }}</p>
+          <a class="mz_btn mz_btn_secondary mz_btn_lightbg block md:inline-block pt-2" href="{{ .cta_url }}">{{ .cta_text }}</a>
         </div>
-        <img class="max-w-xs md:max-w-sm md:absolute md:-right-20 md:top-4" src="{{ .image }}" alt="Materialize Streaming Database Report" />
       </div>
     </div>
   {{- end -}}
 </div>
-

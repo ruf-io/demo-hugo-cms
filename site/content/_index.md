@@ -3,25 +3,31 @@ title: "Materialize: The streaming database for up-to-date materialized views"
 description: "Materialize is the only true SQL streaming database for building internal tools, interactive dashboards, and customer-facing experiences. It provides the simplicity of SQL queries, but with millisecond-level latency for real-time data."
 theme: dark
 hero:
+  eyebrow_cta:
+    title: We're Hiring
+    description: Visit our careers page.
+    url: https://materialize.com/careers/
   title: The Streaming Database | for Real-time Analytics
   subtitle: Build powerful real-time data products, all in SQL, with
             materialized views that are always up-to-date.
   primary_cta:
-    text: See how it works
-    url: /get-a-demo/
-    collect_email: true
+    text: Get started for free
+    url: https://cloud.materialize.com/account/sign-up
+    collect_email: false
   secondary_cta:
-    text: Get started with Materialize Cloud
-    url: /cloud-signup
+    text: Watch a Demo
+    url: /get-a-demo
+    button: true
   learn_cta:
     eyebrow: Technical Report
-    title: How Materialize Works
+    title: "Materialize: An Overview"
     subtitle: Get a technical overview of Materialize and learn about business
       applications of the technology.
     cta_text: Download the Report
     cta_url: /reports/materialize-overview
     image: img/report.png
 product_info:
+  title: "Explore the Materialize Way:"
   cta:
     text: Read the Quickstart
     url: https://materialize.com/docs/get-started/
@@ -36,10 +42,10 @@ product_info:
         - text: Docs / Materialize CDC
           url: https://materialize.com/docs/connect/materialize-cdc/#main
       widget: sources
-    - title: Create Real-Time Materialized Views
-      body: Materialize allows you to query, join, and transform data sources in
-        standard SQL - and presents the results as incrementally-updated
-        Materialized views. Queries are maintained and continually updated as
+    - title: Define Materialized Views in SQL
+      body: Join, aggregate, transform and filter your data sources in
+        standard SQL - Materialize maintains the results as incrementally-updated
+        Materialized views. Views are continually kept up-to-date as
         new data streams in.
       reference_links:
         - text: Docs / What is Materialize?
@@ -150,7 +156,7 @@ use_cases:
   cta:
     text: See all use cases
     url: /use-cases/
-  image: img/dashboard.svg
+  image: img/use-case.svg
 inputs:
   title: Connect a Wide Range of Data Sources
   subtitle: Materialize can connect to many different sources of data - including
