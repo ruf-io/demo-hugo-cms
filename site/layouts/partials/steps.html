@@ -9,10 +9,10 @@
     {{- $steps_ct := len .steps -}}
     {{- range $i, $e := .steps -}}
       <div class="flex flex-wrap items-center justify-center flex-row-reverse text-left mt-8 p-2">
-        <div class="relative p-8 ml-8 md:p-14 md:my-2 md:flex-1">
-          <span class="absolute top-8 md:top-14 -left-3 text-5xl mz_gradient_text font-display">{{ add 1 $i }}</span>
+        <div class="relative p-6 pr-2 ml-8 md:p-14 md:my-2 md:flex-1">
+          <span class="absolute top-6 md:top-14 -left-5 text-5xl mz_gradient_text font-display">{{ add 1 $i }}</span>
           {{- if ne (add 1 $i) $steps_ct -}}
-            <div class="absolute top-24 -bottom-36 md:top-32 md:-bottom-24 left-0 w-px h-auto bg-ui-purple"></div>
+            <div class="absolute top-24 -bottom-36 md:top-32 md:-bottom-24 -left-2 w-px h-auto bg-ui-purple"></div>
           {{- end -}}
           <h2 class="text-4xl leading-tight text-white max-w-sm">{{ $e.title }}</h2>
           <div class="text-lg text-gray-100 my-8 max-w-sm">

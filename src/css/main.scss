@@ -94,6 +94,10 @@
     @apply bg-white;
     @apply bg-opacity-10;
 
+    @apply transition-all;
+    @apply duration-200;
+    @apply ease-in-out;
+
     &:hover, &:focus {
       @apply bg-opacity-20;
     }
@@ -139,18 +143,15 @@
 
   .mz_navlink {
     @apply relative;
-    @apply block;
+    @apply inline-block;
     @apply px-3;
-    @apply py-2;
+    @apply py-6;
     @apply font-semibold;
     @apply bg-transparent;
     @apply rounded-lg;
     @apply whitespace-nowrap;
     @apply cursor-pointer;
-    @apply mdl:mt-0;
-    @apply mdl:py-6;
     @apply lg:px-6;
-    @apply mdl:inline-block;
   }
 
   .mz_navlink_hover_effect {

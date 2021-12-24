@@ -7,7 +7,7 @@
    
     {{- block "header" . -}}
       {{- partial "promo_banner" . -}}
-      {{- partial "nav_tw" . -}}
+      {{- partial "navigation" . -}}
     {{- end -}}
 
     <main class="relative w-full overflow-hidden">
@@ -20,6 +20,13 @@
   
     <div class="mz_fader_bg"></div>
     
+    {{ $wp := .Site.Data.webpack }}
+    {{- with $wp.app.js -}}
+      <script src="{{ relURL . }}"></script>
+    {{- end -}}
+    {{- with $wp.main.js -}}
+      <script src="{{ relURL . }}"></script>
+    {{- end }}
 
   </body>
 </html>
