@@ -1,5 +1,5 @@
 {{- with $.Site.Data.navigation -}}
-<div class="md:sticky top-0 z-50 bg-primary-900 bg-opacity-80 text-white md:border-b border-ui-gray" x-data="{ mobile_open: false }">
+<div class="md:sticky md:backdrop-filter md:backdrop-blur-sm md:bg-opacity-75 top-0 z-50 bg-primary-900  text-white md:border-b border-ui-gray" x-data="{ mobile_open: false }">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="flex justify-start items-center py-6 md:py-0">
       <div class="flex justify-start w-0 flex-1">
@@ -11,7 +11,6 @@
       <div class="-mr-2 -my-2 md:hidden" >
         <button @click="mobile_open = !mobile_open" type="button" class="bg-purple-500 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-purple-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
           <span class="sr-only">Open menu</span>
-          <!-- Heroicon name: outline/menu -->
           <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -21,19 +20,13 @@
         {{- range .links -}}
 					{{- if isset . "mega" -}}
             <div x-data="{ open: false }" @click.away="open = false" class="relative">
-              <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
               <button
                 @click="open = !open"
                 class="mz_navlink mz_navlink_hover_effect group rounded-md inline-flex items-center"
                 aria-expanded="false"
               >
                 <span>{{- .text -}}</span>
-                <!--
-                  Heroicon name: solid/chevron-down
-
-                  Item active: "text-gray-600", Item inactive: "text-gray-400"
-                -->
-                <svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <svg class="text-gray-500 ml-2 h-5 w-5 group-hover:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
               </button>
@@ -57,11 +50,11 @@
                           </svg>
                           <div class="ml-4">
                             <p class="text-base font-medium text-gray-900">
-                              {{ .text }}
+                              {{- .text -}}
                             </p>
                             {{- with .description -}}
                               <p class="mt-1 text-sm text-gray-500">
-                                {{ . }}
+                                {{- . -}}
                               </p>
                             {{- end -}}
                           </div>
@@ -110,8 +103,6 @@
             {{- .text -}}
           </a>
 				{{- end -}}
-        
-        
       </div>
     </div>
   </div>

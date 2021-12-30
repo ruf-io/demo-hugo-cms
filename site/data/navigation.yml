@@ -1,4 +1,8 @@
 links:
+  - text: Documentation
+    url: https://materialize.com/docs/
+  - text: Pricing
+    url: /pricing/
   - text: Solutions
     url: /solutions/
     mega:
@@ -18,10 +22,6 @@ links:
         image: img/materialize-quickstart.jpeg
         button_text: Get Started
         button_url: https://materialize.com/docs/get-started/
-  - text: Pricing
-    url: /pricing/
-  - text: Docs
-    url: https://materialize.com/docs/
   - text: Company
     url: /company/
     mega:

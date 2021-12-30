@@ -1,0 +1,47 @@
+- name: primary
+  sources:
+  - name: Kafka
+    description: 
+    create_example: >
+      CREATE SOURCE my_kafka_src
+        FROM KAFKA BROKER 'kafka:9092'
+        TOPIC 'my-topic' FORMAT BYTES;
+    drop_example: DROP SOURCE my_kafka_src;
+  - name: PostgreSQL
+    description: 
+    create_example: >
+      CREATE SOURCE my_db_src FROM POSTGRES
+        CONNECTION 'host=postgres port=5432 user=host sslmode=require dbname=postgres'
+        PUBLICATION 'mz_src';
+    drop_example: DROP SOURCE my_db_src;
+- name: secondary
+  sources:
+  - name: AWS S3
+    description:
+    create_example: >
+      CREATE SOURCE my_s3_src
+        FROM S3 DISCOVER OBJECTS USING BUCKET SCAN 'analytics'
+        WITH (region = 'us-east-1') FORMAT TEXT;
+    drop_example: DROP SOURCE my_s3_src;
+  - name: AWS Kinesis
+    description:
+    create_example: >
+      CREATE SOURCE my_kinesis_src
+        FROM KINESIS ARN 'arn:aws:kinesis:us-east-1:012345:stream/mystream'
+        WITH (access_key_id = 'AK12SDFAAWIKD', secret_access_key = '02KIRMTFJFNWKC3/D2S2')
+        FORMAT BYTES;
+    drop_example: DROP SOURCE my_kinesis_src;
+  - name: PubNub
+    description:
+    create_example: >
+      CREATE SOURCE my_pubnub_src FROM PUBNUB
+        SUBSCRIBE KEY 'sub-c-4377ab04-f100-11e3-bffd-02ee2ddab7fe'
+        CHANNEL 'pubnub-channel-name';
+    drop_example: DROP SOURCE my_pubnub_src;
+  - name: Local Files
+    description:
+    create_example: >
+      CREATE SOURCE my_local_file_src
+        FROM FILE '/path/to/file.json'
+        FORMAT BYTES;
+    drop_example: DROP SOURCE my_local_file_src;

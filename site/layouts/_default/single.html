@@ -1,6 +1,7 @@
-{{ define "main" }}
+{{- define "main" -}}
 
-{{ partial "jumbotron" (dict "imageUrl" "/img/7.jpg" "title" "This is where the heading goes" "subtitle" "This is where the subtitle goes") }}
-{{ .Content }}
+  {{- range .Params.sections -}}
+    {{- partial .type . -}}
+  {{- end -}}
 
-{{ end }}
+{{- end -}}

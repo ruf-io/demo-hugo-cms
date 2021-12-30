@@ -10,7 +10,7 @@
       {{- partial "navigation" . -}}
     {{- end -}}
 
-    <main class="relative w-full overflow-hidden">
+    <main class="relative w-full">
       {{- block "main" . -}}{{- end -}}
     </main>
 
@@ -27,6 +27,10 @@
     {{- with $wp.main.js -}}
       <script src="{{ relURL . }}"></script>
     {{- end }}
+
+    <div class="p-8 text-gray-900 bg-white">
+      {{ printf "%#v" $.Site.Data }}
+    </div>
 
   </body>
 </html>

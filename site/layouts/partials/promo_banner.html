@@ -6,13 +6,13 @@
 				<div class="pr-16 sm:text-center sm:px-16">
 					<p class="font-medium">
 						<span class="md:hidden">
-							{{ .text_short }}
+							{{- .text_short -}}
 						</span>
 						<span class="hidden md:inline">
-							{{ .text }}
+							{{- .text -}}
 						</span>
 						<span class="block sm:ml-2 sm:inline-block">
-							<a href="{{ .url }}" class="font-bold underline"> {{ .cta_text }} <span aria-hidden="true">&rarr;</span></a>
+							<a href="{{ .url }}" class="font-bold underline">{{- .cta_text -}} <span aria-hidden="true">&rarr;</span></a>
 						</span>
 					</p>
 				</div>

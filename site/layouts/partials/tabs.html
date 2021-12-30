@@ -1,44 +1,46 @@
-<div class="relative">
-  <div class="overflow-hidden py-12">
+<section class="relative overflow-hidden max-w-full">
+  <div class="py-12">
     <div class="relative p-3.5 lg:p-8">
       <div class="mz_bg-gradient-ne hidden md:block rounded-2xl absolute z-0 inset-0 max-w-4xl mx-auto"></div>
       <div class="max-w-6xl mx-auto relative lg:p-3 z-10">
-        <div class="bg-white rounded-2xl flex flex-row items-start lg:mr-40 lg:items-stretch mz_shadow_m_dark relative"
-            x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : '{{ (index . 0).label | urlize }}' }" >
-          <div class="flex flex-col max-w-34 z-10">
-            {{- range $i, $e := . -}} 
-            {{- $slug := .label | urlize -}}
-                <a
-                  class="relative lg:flex-grow flex flex-col items-center p-2 md:py-4 text-center border-b border-ui-offwhite first:rounded-tl-2xl last:rounded-bl-2xl last:border-b-0"
-                  href="#"
-                  :class="{ 'shadow-xl z-10 bg-white': tab === '{{ $slug }}', 'bg-gray-50 border-r': tab !== '{{ $slug }}'  }"
-                  @click.prevent="tab = '{{ $slug }}'; window.location.hash = '{{ $slug }}'"
-                >
-                  <img class="max-h-10 w-3/5" src="{{ .icon }}" alt="{{.label}}">
-                  <span class="uppercase text-2xs leading-tight sm:text-xs mt-2">{{ .label }}</span>
-                </a>
-            {{- end -}}
-          </div>
-          {{- range $i, $e := . -}}
-            <div class="h-full self-center md:flex items-center lg:-mr-40" x-show="tab === '{{ .label | urlize }}'">
-              <div class="p-6 md:p-12 max-w-md bg-white rounded-tr-2xl z-30">
-                <h2 class="text-3xl tracking-tighter md:text-4xl">{{- partial "gradient-headline" .title -}}</h2>
-                <div class="my-8 mz_markdown break-words sm:break-normal w-11/12 sm:w-full">
-                  {{ .body | markdownify }}
-                </div>
-              </div>
-              {{- with .code -}}
-                <div class="-ml-24 mr-6 sm:mr-0 sm:ml-0 mz_gradient_border_purple z-40">
-                  <div class="mz_code max-w-lg lg:pr-24 text-white text-xs sm:text-base">
-                      {{ highlight .code "postgres" "" }}
-                  </div>
-                </div>
+        {{- with .tabs -}}
+          <div class="bg-white rounded-2xl flex flex-row items-start lg:mr-40 lg:items-stretch mz_shadow_m_dark relative"
+              x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : '{{ (index . 0).label | urlize }}' }" >
+            <div class="flex flex-col max-w-34 z-10">
+              {{- range $i, $e := . -}} 
+              {{- $slug := .label | urlize -}}
+                  <a
+                    class="relative lg:flex-grow flex flex-col items-center p-2 md:py-4 text-center border-b border-ui-offwhite first:rounded-tl-2xl last:rounded-bl-2xl last:border-b-0"
+                    href="#"
+                    :class="{ 'shadow-xl z-10 bg-white': tab === '{{ $slug }}', 'bg-gray-50 border-r': tab !== '{{ $slug }}'  }"
+                    @click.prevent="tab = '{{ $slug }}'; window.location.hash = '{{ $slug }}'"
+                  >
+                    <img class="max-h-10 w-3/5" src="{{ .icon }}" alt="{{.label}}">
+                    <span class="uppercase text-2xs leading-tight sm:text-xs mt-2">{{ .label }}</span>
+                  </a>
               {{- end -}}
             </div>
-          {{- end -}}
-        </div>
+            {{- range $i, $e := . -}}
+              <div class="h-full self-center md:flex items-center lg:-mr-40" x-show="tab === '{{ .label | urlize }}'">
+                <div class="p-6 md:p-12 max-w-md bg-white rounded-tr-2xl z-30">
+                  <h2 class="text-3xl tracking-tighter md:text-4xl">{{- partial "gradient-headline" .title -}}</h2>
+                  <div class="my-8 mz_markdown break-words sm:break-normal w-11/12 sm:w-full">
+                    {{ .body | markdownify }}
+                  </div>
+                </div>
+                {{- with .code -}}
+                  <div class="-ml-24 mr-6 sm:mr-0 sm:ml-0 mz_gradient_border_purple_blue z-40">
+                    <div class="mz_code max-w-lg lg:pr-24 text-white text-xs sm:text-base">
+                        {{ highlight .code "postgres" "" }}
+                    </div>
+                  </div>
+                {{- end -}}
+              </div>
+            {{- end -}}
+          </div>
+        {{- end -}}
       </div>
     </div>
   </div>
   <div class="mz_circle absolute -top-12 left-3/4 opacity-50"></div>
-</div>
+</section>

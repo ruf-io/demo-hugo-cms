@@ -11,3 +11,6 @@ disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 # Enable for syntax highlighting
 pygmentsUseClasses=true
 pygmentsCodefences=true
+[permalinks]
+  page = '/:slug/'
+  post = '/blog/:slug/'

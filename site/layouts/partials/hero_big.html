@@ -1,4 +1,4 @@
-<div class="md:pt-8 lg:pb-14 lg:overflow-hidden">
+<section class="md:pt-8 lg:pb-14 lg:overflow-hidden">
   <div class="mx-auto max-w-7xl pb-12 lg:px-8 mz_bg-gradient-ne md:rounded-2xl">
     <div class="lg:grid lg:grid-cols-2 lg:gap-8">
       <div class="mx-auto max-w-md pt-12 px-4 sm:max-w-2xl sm:px-6  sm:text-center lg:pr-0 lg:px-10 lg:py-12 lg:text-left lg:flex lg:items-center">
@@ -23,10 +23,10 @@
                 <!-- TODO: Could move this to partial and combine with footer email form -->
                 <form class="max-w-lg mx-auto lg:mx-0 sm:flex sm:justify-center lg:justify-start">
                   <input class="shadow appearance-none rounded w-full p-3 leading-none bg-white bg-opacity-90 border border-ui-purple text-black text-lg placeholder-gray-800 sm:flex-grow" type="email" id="hero_email" placeholder="Your work email">
-                  <input type="submit" class="mz_btn mz_btn_primary text-lg mt-3 sm:mt-0 sm:ml-3 w-full md:max-w-min" data-js="hero_email_submit" data-url="{{ .url }}" value="{{ .text }}">
+                  <input type="submit" class="mz_btn mz_btn_primary inline-block text-lg mt-3 sm:mt-0 sm:ml-3 w-full md:max-w-min" data-js="hero_email_submit" data-url="{{ .url }}" value="{{ .text }}">
                 </form>
               {{- else -}}
-                <a class="mz_btn mz_btn_primary" href="{{- .url -}}">{{- .text -}}</a>
+                <a class="mz_btn mz_btn_primary inline-block" href="{{- .url -}}">{{- .text -}}</a>
               {{- end -}}
           {{- end -}}
           {{- with .secondary_cta -}}
@@ -41,16 +41,21 @@
           {{- end -}}
         </div>
       </div>
-      <div class="relative m-12">
+      <div class="relative m-14">
         <div class="mx-auto max-w-lg">
           <img class="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto" src="/img/hero.svg" alt="">
         </div>
       </div>
     </div>
   </div>
-  {{- with .learn_cta }}
-    <div class="relative p-8 -mb-24 -top-24 md:-top-20 md:-mb-20">
-      <div class="bg-ui-offwhite relative rounded mz_shadow_h_dark items-center justify-between p-8 max-w-3xl mx-auto flex flex-col sm:flex-row">
+  {{- with .feature_box }}
+    <div class="relative p-8 -mb-24 -top-24 md:-top-20 md:-mb-20"
+         x-data="{ intersect: false }"
+         x-intersect="intersect = true"
+      >
+      <div class="bg-ui-offwhite relative rounded mz_shadow_h_dark items-center justify-between p-8 max-w-3xl mx-auto flex flex-col sm:flex-row transform transition-all duration-500"
+           x-bind:class="intersect ? 'translate-y-0 opacity-100' : 'translate-y-72 opacity-0'"
+        >
         <img class="max-w-xs -mb-4 -mt-4 md:mt-0 md:max-w-sm md:absolute md:-right-20" src="{{ .image }}" alt="Materialize Streaming Database Report" />
         <div class="md:pr-64">
           <span class="uppercase text-gray-500">{{ .eyebrow }}</span>
@@ -61,4 +66,4 @@
       </div>
     </div>
   {{- end -}}
-</div>
+</section>

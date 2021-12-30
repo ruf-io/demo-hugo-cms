@@ -1,23 +1,7 @@
 {{- define "main" -}}
 
-  {{- with .Params.hero -}}
-    {{- partial "hero" . -}}
+  {{- range .Params.sections -}}
+    {{- partial .type . -}}
   {{- end -}}
-
-  {{- with .Params.product_info -}}
-    {{- partial "steps" . -}}
-  {{- end -}}
-
-  {{- with .Params.product_values -}}
-    {{- partial "tabs" . -}}
-  {{- end -}}
-
-  {{- with .Params.use_cases -}}
-    {{- partial "image-and-text" . -}}
-  {{- end -}}
-
-  {{- partial "testimonial-cards" . -}}
-
-  {{- partial "blog-promo-cards" . -}}
 
 {{- end -}}

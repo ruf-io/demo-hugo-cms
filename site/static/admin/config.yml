@@ -133,12 +133,22 @@ collections:
               - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
   - name: "pages"
     label: "Pages"
-    files:
-      - file: "site/content/_index.md"
-        label: "Home Page"
-        name: "home"
-        fields:
-          - {label: "Hero", name: hero, widget: object, summary: '{{fields.title}}', fields: [
+    folder: "site/content/pages"
+    create: true
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        pattern: ["^.{3,65}$", "Title must be between 3 and 65 characters"]
+      - label: "Description"
+        name: "description"
+        widget: "string"
+        pattern: ["^.{50,155}$", "Description must be between 50 and 155 characters"]
+      - label: 'Sections'
+        name: 'sections'
+        widget: 'list'
+        types:
+          - {label: "Big Hero", name: hero_big, widget: object, summary: '{{fields.title}}', fields: [
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
               {label: Subtitle, name: subtitle, widget: markdown},
               {label: "Primary CTA", name: primary_cta, widget: object, summary: '{{fields.text}}', required: false, fields: [
@@ -156,40 +166,7 @@ collections:
                 {label: CTA Text, name: cta_text, widget: string},
                 {label: CTA URL, name: cta_url, widget: string},
                 {label: Graphic, name: image, widget: image}]}]}
-          - {label: "Product Info (Steps)", name: product_info, widget: object, fields: [
-              {label: Title, name: title, widget: string, required: false, hint: "Use the pipe character | as a line seperator"},
-              {label: Subtitle, name: subtitle, widget: string, required: false},
-              {label: "Steps", name: steps, widget: list, fields: [
-                {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
-                {label: Body, name: body, widget: markdown},
-                {label: Widget, name: widget, widget: select,options: ["sources", "code-demos", "output"] },
-                {label: "Reference Links", name: reference_links, widget: list, required: false, fields: [
-                  {label: Text, name: text, widget: string},
-                  {label: URL, name: url, widget: string},
-                ]},
-                {label: Code, name: code, widget: code, required: false}]}]}
-          - {label: "Product Differentiators", name: product_values, widget: list, fields: [
-              {label: Icon, name: icon, widget: image},
-              {label: Label, name: label, widget: string},
-              {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
-              {label: Body, name: body, widget: markdown},
-              {label: CTA Text, name: cta_text, widget: string, required: false},
-              {label: CTA URL, name: cta_url, widget: string, required: false},
-              {label: Graphic, name: image, widget: image, required: false},
-              {label: Code, name: code, widget: code, required: false}]}
-          - {label: "Input Sources", name: inputs, widget: object, summary: '{{fields.title}}', fields: [
-              {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
-              {label: Subtitle, name: subtitle, widget: text},
-              {label: Sources, name: sources, widget: list, fields: [
-                {label: Icon, name: icon, widget: image},
-                {label: URL, name: url, widget: string}]},
-              {label: Primary CTA Text, name: primary_cta_text, widget: string},
-              {label: Primary CTA URL, name: primary_cta_url, widget: string}]}
-      - file: "site/content/products/_index.md"
-        label: "Product"
-        name: "product"
-        fields:
-          - {label: "Hero", name: hero, widget: object, fields: [
+          - {label: "Small Hero", name: hero_small, widget: object, fields: [
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
               {label: Subtitle, name: subtitle, widget: text},
               {label: Primary CTA Text, name: primary_cta_text, widget: string},
@@ -205,16 +182,28 @@ collections:
                 {label: CTA Text, name: cta_text, widget: string},
                 {label: CTA URL, name: cta_url, widget: string},
                 {label: Graphic, name: image, widget: image}]}]}
-          - {label: "Product Differentiators", name: product, widget: list, fields: [
+          - {label: "Steps", name: steps, widget: object, fields: [
+              {label: Title, name: title, widget: string, required: false, hint: "Use the pipe character | as a line seperator"},
+              {label: Subtitle, name: subtitle, widget: string, required: false},
+              {label: "Steps", name: steps, widget: list, fields: [
+                {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
+                {label: Body, name: body, widget: markdown},
+                {label: Widget, name: widget, widget: select,options: ["sources", "code-demos", "output"] },
+                {label: "Reference Links", name: reference_links, widget: list, required: false, fields: [
+                  {label: Text, name: text, widget: string},
+                  {label: URL, name: url, widget: string},
+                ]},
+                {label: Code, name: code, widget: code, required: false}]}]}
+          - {label: "Tabs", name: tabs, widget: list, fields: [
               {label: Icon, name: icon, widget: image},
               {label: Label, name: label, widget: string},
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
               {label: Body, name: body, widget: markdown},
-              {label: CTA Text, name: cta_text, widget: string},
-              {label: CTA URL, name: cta_url, widget: string},
-              {label: Graphic, name: image, widget: image},
-              {label: Code, name: code, widget: code}]}
-          - {label: "Input Sources", name: inputs, widget: object, fields: [
+              {label: CTA Text, name: cta_text, widget: string, required: false},
+              {label: CTA URL, name: cta_url, widget: string, required: false},
+              {label: Graphic, name: image, widget: image, required: false},
+              {label: Code, name: code, widget: code, required: false}]}
+          - {label: "Graphic Left / Text Right", name: graphic_left_text_right, widget: object, summary: '{{fields.title}}', fields: [
               {label: Title, name: title, widget: string, hint: "Use the pipe character | as a line seperator"},
               {label: Subtitle, name: subtitle, widget: text},
               {label: Sources, name: sources, widget: list, fields: [
@@ -222,35 +211,9 @@ collections:
                 {label: URL, name: url, widget: string}]},
               {label: Primary CTA Text, name: primary_cta_text, widget: string},
               {label: Primary CTA URL, name: primary_cta_url, widget: string}]}
-          - {label: "Intro", name: intro, widget: object, fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Products", name: products, widget: list, fields: [
-              {label: "Image", name: "image", widget: "image"},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Values", name: "values", widget: "object", fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
-      - file: "site/content/contact/_index.md"
-        label: "Contact Page"
-        name: "contact"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Logo, name: logo, widget: image}
-          - {label: Body, name: body, widget: markdown}
-          - label: Contact Entries
-            name: contact_entries
-            widget: list
-            fields:
-              - label: Heading
-                name: heading
-                widget: string
-              - label: Text
-                name: text
-                widget: text
-  - name: "blog"
-    label: "Blog"
-    folder: "site/content/blog"
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "site/content/posts"
     create: true
     fields:
       - label: "Title"
