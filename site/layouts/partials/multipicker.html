@@ -1,0 +1,32 @@
+<div class="max-w-sm m-6">
+  <div x-data="{suggestions: ['Kafka', 'PostgreSQL', 'S3', 'MySQL'], selections:[], open: false, textInput: ''}" x-init="optSelect()" @click.away="clearSearch()" @keydown.escape="clearSearch()">
+    
+    <div class="relative" @keydown.enter.prevent="addOpt(textInput)">
+      <div class="my-2">
+      
+      <!-- selections -->
+      <template x-for="(opt, index) in opts">
+        <div class="bg-indigo-100 inline-flex items-center text-sm rounded mt-2 mr-1">
+          <span class="ml-2 mr-1 leading-relaxed truncate max-w-xs" x-text="opt"></span>
+          <button @click.prevent="removeOpt(index)" class="w-6 h-8 inline-block align-middle text-gray-500 hover:text-gray-600 focus:outline-none">
+            <svg class="w-6 h-6 fill-current mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M15.78 14.36a1 1 0 0 1-1.42 1.42l-2.82-2.83-2.83 2.83a1 1 0 1 1-1.42-1.42l2.83-2.82L7.3 8.7a1 1 0 0 1 1.42-1.42l2.83 2.83 2.82-2.83a1 1 0 0 1 1.42 1.42l-2.83 2.83 2.83 2.82z"/></svg>
+          </button>
+        </div>
+      </template>
+      </div>
+      
+      <input x-model="textInput" x-ref="textInput" @input="search($event.target.value)" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Specify source(s)">
+      <div :class="[open ? '' : 'hidden']">
+        <div class="absolute z-40 left-0 mt-2 w-full">
+          <div class="py-1 text-sm bg-white rounded shadow-lg border border-gray-300">
+            <template x-for="(opt, index) in suggestions">
+              <a @click.prevent="addOpt(opt)" class="block py-1 px-5 cursor-pointer hover:bg-indigo-600 hover:text-white font-semibold" x-text="opt"></a>
+            </template>
+            
+            <a @click.prevent="addOpt(textInput)" class="block py-1 px-5 cursor-pointer hover:bg-indigo-600 hover:text-white">Add "<span class="font-semibold" x-text="textInput"></span>"</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

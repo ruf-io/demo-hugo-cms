@@ -1,19 +1,23 @@
 links:
-  - text: Documentation
-    url: https://materialize.com/docs/
-  - text: Pricing
-    url: /pricing/
-  - text: Solutions
-    url: /solutions/
+  - text: Why Materialize
     mega:
       links:
-        - text: Operationalized Analytics
-          description: 
-          url: https://materialize.com/docs/
-        - text: Download
-          url: https://materialize.com/docs/install/
-        - text: GitHub
-          url: https://github.com/materializeinc/materialize
+        - text: Materialize Manifesto
+          description: "What Materialize is and why we're building it."
+          url: /what-is-materialize/
+          icon: speakerphone
+        - text: For Application Developers
+          description: "Materialize is better than a cache."
+          url: /what-is-materialize/
+          icon: cog
+        - text: For Data Engineers
+          description: "Materialize is better than a pipeline."
+          url: /what-is-materialize/
+          icon: chart-square-bar
+        - text: Customers
+          description: "See what others are building with Materialize."
+          url: /customers/
+          icon: users
       featured_item:
         title: Get started with Materialize
         description: "This guide walks you through getting started with Materialize,
@@ -22,20 +26,24 @@ links:
         image: img/materialize-quickstart.jpeg
         button_text: Get Started
         button_url: https://materialize.com/docs/get-started/
+  - text: Documentation
+    url: https://materialize.com/docs/
+  - text: Pricing
+    url: /pricing/
+  
   - text: Company
-    url: /company/
+    url: /about/
     mega:
       links:
         - text: About Us
-          url: /company/
+          url: /about/
+          icon: office-building
         - text: Careers
           url: /careers/
-        - text: Contact
-          url: /contact/
-        - text: Resources
-          url: /resources/
+          icon: briefcase
         - text: Blog
           url: /blog/
+          icon: book-open
       featured_item:
         title: Get started with Materialize
         description: "This guide walks you through getting started with Materialize,

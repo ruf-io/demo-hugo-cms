@@ -1,0 +1,76 @@
+<section class="py-12">
+  <div class="max-w-6xl mx-auto relative text-center">
+
+    {{- with .title -}}
+      <h2 class="text-gray-100 text-3xl px-8 tracking-tight">{{ . }}</h2>
+    {{- end -}}
+
+    {{- with .subtitle -}}
+      <div class="text-gray-100 px-8">{{ . }}</div>
+    {{- end -}}
+
+    <div class="text-left border border-red-400 my-12" x-data="{ curr_slide: 0 }">
+
+      {{- with .slides -}}
+        {{- range $slide_number, $slide := . -}}
+        {{ $total_builds := 0 }}
+        {{ with $slide.builds }}
+          {{ $total_builds = len . }}
+        {{ end }}
+          <div class="p-8 grid grid-cols-2"
+              id="slide_{{$slide_number}}"
+               :class="curr_slide == {{$slide_number}} ? '' : 'hidden'"
+               @click="curr_build < total_builds && curr_build++"
+               x-data='{ curr_build: 0, total_builds: {{ $total_builds }} }'>
+            <div class="graphic">
+            </div>
+            <div class="copy">
+              <div class="uppercase text-gray-300 mb-2">{{ $slide.eyebrow }}</div>
+              <h2 class="text-4xl leading-tight text-white max-w-md">{{ $slide.title }}</h2>
+              <div class="my-8 max-w-md prose prose-invert prose-lg">
+                <div :class="curr_build == 0 ? '' : 'hidden'">
+                  {{ $slide.body | markdownify }}
+                </div>
+                
+                {{ with $slide.builds }}
+                  {{ range $build_index, $build := . }}
+                    {{ with $build.body }}
+                      <div :class="curr_build == {{ add $build_index 1 }} ? '' : 'hidden'">
+                        {{ . | markdownify }}
+                      </div>
+                    {{ end }}
+                  {{ end }}
+                {{ end }}
+
+              </div>
+              
+
+              <div :class="curr_build == {{ $total_builds }} ? '' : 'hidden'">
+                {{- with $slide.question -}}
+                  
+                    <p class="text-lg leading-5 text-white font-semibold">{{ .text }}</p>
+                    
+                    {{- if eq .type "single" -}}
+                    
+                      <span class="relative z-0 inline-flex shadow-sm rounded-md my-4">
+                        {{ $i_last := sub (len .options) 1 }}
+                          {{- range $i, $v := .options -}}
+                            <button @click="curr_slide++" type="button" class="{{ if eq $i 0 }}rounded-l-md{{ end }} {{if ne $i 0 }}-ml-px{{ end }} {{if eq $i $i_last }}rounded-r-md{{ end }} relative inline-flex items-center px-4 py-2 border border-gray-300 bg-purple-400 text-sm font-medium text-gray-50 hover:bg-purple-600 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
+                                {{ . }}
+                            </button>
+                          {{- end -}}
+                      </span>
+                    {{- else if eq .type "multi" }}
+                    
+                    {{- end -}}
+                {{- else -}}
+                  <button @click="curr_slide++" class="mz_button mz_button primary">Continue</button>
+                {{- end -}}
+              </div>
+            </div>
+          </div>
+        {{- end -}}
+      {{- end -}}
+    </div>
+  </div>
+</section>

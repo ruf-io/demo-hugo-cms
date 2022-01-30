@@ -1,0 +1,16 @@
+
+<div class="max-w-7xl mx-auto py-8 px-4 sm:py-20 sm:px-6 lg:px-8">
+  <div class="xl:flex xl:items-center xl:justify-between">
+    <div>
+      <h1 class="text-4xl font-light sm:text-5xl sm:tracking-tight text-gray-50">
+        {{- partial "gradient-headline" .title -}}
+      </h1>
+      <p class="mt-5 text-xl text-gray-200">
+        {{- .subtitle | markdownify -}}
+      </p>
+    </div>
+    {{- with .cta -}}
+      <a href="{{ .url }}" class="mt-8 w-full bg-indigo-600 border border-transparent px-5 py-3 inline-flex items-center justify-center text-base font-medium rounded-md text-white hover:bg-indigo-700 sm:mt-10 sm:w-auto xl:mt-0">{{ .text }}</a>
+    {{- end -}}
+  </div>
+</div>

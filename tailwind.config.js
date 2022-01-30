@@ -9,8 +9,12 @@ module.exports = {
       screens: {
         'mdl': '879px',
       },
+      spacing: {
+        '1/4screen': '25vh',
+      },
       fontSize: {
         '2xs': '.625rem',
+        '5xl_plus': '3.25rem',
       },
       fontFamily: {
         'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'Helvetica'],
@@ -48,7 +52,7 @@ module.exports = {
       },
       maxWidth: {
         '34': '8.5rem'
-      }
+      },
     },
   },
   variants: {
@@ -57,9 +61,11 @@ module.exports = {
       scale: ['group-hover'],
       borderRadius: ['first', 'last'],
       borderWidth: ['first', 'last'],
+      typography: ["dark"],
     }
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
   ],
 }

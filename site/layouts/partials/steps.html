@@ -6,62 +6,228 @@
     {{- with .subtitle -}}
       <div class="text-gray-100 px-8">{{ . }}</div>
     {{- end -}}
-    {{- with .steps -}}
-      <div class="flex flex-wrap justify-center text-left mt-8 p-2"  x-data="{active_step: 1}">
-        <div class="mz_steps_widget flex-shrink md:flex-1 p-8 md:p-10 mt-4 self-start border-pink-500 border-2 overflow-hidden">
-          <div class="transform transition-all duration-1000" x-bind:class="active_step == 1 ? 'translate-y-0' : '-translate-y-64'">
-            {{- with site.Data.sources -}}
-              <div class="max-w-md" x-data="{ command: 'mz=> ' }">
-                <div
-                  class="text-gray-400 grid grid-cols-2 gap-12 overflow-hidden pb-4"
+    <div class="flex flex-wrap justify-center text-left mt-8 p-2"
+          x-data="{active_step: 1, command: '\n' }"
+          x-init="$watch('active_step', (step) => { if(step == 2) command = $refs.view_example.innerText; })">
+      
+      <div class="mz_steps_widget flex-shrink md:flex-1 p-8 md:p-10 mt-4 self-start">
+        <div class="relative -top-1 transform transition-all duration-1000 flex flex-col items-end"
+              :class="active_step == 1 ? 'translate-y-0' : (active_step == 2 ? '-translate-y-64' : '-translate-y-96')">
+
+          <!-- Sources Graphic -->
+          {{- with site.Data.sources -}}
+            <svg class="-mb-20" width="324" height="314" viewBox="-150 0 324 314" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="gradient" x1="2342.54" y1="158.318" x2="2142.16" y2="-625.209" gradientUnits="userSpaceOnUse">
+                  <stop offset="0.0260417" stop-color="#4512C7"/>
+                  <stop offset="0.53125" stop-color="#59C3FF"/>
+                  <stop offset="1" stop-color="#75FF86"/>
+                </linearGradient>
+                <linearGradient id="gradient_transparent" x1="2342.54" y1="158.318" x2="2142.16" y2="-625.209" gradientUnits="userSpaceOnUse">
+                  <stop offset="0.0260417" stop-color="#4512C788"/>
+                  <stop offset="0.53125" stop-color="#59C3FF88"/>
+                  <stop offset="1" stop-color="#75FF8688"/>
+                </linearGradient>
+                <linearGradient id="purple" x1="64.9613" y1="-15.323" x2="102.305" y2="51.6443" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#5A34CB"/>
+                  <stop offset="1" stop-color="#9B34CB"/>
+                </linearGradient>
                   
-                  >
-                  {{- range $category_i, $category := . -}}
-                    <div class="p-2 space-y-2">
-                      <h4 class="text-sm">{{ title $category.name }}</h4>
-                      {{- range $source_i, $source := $category.sources -}}
-                        {{ $slug := (replaceRE "(\\s)" "" $source.name) }}
-                        <div class="
-                            mz_source
-                            {{ if eq $category_i 0 }}
-                              mz_bg-left
-                              p-8
-                            {{ else }}
-                              mz_bg-right
-                              p-2
-                            {{ end }}
-                          "
-                          @mouseenter="if (!active) { command = $refs.{{ $slug }}_create.innerText } else { command = $refs.{{ $slug }}_drop.innerText }"
-                          x-data="{ active: {{ if and (eq $category_i 0) (eq $source_i 0) }} true {{ else }} false {{ end }} }"
-                          @click="active = !active; if (active) {  command = $refs.{{ $slug }}_create.innerText + '\n' + $refs.create.innerText } else {  command = $refs.{{ $slug }}_drop.innerText + '\n' + $refs.drop.innerText }"
-                          x-bind:class="active ? 'mz_active' : ''"
-                          {{ if and (eq $category_i 0) (eq $source_i 0) }}
-                            x-intersect="active = true; command = $refs.{{ $slug }}_create.innerText + '\n' + $refs.create.innerText"
-                          {{ end }}
-                          >
-                          {{ $source.name }}
-                          <pre class="hidden" x-ref="{{ $slug }}_create">{{ replace (chomp $source.create_example) "\n" "\nmz-> " }}</pre>
-                          <pre class="hidden" x-ref="{{ $slug }}_drop">{{ $source.drop_example }}</pre>
-                        </div>
-                      {{- end -}}
-                    </div>
-                  {{- end -}}
-                </div>
-                <div data-js="" class="mz_gradient_border_purple mt-1">
-                  <div class="mz_code mz_code_5_lines text-green-300 text-sm">
-                    <div class="relative overflow-hidden w-full h-full">
-                      <pre x-cl_type="command" class="absolute -bottom-0"></pre>
-                      <pre class="hidden" x-ref="create">CREATE SOURCE
-mz=> </pre>
-                      <pre class="hidden" x-ref="drop">DROP SOURCE
-mz=> </pre>
-                    </div>
-                  </div>
+                <!-- a transparent glow that takes on the color of the object it's applied to -->
+                <filter id="glow_small">
+                  <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                  <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+                <filter id="glow_big">
+                  <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                  <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              <text class="hidden" x-ref="create">CREATE SOURCE</text>
+              <text class="hidden" x-ref="drop">DROP SOURCE</text>
+              <text class="text-sm" fill="#AAA" x="-150" y="10">Primary</text>
+              <text class="text-sm" fill="#AAA"  x="64" y="10">Secondary</text>
+              <path stroke="url(#purple)" d="M -20 310 L 120 310" stroke-width="4"/>
+              <g transform="translate(0,20)" class="transition-opacity duration-1000" :class="active_step == 1 ? 'opacity-100' : 'opacity-25'">
+                {{- $primary_h := div 198 (len .primary) -}}
+                {{- range $i, $source := .primary -}}
+                  {{ $v := add (div $primary_h 2) (mul $i $primary_h) }}
+                  <g class="mz_source" x-data="{enabled: 0, active: 0}" :class="enabled ? 'mz_enabled' : '', active ? 'mz_active' : ''">
+                    <rect fill="url(#gradient)" rx="4" x="-150" y="{{ mul $i $primary_h }}" height="{{ (sub $primary_h 8) }}" width="150"
+                          @click="enabled = ! enabled, command = '\n'"
+                          @mouseenter="command = !enabled ? $refs.p_{{ $i }}_c.textContent : $refs.p_{{ $i }}_d.textContent"
+                          @mouseleave="command = '^c'"
+                    />
+                    <text class="hidden" x-ref="p_{{ $i }}_c">{{- chomp $source.create_example -}}</text>
+                    <text class="hidden" x-ref="p_{{ $i }}_d">{{- chomp $source.drop_example -}}</text>
+                    <text style="fill:black; pointer-events:none;" x="-75" y="{{ $v }}" dominant-baseline="middle" text-anchor="middle">{{$source.name}}</text>
+                    <path class="path" stroke="url(#gradient_transparent)"  d="M 0 {{ $v }} L {{ sub 14 (mul $i 8) }} {{ $v }} C {{ sub 19 (mul $i 8) }} {{ $v }} {{ sub 20 (mul $i 8) }} {{ add $v 1 }} {{ sub 20 (mul $i 8) }} {{ (add $v 8) }} L {{ sub 20 (mul $i 8) }} {{ add (mul $i 4) 206 }} C {{ sub 20 (mul $i 8) }} {{ add (mul $i 4) 216 }} {{ sub 24 (mul $i 8) }} {{ add (mul $i 4) 218 }} {{ sub 26 (mul $i 8) }} {{ add (mul $i 4) 220 }} L {{ sub 60 (mul $i 8) }} {{ add (mul $i 4) 254 }}" />
+                    <path class="flow" stroke="url(#gradient)" filter="url(#glow_small)" d="M 0 {{ $v }} L {{ sub 14 (mul $i 8) }} {{ $v }} C {{ sub 19 (mul $i 8) }} {{ $v }} {{ sub 20 (mul $i 8) }} {{ add $v 1 }} {{ sub 20 (mul $i 8) }} {{ (add $v 8) }} L {{ sub 20 (mul $i 8) }} {{ add (mul $i 4) 206 }} C {{ sub 20 (mul $i 8) }} {{ add (mul $i 4) 216 }} {{ sub 24 (mul $i 8) }} {{ add (mul $i 4) 218 }} {{ sub 26 (mul $i 8) }} {{ add (mul $i 4) 220 }} L {{ sub 60 (mul $i 8) }} {{ add (mul $i 4) 254 }}" stroke-linecap="round"/>
+                  </g>
+                {{- end -}}
+                {{- $secondary_h := div 198 (len .secondary) -}}
+                {{- range $j, $source := .secondary -}}
+                  {{ $v := add (div $secondary_h 2) (mul $j $secondary_h) }}
+                  <g class="mz_source" x-data="{enabled: 0, active: 0}" :class="enabled ? 'mz_enabled' : '', active ? 'mz_active' : ''">
+                    <rect fill="url(#gradient)" rx="4" x="64" y="{{ mul $j $secondary_h }}" height="{{ (sub $secondary_h 8) }}" width="110"
+                          @click="enabled = ! enabled, command = '\n'"
+                          @mouseenter="command = !enabled ? $refs.s_{{ $j }}_c.textContent : $refs.s_{{ $j }}_d.textContent"
+                          @mouseleave="command = '^c'"
+                          />
+                    <text class="hidden" x-ref="s_{{ $j }}_c">{{- chomp $source.create_example -}}</text>
+                    <text class="hidden" x-ref="s_{{ $j }}_d">{{- chomp $source.drop_example -}}</text>
+                    <text style="fill:black; pointer-events:none;" x="119" y="{{ add (div $secondary_h 2) (mul $j $secondary_h) }}" dominant-baseline="middle" text-anchor="middle">{{$source.name}}</text>
+                    <path class="path" stroke="url(#gradient_transparent)"  d="M 64 {{ $v }} L {{ add 34 (mul $j 8) }} {{ $v }} C {{ add 29 (mul $j 8) }} {{ $v }} {{ add 28 (mul $j 8) }} {{ add $v 1 }} {{ add 28 (mul $j 8) }} {{ add $v 8 }} L {{ add 28 (mul $j 8) }} {{ sub 198 (mul $j 4) }} C {{ add 28 (mul $j 8) }} {{ sub 210 (mul $j 4) }} {{ add 32 (mul $j 8) }} {{ sub 212 (mul $j 4) }} {{ add 34 (mul $j 8) }} {{ sub 214 (mul $j 4) }} L {{ add 68 (mul $j 8) }} {{ sub 248 (mul $j 4) }}" stroke-linecap="round"/>
+                    <path class="flow" stroke="url(#gradient)" filter="url(#glow)" d="M 64 {{ $v }} L {{ add 34 (mul $j 8) }} {{ $v }} C {{ add 29 (mul $j 8) }} {{ $v }} {{ add 28 (mul $j 8) }} {{ add $v 1 }} {{ add 28 (mul $j 8) }} {{ add $v 8 }} L {{ add 28 (mul $j 8) }} {{ sub 198 (mul $j 4) }} C {{ add 28 (mul $j 8) }} {{ sub 210 (mul $j 4) }} {{ add 32 (mul $j 8) }} {{ sub 212 (mul $j 4) }} {{ add 34 (mul $j 8) }} {{ sub 214 (mul $j 4) }} L {{ add 68 (mul $j 8) }} {{ sub 248 (mul $j 4) }}" stroke-linecap="round"/>
+                  </g>
+                {{- end -}}
+              </g>
+            </svg>
+          {{- end -}}
+          
+          <div class="w-full flex items-center">
+            <!-- Terminal Window -->
+            <div class="mz_gradient_border_purple mt-2 max-w-md flex-grow transform -translate-x-12">
+              <div class="mz_code mz_code_5_lines text-green-300 text-sm">
+                <div class="relative overflow-hidden w-full h-full">
+                  <pre x-cl_type="command" class="absolute -bottom-0"></pre>
                 </div>
               </div>
-            {{- end -}}
+            </div>
+            <!-- Materialize Circle-->
+            <div class="rounded-full bg-tertiary p-1 mz_shadow_h_dark z-10">
+              <div class="bg-ui-gray border-black border rounded-full w-32 h-32 flex justify-center items-center">
+                <svg width="72" height="58" viewBox="0 0 36 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.52478 28.5217C5.78102 28.5217 3.03726 28.5217 0.293498 28.5217C0.0489163 28.5217 0 28.4728 0 28.2327C0 25.5023 0 22.7674 0 20.0281C0.182324 20.0281 0.257922 20.2015 0.369096 20.3082C2.99872 22.9201 5.62389 25.5393 8.24462 28.166C8.35135 28.2594 8.51589 28.335 8.52478 28.5217Z" fill="white"></path>
+                  <path d="M25.0894 20.4296C25.7698 21.1766 26.4857 21.8837 27.2284 22.5641C27.3218 22.6708 27.4107 22.7864 27.513 22.8887C28.7804 24.1561 30.0566 25.4101 31.3196 26.682C31.9199 27.2912 32.5691 27.8559 33.0983 28.523H23.8932C23.7998 28.4118 23.7108 28.2962 23.6086 28.1939C22.0996 26.6938 20.5891 25.1893 19.0771 23.6803C13.9276 18.5455 8.77655 13.4108 3.62403 8.27608C2.42335 7.07985 1.25826 5.8525 0.00866699 4.71853V0.685153C1.61401 0.685153 3.2238 0.685153 4.83359 0.685153C4.9615 0.680522 5.0889 0.703552 5.20709 0.75267C5.32528 0.801787 5.43147 0.875836 5.51842 0.969757C9.76673 5.20324 14.018 9.43673 18.2722 13.6702C18.3555 13.7519 18.4431 13.8291 18.5346 13.9015C19.7842 15.1599 21.0293 16.4273 22.2878 17.6814C23.2128 18.6063 24.1555 19.5135 25.0894 20.4296Z" fill="white"></path>
+                  <path d="M33.1117 28.5223C32.5691 27.8552 31.9199 27.2904 31.3329 26.6812C30.07 25.4094 28.7937 24.1554 27.5263 22.888C27.424 22.7857 27.3351 22.6701 27.2417 22.5634C27.2417 22.3721 27.2417 22.1854 27.2417 21.9941C27.2417 15.5075 27.2417 9.01798 27.2417 2.52544C27.236 2.18135 27.3634 1.84836 27.5975 1.59603C27.8461 1.25748 28.1812 0.99211 28.5678 0.82779C28.9543 0.66347 29.378 0.606263 29.7942 0.662177C30.9727 0.751116 32.1645 0.697753 33.3518 0.662177C33.7164 0.662177 33.7965 0.76001 33.7965 1.10687C33.7965 7.61719 33.7965 14.1171 33.7965 20.6067C33.7965 23.0703 33.7965 25.5354 33.7965 28.002C33.7965 28.1754 33.7965 28.3488 33.8232 28.5223H33.1117Z" fill="white" fill-opacity="0.7"></path>
+                  <path d="M0 16.9643V7.77246C0.137855 7.80359 0.209006 7.92366 0.297945 8.01704L3.13954 10.8231C8.37507 16.0438 13.6106 21.2645 18.8461 26.4852C19.5132 27.1522 20.2202 27.7881 20.8206 28.5219H11.5976C11.5976 28.3885 11.4687 28.3307 11.3886 28.2506C8.16606 25.031 4.93758 21.8144 1.70318 18.6008C1.16656 18.0238 0.597942 17.4774 0 16.9643H0Z" fill="white"></path>
+                  <path d="M25.089 20.4288C24.1551 19.5127 23.2124 18.6055 22.2874 17.6806C21.0289 16.4265 19.7838 15.1592 18.5342 13.9007C18.5342 12.9224 18.5342 11.9485 18.5342 10.9701C18.5244 10.8702 18.5369 10.7693 18.5707 10.6747C18.6045 10.5802 18.6589 10.4942 18.7298 10.4232L24.8533 4.33087C24.9022 4.28195 24.9645 4.24193 25.0089 4.2019C25.1468 4.25082 25.1068 4.3531 25.1068 4.4287C25.1068 9.69091 25.1068 14.9516 25.1068 20.2109C25.1054 20.2838 25.0995 20.3566 25.089 20.4288V20.4288Z" fill="white" fill-opacity="0.7"></path>
+                </svg>
+              </div>
+            </div>
           </div>
+
+          <!-- Step Two: Views -->
+          <div :class="active_step == 2 ? 'opacity-100' : 'opacity-0'">
+            <pre class="hidden" x-ref="view_example">CREATE MATERIALIZED VIEW my_view AS
+  SELECT * FROM db.customers c 
+  JOIN kafka.api_calls a ON a.user_id = c.id
+  JOIN s3.logs l ON l.user_id = c.id;
+</pre>
+<svg class="mz_dataflow -mt-10 mr-4" width="435" height="130" viewBox="0 0 435 130" fill="none" xmlns="http://www.w3.org/2000/svg"
+     :class="active_step == 2 ? 'mz_enabled' : ''">
+  <defs>
+    <linearGradient id="gradient" x1="2342.54" y1="158.318" x2="2142.16" y2="-625.209" gradientUnits="userSpaceOnUse">
+      <stop offset="0.0260417" stop-color="#4512C7"/>
+      <stop offset="0.53125" stop-color="#59C3FF"/>
+      <stop offset="1" stop-color="#75FF86"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g class="edges">
+    <path d="M421 5L401 15L381 25L351 40L371 50V60L351 70V80L341 85L321 95V105L301 115H281L296 122.5L281 130V135"/>
+    <path d="M421 5L401 15L381 25L351 40H331L321 45V55L311.5 60V70L281 85L271 80L241 95H221L181 115V135"/>
+    <path d="M421 5L401 15L381 25L351 40L371 50V60L351 70H331H331.5H311.5L281 85L301 95L281 105V115H241L251 120L241 125V135"/>
+    <path d="M421 5L393 19V41L411 50H371V60L351 70V80L321 95H301L281 105V115L296 122.5L281 130V135"/>
+    <path d="M393 19V41L411 50V75L401 80H381L371 85L351 95L341 100V115L331 120L321 125L311 130L296 122.5L281 130V135"/>
+    <path d="M421 5L393 19V41L411 50V75L401 80V100L341 130V135"/>
+    <path d="M371 10L331 30V40L321 45H301L271 60V80L241 95V115L231 110L201 125V135"/>
+    <path d="M331 10L311 20H271L261 25H231L206 37.5L181 50H151L131 60L101 75L121 85L101 95V110L131 125V135"/>
+    <path d="M371 10L331 30H291V40L261 55H231L221 60V70L201 80V90L176 102.5L151 115V135"/>
+    <path d="M371 10L331 30H291H271L261 25H231L206 37.5L181 50H151L131 60L101 75L81 65L51 80V97.5V115H31L21 120V135"/>
+    <path d="M191 28L171 38H131V45V60L101 75L71 90V135"/>
+    <path d="M161 28L141 38H131V45H101L71 60H51L21 75V100V110V135"/>
+    <path d="M131 28L111 38H131V45V60L101 75L81 65L51 80V97.5V115V125L41 130V135"/>
+    <path d="M101 28L81 38H111H131V45H101L71 60H21L1 70V90L21 100V110V135"/>
+    <path d="M371 10L331 30H291V40L261 55H231L221 60H201L181 50V65L141 85H121L101 95V110L121 120L111 125V135"/>
+    <path d="M371 10L331 30H291V40L261 55H231L221 60V70L201 80H181L151 95V115V135"/>
+  </g>
+  <g class="data">
+    <path d="M421 5L401 15L381 25L351 40L371 50V60L351 70V80L341 85L321 95V105L301 115H281L296 122.5L281 130V135"/>
+    <path d="M421 5L401 15L381 25L351 40H331L321 45V55L311.5 60V70L281 85L271 80L241 95H221L181 115V135"/>
+    <path d="M421 5L401 15L381 25L351 40L371 50V60L351 70H331H331.5H311.5L281 85L301 95L281 105V115H241L251 120L241 125V135"/>
+    <path d="M421 5L393 19V41L411 50H371V60L351 70V80L321 95H301L281 105V115L296 122.5L281 130V135"/>
+    <path d="M393 19V41L411 50V75L401 80H381L371 85L351 95L341 100V115L331 120L321 125L311 130L296 122.5L281 130V135"/>
+    <path d="M421 5L393 19V41L411 50V75L401 80V100L341 130V135"/>
+    <path d="M371 10L331 30V40L321 45H301L271 60V80L241 95V115L231 110L201 125V135"/>
+    <path d="M331 10L311 20H271L261 25H231L206 37.5L181 50H151L131 60L101 75L121 85L101 95V110L131 125V135"/>
+    <path d="M371 10L331 30H291V40L261 55H231L221 60V70L201 80V90L176 102.5L151 115V135"/>
+    <path d="M371 10L331 30H291H271L261 25H231L206 37.5L181 50H151L131 60L101 75L81 65L51 80V97.5V115H31L21 120V135"/>
+    <path d="M191 28L171 38H131V45V60L101 75L71 90V135"/>
+    <path d="M161 28L141 38H131V45H101L71 60H51L21 75V100V110V135"/>
+    <path d="M131 28L111 38H131V45V60L101 75L81 65L51 80V97.5V115V125L41 130V135"/>
+    <path d="M101 28L81 38H111H131V45H101L71 60H21L1 70V90L21 100V110V135"/>
+    <path d="M371 10L331 30H291V40L261 55H231L221 60H201L181 50V65L141 85H121L101 95V110L121 120L111 125V135"/>
+    <path d="M371 10L331 30H291V40L261 55H231L221 60V70L201 80H181L151 95V115V135"/>
+  </g>
+  <g class="nodes">
+    <circle cx="421" cy="5" r="5"/>
+    <circle cx="301" cy="95" r="5"/>
+    <circle cx="281" cy="115" r="5"/>
+    <circle cx="296" cy="122.5" r="5"/>
+    <circle cx="281" cy="105" r="5"/>
+    <circle cx="201" cy="80" r="5"/>
+    <circle cx="181" cy="50" r="5"/>
+    <circle cx="151" cy="115" r="5"/>
+    <circle cx="121" cy="120" r="5"/>
+    <circle cx="51" cy="60" r="5"/>
+    <circle cx="21" cy="100" r="5"/>
+    <circle cx="51" cy="115" r="5"/>
+    <circle cx="121" cy="85" r="5"/>
+    <circle cx="101" cy="75" r="5"/>
+    <circle cx="131" cy="60" r="5"/>
+    <circle cx="131" cy="45" r="5"/>
+    <circle cx="131" cy="28" r="5"/>
+    <circle cx="101" cy="28" r="5"/>
+    <circle cx="161" cy="28" r="5"/>
+    <circle cx="191" cy="28" r="5"/>
+    <circle cx="393" cy="19" r="5"/>
+    <circle cx="241" cy="115" r="5"/>
+    <circle cx="321" cy="95" r="5"/>
+    <circle cx="311.5" cy="70" r="5"/>
+    <circle cx="281" cy="85" r="5"/>
+    <circle cx="271" cy="80" r="5"/>
+    <circle cx="221" cy="60" r="5"/>
+    <circle cx="261" cy="25" r="5"/>
+    <circle cx="321" cy="45" r="5"/>
+    <circle cx="241" cy="95" r="5"/>
+    <circle cx="401" cy="80" r="5"/>
+    <circle cx="351" cy="70" r="5"/>
+    <circle cx="311" cy="20" r="5"/>
+    <circle cx="291" cy="30" r="5"/>
+    <circle cx="331" cy="40" r="5"/>
+    <circle cx="371" cy="50" r="5"/>
+    <circle cx="411" cy="50" r="5"/>
+    <circle cx="331" cy="30" r="5"/>
+    <circle cx="331" cy="10" r="5"/>
+    <circle cx="371" cy="10" r="5"/>
+    <circle cx="351" cy="40" r="5"/>
+  </g>
+</svg>
+  
+
+</div>
+          
+          <!-- Step Three: Output -->
+          <div class=""></div>
         </div>
+      </div><!-- End MZ Steps Widget-->
+
+      <!-- Right column: Text -->
+      {{- with .steps -}}
         <div>
           {{- $steps_ct := len . -}}
           {{- range $i, $e := . -}}
@@ -84,8 +250,8 @@ mz=> </pre>
             </div>
           {{- end -}}
         </div>
-      </div>
-    {{- end -}}
+      {{- end -}}<!-- End steps -->
+    </div>
     {{- with .cta -}}
       <a class="mz_btn mz_btn_secondary text-white my-4 inline-block mb-12" href="{{ .url }}">{{ .text }}</a>
     {{- end -}}

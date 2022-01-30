@@ -7,8 +7,9 @@ sections:
       title: We're Hiring
       description: Visit our careers page.
       url: https://materialize.com/careers/
-    title: The Streaming Database | for Real-time Analytics
-    subtitle: Build powerful real-time data products, all in SQL, with
+      
+    title:  Power of PostgreSQL, | Speed of Redis.
+    subtitle: Build data-intensive products without pipelines or caches using
               materialized views that are always up-to-date.
     primary_cta:
       text: Get started for free
@@ -23,35 +24,32 @@ sections:
       title: "Materialize: An Overview"
       subtitle: Get a technical overview of Materialize and learn about business
         applications of the technology.
-      cta_text: Download the Report
+      cta_text: Read the Report
       cta_url: /reports/materialize-overview
       image: img/report.png
+  
   - type: steps
-    title: "Streaming Analytics in three steps:"
+    title: "How Materialize works:"
     steps:
-      - title: Connect Your Data Sources
-        body: Materialize can connect to many different external sources of data without
-          pre-processing. Connect directly to streaming sources like Kafka,
-          Postgres databases, CDC, or historical sources of data like files or S3.
+      - title: Getting Data In
+        body: Materialize uses structured data (events) as inputs. Events can come from message brokers like **Kafka**, change feeds of databases like **PostgreSQL**, or archived events from **S3**.
         reference_links:
           - text: Docs / Create Source
             url: https://materialize.com/docs/sql/create-source/
           - text: Docs / Materialize CDC
             url: https://materialize.com/docs/connect/materialize-cdc/#main
         widget: sources
-      - title: Define Materialized Views in SQL
-        body: Join, aggregate, transform and filter your data sources in
-          standard SQL - Materialize maintains the results as incrementally-updated
-          Materialized views. Views are continually kept up-to-date as
-          new data streams in.
+      - title: Defining the Schema
+        body: Materialize is an engine that takes SQL Queries _(in the form of Materialized Views),_ converts them into dataflows, and processes each write through the dataflow to incrementally maintain the results in-memory.
         reference_links:
           - text: Docs / What is Materialize?
             url: https://materialize.com/docs/overview/what-is-materialize/
         widget: views
-      - title: Build Live Dashboards and Experiences
-        body: With incrementally-updated views, developers can easily build data
-          visualizations or real-time applications. Building with streaming data
-          can be as simple as writing a few lines of SQL.
+      - title: Reading Data Out
+        body: |
+          Materialized views can be queried like **PostgreSQL**, but response-time is like **Redis.**
+
+          A **stream** of updates can also be **pushed** out to applications or as change events to Kafka.
         reference_links:
           - text: Docs / Business Intelligence Demo
             url: https://materialize.com/docs/demos/business-intelligence/
@@ -61,6 +59,51 @@ sections:
     cta:
       text: Read the Quickstart
       url: https://materialize.com/docs/get-started/
+  - type: logo-cloud
+    title: Customer testimonials that | tell the reader we're legit
+    subtitle: This isn't just a bunch of smoke and mirrors, look at these real businesses that have not only paid us, but are willing to talk about it.
+    logos:
+      - name: Drizly
+        graphic: 
+        url:
+      - name: Datalot
+        graphic:
+        url:
+      - name: Kepler
+        graphic:
+        url:
+  - type: alternating-side-by-side-with-images
+    title: The missing half of your Database
+    subtitle: 
+    sections:
+      - eyebrow: 
+        title: 
+        body:
+        graphic:
+        callouts:
+          - title:
+            body:
+            icon:
+          - title:
+            body:
+            icon:
+          - title:
+            body:
+            icon:
+      - eyebrow: 
+        title: 
+        body:
+        graphic:
+        callouts:
+          - title:
+            body:
+            icon:
+          - title:
+            body:
+            icon:
+          - title:
+            body:
+            icon:
   - type: tabs
     title: ""
     subtitle: ""

@@ -14,3 +14,7 @@ pygmentsCodefences=true
 [permalinks]
   page = '/:slug/'
   post = '/blog/:slug/'
+
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', 'CONTEXT']

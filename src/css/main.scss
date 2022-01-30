@@ -203,10 +203,10 @@
   }
 
   .mz_shadow_m_light {
-    box-shadow: var(--shadow-elevation-medium-light);
+    box-shadow: var(--shadow-elevation-medium);
   }
   .mz_shadow_h_light {
-    box-shadow: var(--shadow-elevation-high-light);
+    box-shadow: var(--shadow-elevation-high);
   }
 
   .mz_circle {
@@ -361,6 +361,14 @@
       -webkit-text-fill-color: transparent;
       -webkit-box-decoration-break: clone;
     }
+
+    &.chromeless {
+      @apply pt-3;
+
+      &:before {
+        content: "";
+      }
+    }
   }
 
   .mz_code_5_lines {
@@ -370,83 +378,88 @@
 
   .mz_steps_widget {
     position: sticky;
-    height: 470px;
-    top: calc(50% - 235px);
+    height: 50vh;
+    max-height: 500px;
+    top: calc(50% - 250px);
   }
 
   .mz_source {
-    @apply relative;
     @apply mz_bg-gradient-tertiary;
     @apply text-gray-900;
-    @apply text-center;
-    @apply rounded;
     @apply transition-all;
-    @apply z-10;
-    filter: grayscale(75%);
+    @apply cursor-pointer;
 
-    &:hover {
-      filter: grayscale(25%);
+    rect:hover {
+      filter: url(#glow_small);
     }
 
-    &.mz_active {
+    e
+
+    .path {
+      stroke-width: 1;
+    }
+
+    .flow {
+      stroke-dasharray: 280 280;
+      stroke-dashoffset: 280;
+      stroke-width: 1;
+      transition: all 1s ease-in-out;
+    }
+
+    &.mz_enabled {
       box-shadow: 0 0 10px #75FF8644;
       filter: grayscale(0%);
-    }
 
-    &::after {
-      content: "";
-      @apply z-0;
-      @apply absolute;
-      @apply pointer-events-none;
-      @apply top-1/2;
-      @apply h-48;
-      @apply w-8;
-      border-color: #75FF86;
-      border-style: solid;
-      border-top-width: 2px;
-    }
-
-    &.mz_bg-left {
-      &::after {
-        right: -30px;
-        border-radius: 0 6px 0 0;
-        border-right-width: 2px;
-      }
-      &:nth-of-type(2)::after {
-        margin-right: 6px;
-        width: 24px;
-      }
-      &:nth-of-type(3)::after {
-        margin-right: 12px;
-        width: 18px;
-      }
-      &:nth-of-type(4)::after {
-        margin-right: 18px;
-        width: 12px;
+      .flow {
+        stroke-width: 3;
+        stroke-dashoffset: 560;
       }
     }
+  }
 
-    &.mz_bg-right {
-      &::after {
-        border-color: #59C3FF;
-        left: -30px;
-        border-radius: 6px 0 0 0;
-        border-left-width: 2px;
-      }
-      &:nth-of-type(2)::after {
-        margin-left: 6px;
-        width: 24px;
-      }
-      &:nth-of-type(3)::after {
-        margin-left: 12px;
-        width: 18px;
-      }
-      &:nth-of-type(4)::after {
-        margin-left: 18px;
-        width: 12px;
-      }
+  .mz_dataflow {
+    .edges {
+      stroke-dasharray: 500 500;
+      stroke-dashoffset: 500;
+      stroke-width: 1;
+      transition: all 2s ease-in-out;
+      stroke: url(#gradient);
     }
+    .data {
+      stroke-dasharray: 4 12;
+      stroke-dashoffset: 0;
+      stroke-width: 4;
+      stroke: url(#gradient);
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 1s ease-out 2s;
+    }
+    .nodes {
+      fill: url(#gradient);
+      opacity: 0;
+      transition: opacity 500ms ease-out 1s;
+    }
+  }
 
+  @keyframes data_dash {
+    to {
+      stroke-dashoffset: -16;
+    }
+  }
+
+  .mz_enabled {
+    .edges {
+      stroke-dashoffset: 0;
+      stroke-width: 2;
+    }
+    .data {
+      opacity: 1;
+      visibility: visible;
+      animation: data_dash 400ms linear 2s infinite;
+    }
+    .nodes {
+      opacity: 1;
+    }
   }
 
   .mz_bg-left {
@@ -720,12 +733,88 @@
     -webkit-animation-duration: 0.9s;
     animation-duration: 0.9s;
   }
+}
 
-  .mz_markdown {
-    ul {
-      list-style: inside;
+
+
+:root {
+  --lavender: #AD37E5;
+  --orchid: #E537C0;
+  --orange: #EE8660;
+  --indigo: #221EFF;
+  --blue: #1AEEFF;
+  --turquois: #39D7E1;
+  --green: #13D461;
+  --honeysuckle: #D1FA77;
+  
+  --purple2: rgba(127, 78, 255, 0.2);
+  --purple4: rgba(127, 78, 255, 0.4);
+  --purple6: rgba(127, 78, 255, 0.6);
+  --purple: #5A34CB;
+  
+  --gray: #b1b1b1;
+  --gray2: #c3c3c3;
+  --gray3: #e5e5e5;
+  --gray4: #f8f8f8;
+}
+
+.cell {
+  stroke: none;
+  fill: var(--gray3);
+}
+
+.db_outline {
+  stroke: var(--gray);
+  stroke-dasharray: 4;
+}
+
+.t_outline {
+  stroke: var(--gray);
+}
+
+.fill .w {
+  stroke-width: 6;
+  animation-name: data_dash;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  animation-iteration-count: once;
+    animation-fill-mode: forwards;
+}
+@keyframes data_dash {
+    to {
+      stroke-dashoffset: -5;
     }
   }
+
+.read .r {
+  stroke: #DD555599;
+  stroke-width: 10;
+  animation-name: read_animation;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  animation-iteration-count: once;
+  animation-fill-mode: forwards;
 }
+@keyframes read_animation {
+    0% {
+      stroke-dashoffset: -250;
+      stroke-dasharray: 1 699;
+    }
+    25% {
+      stroke-dashoffset: -350;
+      stroke-dasharray: 100 600;
+    }
+    50% {
+      stroke-dashoffset: -250;
+      stroke-dasharray: 200 500;
+    }
+    
+    100% {
+      stroke-dashoffset: 200;
+      stroke-dasharray: 100 600;
+    }
+  }
+
+
 
 @import 'imports/syntax';

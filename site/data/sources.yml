@@ -1,5 +1,4 @@
-- name: primary
-  sources:
+primary:
   - name: Kafka
     description: 
     create_example: >
@@ -14,8 +13,7 @@
         CONNECTION 'host=postgres port=5432 user=host sslmode=require dbname=postgres'
         PUBLICATION 'mz_src';
     drop_example: DROP SOURCE my_db_src;
-- name: secondary
-  sources:
+secondary:
   - name: AWS S3
     description:
     create_example: >

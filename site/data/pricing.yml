@@ -1,0 +1,54 @@
+billing:
+  hours_in_month: 720
+  hours_in_year: 8640
+  annual_discount: 0.1
+capabilities:
+  ingest_mb_per_second_per_worker: 80
+  avg_message_size_kb: 10
+specifications:
+  - name: vCPU
+    unit: 
+  - name: RAM
+    unit: GB
+  - name: SSD
+    unit: "GB"
+  - name: Workers
+    unit: 
+sizes:
+  - name: XS
+    priceHourly: 0.98
+    avaiable_in_free_trial: true
+    specs:
+      vCPU: 4
+      RAM: 32
+      SSD: 
+      Workers: 1
+  - name: S
+    priceHourly: 1.95
+    avaiable_in_free_trial: true
+    specs:
+      vCPU: 8
+      RAM: 64
+      SSD: 
+      Workers: 2
+  - name: M
+    priceHourly: 3.90
+    specs:
+      vCPU: 16
+      RAM: 128
+      SSD: 
+      Workers: 7
+  - name: L
+    priceHourly: 7.81
+    specs:
+      vCPU: 32
+      RAM: 256
+      SSD: 
+      Workers: 15
+  - name: XL
+    priceHourly: 15.61
+    specs:
+      vCPU: 64
+      RAM: 512
+      SSD: 
+      Workers: 31

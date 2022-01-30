@@ -1,0 +1,140 @@
+<div class="bg-white">
+  <div class="max-w-7xl mx-auto bg-white text-center py-16 sm:py-24 sm:px-6 lg:px-8">
+    {{- with .title -}}
+      <h2 class="text-4xl tracking-tight text-black pb-12">
+        {{-  . -}}
+      </h1>
+    {{- end -}}
+    {{- with site.Data.pricing -}}
+      {{- $pricing := . -}}
+      <!-- xs to lg -->
+      <div class="max-w-2xl mx-auto space-y-16 lg:hidden text-left">
+        {{- range .sizes -}}
+          <section>
+            <div class="px-4 mb-8">
+              <h2 class="text-4xl leading-6 font-extrabold text-ui-purple">{{ .name }}</h2>
+              <p class="mt-4">
+                <span class="text-lg font-medium text-gray-900">${{ .priceHourly }}</span>
+                <span class="text-base font-medium text-gray-500">/hr</span>
+              </p>
+              {{ if .avaiable_in_free_trial }}<p class="mt-4 text-sm text-gray-500">*Available in free trial.</p>{{ end }}
+              <a href="#" class="mz_btn mz_btn_tertiary shadow-none px-4 py-2 text-sm mt-6 block">Create {{ .name }} Instance</a>
+            </div>
+
+            <table class="w-full">
+              <caption class="bg-gray-50 border-t border-gray-200 py-3 px-4 text-sm font-medium text-gray-900 text-left">
+                Specs
+              </caption>
+              <thead>
+                <tr>
+                  <th class="sr-only" scope="col">Specs</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                {{- range $key, $value := .specs -}}
+                  <tr class="border-t border-gray-200">
+                    <th class="py-5 px-4 text-sm font-normal text-gray-500 text-left" scope="row">{{ $key }}</th>
+                    <td class="py-5 pr-4">
+                      <span class="block text-sm text-gray-700">{{ $value }}{{ index $pricing $key }}</span>
+                    </td>
+                  </tr>
+                {{- end -}}
+              </tbody>
+            </table>
+          </section>
+        {{- end -}}
+      </div>
+
+      <!-- lg+ -->
+      <div class="hidden lg:block text-left">
+        <table class="w-full h-px table-fixed">
+          <caption class="sr-only">
+            Instance Size Comparison
+          </caption>
+          <thead>
+            <tr>
+              <th class="pb-4 px-6 text-sm font-medium text-gray-900 text-left" scope="col">
+                <span class="sr-only">Specs by</span>
+                <span>Instance Sizes</span>
+              </th>
+              {{- range .sizes -}}
+                <!--TODO: The `w-1/6` class assumes there are 5 instance sizes -->
+                <th class="w-1/6 pb-4 px-6 text-4xl leading-6 font-extrabold text-ui-purple text-left" scope="col">{{ .name }}</th>
+              {{- end -}}
+            </tr>
+          </thead>
+          <tbody class="border-t border-gray-200 divide-y divide-gray-200">
+            <tr>
+              <th class="py-8 px-6 text-sm font-medium text-gray-900 text-left align-top" scope="row">Pricing</th>
+              {{- range .sizes -}}
+                <td class="h-full py-8 px-6 align-top">
+                  <div class="relative h-full table w-full">
+                    <p>
+                      <span class="text-lg font-medium text-gray-900">${{ .priceHourly }}</span>
+                      <span class="text-base font-medium text-gray-500">/hr</span>
+                    </p>
+                    {{ if .avaiable_in_free_trial }}<p class="mt-2 mb-14 text-sm text-gray-500 italic">*Available in free trial.</p>{{ end }}
+                    <a href="#" class="absolute bottom-0 mz_btn mz_btn_tertiary shadow-none px-4 py-2 text-sm">Create {{ .name }} Instance</a>
+                  </div>
+                </td>
+              {{ end }}
+            </tr>
+
+            <tr>
+              <th class="bg-gray-50 py-3 pl-6 text-sm font-medium text-gray-900 text-left" colspan="6" scope="colgroup">Hardware Specs</th>
+            </tr>
+
+            {{- range $spec := .specifications -}}
+              <tr>
+                <th class="py-5 px-6 text-sm font-normal text-gray-500 text-left" scope="row">{{- $spec.name -}}</th>
+
+                {{- range $size := $pricing.sizes -}}
+                  <td class="py-5 px-6">
+                    <span class="block text-sm text-gray-700">{{ index $size.specs $spec.name }}{{ $spec.unit }}</span>
+                  </td>
+                {{- end -}}
+              </tr>
+            {{- end -}}
+
+            <tr>
+              <th class="bg-gray-50 py-3 pl-6 text-sm font-medium text-gray-900 text-left" colspan="6" scope="colgroup">
+                <span>Capacity Estimates*</span>
+                <em class="float-right text-gray-500 mr-4">*Calculated based on {{ $pricing.capabilities.ingest_mb_per_second_per_worker }}MB/S/Worker and {{ $pricing.capabilities.avg_message_size_kb }}kb avg event sizes.</em>
+              </th>
+            </tr>
+
+            <tr>
+              <th class="py-5 px-6 text-sm font-normal text-gray-500 text-left" scope="row">Ingest Speed*</th>
+
+              {{- range $size := $pricing.sizes -}}
+                <td class="py-5 px-6">
+                  <span class="block text-sm text-gray-700">{{ mul $size.specs.Workers $pricing.capabilities.ingest_mb_per_second_per_worker }}MB/sec</span>
+                </td>
+              {{- end -}}
+            </tr>
+
+            <tr>
+              <th class="py-5 px-6 text-sm font-normal text-gray-500 text-left" scope="row">Updates/Sec*</th>
+
+              {{- range $size := $pricing.sizes -}}
+                <td class="py-5 px-6">
+                  <span class="block text-sm text-gray-700">{{ lang.FormatNumber 0 (mul (mul $size.specs.Workers $pricing.capabilities.ingest_mb_per_second_per_worker) (div 1000 $pricing.capabilities.avg_message_size_kb)) }}/sec </span>
+                </td>
+              {{- end -}}
+            </tr>
+
+            <tr>
+              <th class="py-5 px-6 text-sm font-normal text-gray-500 text-left" scope="row">Records Maintained*</th>
+
+              {{- range $size := $pricing.sizes -}}
+                <td class="py-5 px-6">
+                  <span class="block text-sm text-gray-700">{{ lang.FormatNumber 0 (div (mul $size.specs.RAM 1000000) $pricing.capabilities.avg_message_size_kb) }}</span>
+                </td>
+              {{- end -}}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{- end -}}
+  </div>
+</div>
